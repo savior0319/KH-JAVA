@@ -57,7 +57,7 @@ public class CastingSample {
 			sum += strInt[i];
 		}
 
-		System.out.println("1의 갯수는 : " + sum);
+		System.out.println(inputNum + "의 2진수에 포함된 1의 갯수는 : " + sum);
 
 	}
 }
