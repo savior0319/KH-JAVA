@@ -1,22 +1,31 @@
 package com.kh.test;
 
+import java.util.Scanner;
+
 public class TestMain2 {
 
 	public static void main(String[] args) {
 
-		String name = "ㅇㅇㅇ";
-		int age = 20;
+		Scanner sc = new Scanner(System.in);
 
-		System.out.printf("당신의 이름은 %s 입니다.\n나이는 %d살 입니다.", name, age);
+		double kor, math, eng, sum, avg;
+
+		System.out.print("[국어]점수입력 : ");
+		kor = sc.nextDouble();
+		System.out.print("[수학]점수입력 : ");
+		math = sc.nextDouble();
+		System.out.print("[영어]점수입력 : ");
+		eng = sc.nextDouble();
 		System.out.println();
-		System.out.printf("%o %x %d", 10, 10, 10);
+
+		sum = kor + math + eng;
+		avg = sum / 3;
+
+		System.out.println("----------------출력----------------");
+		System.out.printf("%3s\t%s\t%s\t%s\t%s", "국어", "수학", "영어", "합계", "평균");
 		System.out.println();
-		System.out.printf("%f %e %g", 3.14, 3.14, 3.14);
-		System.out.println();
-		System.out.printf("%c %s", 'a', "a");
-		System.out.println();
-		System.out.printf("%b %b", 1==2, 1==1);
-		//
+		System.out.printf("%3.0f\t%.0f\t%.0f\t%.0f\t%.1f", kor, math, eng, sum, avg);
+
 	}
 
 }
