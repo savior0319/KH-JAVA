@@ -45,8 +45,7 @@ public class CastingSample {
 		String str = Integer.toBinaryString(inputNum);
 		String[] strDiv = str.split("");
 
-		int i = 0;
-		int sum = 0;
+		int i, sum = 0;
 		int[] strInt = new int[strDiv.length];
 
 		for (i = 0; i < strDiv.length; i++) {
