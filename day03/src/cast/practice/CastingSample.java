@@ -30,7 +30,7 @@ public class CastingSample {
 		System.out.print("¼öÇÐ : ");
 		math = sc.nextDouble();
 		System.out.println();
-aa
+
 		sum = (int) (kor + eng + math);
 		avg = (int) sum / 3;
 
