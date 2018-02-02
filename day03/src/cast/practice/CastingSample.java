@@ -2,8 +2,6 @@ package cast.practice;
 
 import java.util.Scanner;
 
-import javax.swing.plaf.basic.BasicSliderUI.ScrollListener;
-
 public class CastingSample {
 
 	Scanner sc = new Scanner(System.in);
