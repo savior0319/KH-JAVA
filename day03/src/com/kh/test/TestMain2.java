@@ -12,6 +12,11 @@ public class TestMain2 {
 		System.out.printf("%o %x %d", 10, 10, 10);
 		System.out.println();
 		System.out.printf("%f %e %g", 3.14, 3.14, 3.14);
+		System.out.println();
+		System.out.printf("%c %s", 'a', "a");
+		System.out.println();
+		System.out.printf("%b %b", 1==2, 1==1);
+		//
 	}
 
 }
