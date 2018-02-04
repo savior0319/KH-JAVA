@@ -9,12 +9,12 @@ public class Cal {
 	private double fNum, sNum, result;
 
 	public Cal() {
-		System.out.println("°è»ê±â ÇÁ·Î±×·¥ ver 1.0");
-		System.out.print("¿¬»êÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä(+, -, *, /) : ");
+		System.out.println("ê³„ì‚°ê¸° í”„ë¡œê·¸ë¨ ver 1.0");
+		System.out.print("ì—°ì‚°ìë¥¼ ì…ë ¥í•˜ì„¸ìš”(+, -, *, /) : ");
 		op = sc.next().charAt(0);
-		System.out.print("Ã¹ ¹øÂ° ¼ö ÀÔ·Â : ");
+		System.out.print("ì²« ë²ˆì§¸ ìˆ˜ ì…ë ¥ : ");
 		fNum = sc.nextInt();
-		System.out.print("µÎ ¹øÂ° ¼ö ÀÔ·Â : ");
+		System.out.print("ë‘ ë²ˆì§¸ ìˆ˜ ì…ë ¥ : ");
 		sNum = sc.nextInt();
 
 		switch (op) {

@@ -8,19 +8,19 @@ public class NumCompare {
 	private int stNum, ndNum;
 
 	public NumCompare() {
-		System.out.println("= = = µÎ ¼ö¸¦ ºñ±³ ÇÏ´Â ÇÁ·Î±×·¥ v1.0 = = =\n");
+		System.out.println("= = = ë‘ ìˆ˜ë¥¼ ë¹„êµ í•˜ëŠ” í”„ë¡œê·¸ë¨ v1.0 = = =\n");
 
-		System.out.print("Ã¹¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì²«ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		stNum = sc.nextInt();
-		System.out.print("µÎ¹øÂ° ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ë‘ë²ˆì§¸ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		ndNum = sc.nextInt();
 
 		if (stNum > ndNum) {
-			System.out.println(stNum + " > " + ndNum + "\nÃ¹ ¹øÂ° ¼ö°¡ ´õ Å®´Ï´Ù.");
+			System.out.println(stNum + " > " + ndNum + "\nì²« ë²ˆì§¸ ìˆ˜ê°€ ë” í½ë‹ˆë‹¤.");
 		} else if (stNum == ndNum) {
-			System.out.println(stNum + " = " + ndNum + "\nµÎ ¼ö°¡ °°Àº ¼ö ÀÔ´Ï´Ù.");
+			System.out.println(stNum + " = " + ndNum + "\në‘ ìˆ˜ê°€ ê°™ì€ ìˆ˜ ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println(stNum + " < " + ndNum + "\nµÎ ¹øÂ° ¼ö°¡ ´õ Å®´Ï´Ù.");
+			System.out.println(stNum + " < " + ndNum + "\në‘ ë²ˆì§¸ ìˆ˜ê°€ ë” í½ë‹ˆë‹¤.");
 		}
 
 	}

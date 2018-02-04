@@ -9,17 +9,17 @@ public class NumCheck {
 
 	public NumCheck() {
 
-		System.out.println("====== ¼ıÀÚ ±¸º° ÇÁ·Î±×·¥ v1.0 ======\n");
+		System.out.println("====== ìˆ«ì êµ¬ë³„ í”„ë¡œê·¸ë¨ v1.0 ======\n");
 
-		System.out.print("ÀÓÀÇÀÇ ¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+		System.out.print("ì„ì˜ì˜ ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš” : ");
 		inputNum = sc.nextInt();
 
 		if (inputNum > 0) {
-			System.out.println("´ç½ÅÀÌ ÀÔ·ÃÇÑ ¼ö " + inputNum + " Àº(´Â) ¾ç¼öÀÔ´Ï´Ù.");
+			System.out.println("ë‹¹ì‹ ì´ ì…ë ¨í•œ ìˆ˜ " + inputNum + " ì€(ëŠ”) ì–‘ìˆ˜ì…ë‹ˆë‹¤.");
 		} else if (inputNum == 0) {
-			System.out.println("´ç½ÅÀÌ ÀÔ·ÃÇÑ ¼ö " + inputNum + " Àº(´Â) 0ÀÔ´Ï´Ù.");
+			System.out.println("ë‹¹ì‹ ì´ ì…ë ¨í•œ ìˆ˜ " + inputNum + " ì€(ëŠ”) 0ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("´ç½ÅÀÌ ÀÔ·ÃÇÑ ¼ö " + inputNum + " Àº(´Â) À½¼öÀÔ´Ï´Ù.");
+			System.out.println("ë‹¹ì‹ ì´ ì…ë ¨í•œ ìˆ˜ " + inputNum + " ì€(ëŠ”) ìŒìˆ˜ì…ë‹ˆë‹¤.");
 		}
 	}
 
