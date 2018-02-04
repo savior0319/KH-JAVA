@@ -22,7 +22,6 @@ public class NumCompare {
 		} else {
 			System.out.println(stNum + " < " + ndNum + "\n두 번째 수가 더 큽니다.");
 		}
-
 	}
 
 	public static void main(String[] args) {
