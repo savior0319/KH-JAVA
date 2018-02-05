@@ -9,18 +9,12 @@ public class testMain8 {
 		System.out.print("문자 입력 : ");
 		char ch = sc.next().charAt(0);
 
-		// String string = "a";
-		// String convert = string.toUpperCase();
-		// System.out.println(convert);
-
-		int con = (char) ch ^ 32;
-
-
-		if (97 <= (int) ch && (int) ch <= 122) {
+		if ('a' <=  ch &&  ch <= 'z') {
 			System.out.print("소문자를 입력하였습니다.\n");
-		} else if (65 <= (int) ch && (int) ch <= 90) {
+			System.out.print("대문자로 변환 " + (char)(ch^32));
+		} else if ('A' <=  ch &&  ch <= 'Z') {
 			System.out.print("대문자를 입력하였습니다.\n");
-			System.out.print("소문자로 변환 " + (char) con);
+			System.out.print("소문자로 변환 " + (char)(ch^32));
 		} else {
 			System.out.print("잘못 입력하였습니다.\n");
 		}
