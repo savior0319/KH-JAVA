@@ -1,49 +1,1 @@
-package com.kh.var.example;
-
-import java.util.Scanner;
-
-public class Example {
-
-	Scanner sc = new Scanner(System.in);
-
-	public void example1() {
-
-		System.out.print("Ã¹ ¹øÂ° Á¤¼ö : ");
-		int num1 = sc.nextInt();
-		System.out.print("µÎ ¹øÂ° Á¤¼ö : ");
-		int num2 = sc.nextInt();
-
-		System.out.println();
-		System.out.println("´õÇÏ±â °á°ú : " + (num1 + num2));
-		System.out.println("»©±â °á°ú : " + (num1 - num2));
-		System.out.println("°öÇÏ±â °á°ú : " + (num1 * num2));
-		System.out.println("³ª´©±â ¸ò : " + (num1 / num2));
-		System.out.println("³ª´©±âÇÑ ³ª¸ÓÁö : " + (num1 % num2));
-	}
-
-	public void example2() {
-		System.out.println();
-		System.out.print("°¡·Î : ");
-		double width = sc.nextInt();
-		System.out.print("¼¼·Î : ");
-		double height = sc.nextInt();
-
-		double area = width * height;
-		double round = (width * 2) + (height * 2);
-
-		System.out.println("¸éÀû : " + area);
-		System.out.println("µÑ·¹ : " + round);
-
-	}
-
-	public void example3() {
-		System.out.println();
-		sc.nextLine();
-		System.out.print("¹®ÀÚ¿­À» ÀÔ·ÂÇÏ½Ã¿À : ");
-		String str = sc.nextLine();
-
-		System.out.println("Ã¹ ¹øÂ° ¹®ÀÚ : " + str.charAt(0));
-		System.out.println("µÎ ¹øÂ° ¹®ÀÚ : " + str.charAt(1));
-		System.out.println("¼¼ ¹øÂ° ¹®ÀÚ : " + str.charAt(2));
-	}
-}
+package com.kh.var.example;import java.util.Scanner;public class Example {	Scanner sc = new Scanner(System.in);	public void example1() {		System.out.print("ì²« ë²ˆì§¸ ì •ìˆ˜ : ");		int num1 = sc.nextInt();		System.out.print("ë‘ ë²ˆì§¸ ì •ìˆ˜ : ");		int num2 = sc.nextInt();		System.out.println();		System.out.println("ë”í•˜ê¸° ê²°ê³¼ : " + (num1 + num2));		System.out.println("ë¹¼ê¸° ê²°ê³¼ : " + (num1 - num2));		System.out.println("ê³±í•˜ê¸° ê²°ê³¼ : " + (num1 * num2));		System.out.println("ë‚˜ëˆ„ê¸° ëª« : " + (num1 / num2));		System.out.println("ë‚˜ëˆ„ê¸°í•œ ë‚˜ë¨¸ì§€ : " + (num1 % num2));	}	public void example2() {		System.out.println();		System.out.print("ê°€ë¡œ : ");		double width = sc.nextInt();		System.out.print("ì„¸ë¡œ : ");		double height = sc.nextInt();		double area = width * height;		double round = (width * 2) + (height * 2);		System.out.println("ë©´ì  : " + area);		System.out.println("ë‘˜ë ˆ : " + round);	}	public void example3() {		System.out.println();		sc.nextLine();		System.out.print("ë¬¸ìì—´ì„ ì…ë ¥í•˜ì‹œì˜¤ : ");		String str = sc.nextLine();		System.out.println("ì²« ë²ˆì§¸ ë¬¸ì : " + str.charAt(0));		System.out.println("ë‘ ë²ˆì§¸ ë¬¸ì : " + str.charAt(1));		System.out.println("ì„¸ ë²ˆì§¸ ë¬¸ì : " + str.charAt(2));	}}

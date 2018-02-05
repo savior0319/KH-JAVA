@@ -42,21 +42,14 @@ public class CastingSample {
 	public void printBitCount() {
 		System.out.print("정수 입력 : ");
 		int inputNum = sc.nextInt();
-		String str = Integer.toBinaryString(inputNum);
-		String[] strDiv = str.split("");
-
-		int i, sum = 0;
-		int[] strInt = new int[strDiv.length];
-
-		for (i = 0; i < strDiv.length; i++) {
-			strInt[i] = Integer.parseInt(strDiv[i]);
-		}
-
-		for (i = 0; i < strDiv.length; i++) {
-			sum += strInt[i];
-		}
+		// String str = Integer.toBinaryString(inputNum);
+		int sum = 0;
+		/*
+		 * for (int i = 0; i < str.length(); i++) { sum +=
+		 * Character.getNumericValue(str.charAt(i)); }
+		 */
+		sum = Integer.bitCount(inputNum);
 
 		System.out.println(inputNum + "의 2진수에 포함된 1의 갯수는 : " + sum);
-
 	}
 }
