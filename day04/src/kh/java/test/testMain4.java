@@ -7,6 +7,7 @@ public class testMain4 {
 		Scanner sc = new Scanner(System.in);
 
 		int ans1, ans2;
+		int count = 0;
 		// while (true) {
 		System.out.print("첫번째 퀴즈입니다.\n");
 		System.out.print("사과는 영어로 무엇일까요? (1. Apple / 2. 잡스): ");
@@ -14,15 +15,16 @@ public class testMain4 {
 
 		if (ans1 == 1) {
 			System.out.println("정답!!");
+			count++;
 			System.out.print("두번째 퀴즈입니다.\n바나나는 길어 길으면 기차 기차는? (1. 빨라 / 2. 비싸): ");
 			ans2 = sc.nextInt();
 			if (ans2 == 1) {
 				System.out.println("정답!!");
-				System.out.println("총 2 문제를 맞추셨습니다.\n");
+				count++;
 			} else {
 				System.out.println("땡");
-				System.out.println("총 1 문제를 맞추셨습니다.\n");
 			}
+			System.out.println("총 " + count + "문제를 맞추셨습니다\n");
 
 		} else if (ans1 == 2) {
 			System.out.println("땡!!");
@@ -30,11 +32,11 @@ public class testMain4 {
 			ans2 = sc.nextInt();
 			if (ans2 == 1) {
 				System.out.println("정답!!");
-				System.out.println("총 1 문제를 맞추셨습니다.\n");
+				count++;
 			} else {
 				System.out.println("땡");
-				System.out.println("총 0 문제를 맞추셨습니다.\n");
 			}
+			System.out.println("총 " + count + "문제를 맞추셨습니다\n");
 
 		}
 		// }
