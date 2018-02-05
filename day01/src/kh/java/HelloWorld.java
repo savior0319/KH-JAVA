@@ -2,11 +2,14 @@ package kh.java;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
-public class HelloWorld extends JFrame{
+public class HelloWorld extends JFrame implements ActionListener{
 	
 	private Container container = getContentPane();
 	private JButton jButton = new JButton("¹öÆ°");
@@ -25,4 +28,8 @@ public class HelloWorld extends JFrame{
 		new HelloWorld().setVisible(true);;
 	
 	}
+
+	public void actionPerformed(ActionEvent e) {
+		
+	}	
 }
