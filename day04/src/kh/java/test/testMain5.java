@@ -9,7 +9,7 @@ public class testMain5 {
 		System.out.print("1부터 100까지의 수 중 선택: ");
 		int num1 = sc.nextInt();
 
-		if (num1 > 0 && num1 <= 100) {
+		if (0 < num1 && num1 < 101) {
 			if (num1 % 2 == 0) {
 				System.out.println("입력한 수는 짝수입니다.");
 			} else {
