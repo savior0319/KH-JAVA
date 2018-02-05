@@ -6,16 +6,16 @@ public class testMain6 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
-		int ans;
+		short ans;
 
 		System.out.print("\n= = = = = = 심리 테스트 = = = = = = =\n\n\n");
 //		while (true) {
 			System.out.print("당신은 술을 좋아하십니까? (1. yes, 2.no) ");
-			ans = sc.nextInt();
+			ans = sc.nextShort();
 
 			if (ans == 1) {
 				System.out.print("당신은 담배를 피웁니까? (1. yes, 2.no) ");
-				ans = sc.nextInt();
+				ans = sc.nextShort();
 				if (ans == 1) {
 					System.out.println("담배는 건강에 좋지 않습니다!!!\n");
 				} else {
@@ -23,7 +23,7 @@ public class testMain6 {
 				}
 			} else {
 				System.out.print("당신은 이성친구가 있습니까 (1. yes, 2.no) ");
-				ans = sc.nextInt();
+				ans = sc.nextShort();
 				if (ans == 1) {
 					System.out.println("음\n");
 				} else {
