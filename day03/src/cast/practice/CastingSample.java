@@ -48,6 +48,7 @@ public class CastingSample {
 		 * for (int i = 0; i < str.length(); i++) { sum +=
 		 * Character.getNumericValue(str.charAt(i)); }
 		 */
+
 		sum = Integer.bitCount(inputNum);
 
 		System.out.println(inputNum + "의 2진수에 포함된 1의 갯수는 : " + sum);
