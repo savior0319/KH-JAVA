@@ -6,33 +6,39 @@ public class Ex7 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("===심리테스트===\n");
-
-		System.out.println("당신의 앞에 흰도화지가 놓여있네요... \n흰도화지에 강아지 그림을 그려야하는 당신... \n당신은 어떤 강아지를 그릴건가요?\n");
-
-		System.out.print("\n<보기>\n");
-		System.out.print("1. 여러 마리의 강아지가 어울려 놀고 있는 그림\n" + "2. 강아지 한마리가 신나서 꼬리를 흔들고 있는 그림\n"
-				+ "3. 강아지 한마리가 편하게 엎드려 자고 있는 그림\n" + "4. 강아지가 뼈다귀를 물고 있는 그림\n");
-
+		System.out.println("당신을 먹을 것을 좋아합니까?");
+		System.out.print("===<보기>===\n");
+		System.out.println("1. 좋아요");
+		System.out.println("2. 싫어요");
 		System.out.print("선택 : ");
 		int choice = sc.nextInt();
 
 		if (choice == 1) {
-			System.out.print("당신은 잊지 못하는 한가지 일을 끈질기게 품는 스타일입니다\n"
-					+ "남이 아무 생각없이 한말인데도 그것이 계속 마음에 걸리는 경우가 많고 모처럼 지워졌다고 생각했는데도 다시 생각하면\n" + "또다시 울컥하는 경우도 많이 있습니다\n"
-					+ "또한 사소한 기억을 반복적으로 하는데 심한것은 아니지만 조금은 뒤끝이 있다고 할 수 있습니다\n");
+			System.out.print("\n많이 좋아합니까?\n");
+			System.out.print("===<보기>===\n");
+			System.out.println("1. 네");
+			System.out.println("2. 아니오");
+			System.out.print("선택 : ");
+			choice = sc.nextInt();
+			if (choice == 1) {
+				System.out.println("당신은 돼지입니다");
+			} else {
+				System.out.println("좀 더 힘내세요ㅎㅎ");
+			}
+
 		} else if (choice == 2) {
-			System.out.print("당신은 한번 끝나면 깨끗이 잊는 타입으로 기본적으로 화끈한 성격의 소유자 입니다\n"
-					+ "따라서 화가 날때에는 정말 앞뒤 안가리고 불같이 화를 내지만 하룻밤만 자고 나면 금세 까먹는 단기 집중형으로\n"
-					+ "미웠던 상대가 가볍게 사과라도 하면 귀엽게 투정부리는 것으로 끝나는 뒤끝없는 속편한 타입입니다\n");
-		} else if (choice == 3) {
-			System.out.print("당신은 한번 화가나면 평생 그사람을 싫어하는 타입 입니다\n"
-					+ "웬만해서는 화를 내지않고 대인관계도 무리가 없는 편이지만 한번 상대가 싫어지면 그 감정을 오랫동안 지속해 나갑니다\n"
-					+ "게다가 이유없는 미움이 아니라고 생각하기 때문에 일단 눈밖에 난 사람은 다시는 안보는 당신은\n" + "뒤끝의 최고치를 달리는 스타일 입니다\n");
-		} else if (choice == 4) {
-			System.out.print("당신은 뒤끝이 전혀없고 열받는 일도 거의 없는 초단순형입니다\n" + "아무리 화가나서 울컥했다하더라도 다른것을 생각하는 동안에 어느새 잊어버리고\n"
-					+ "상대와 싸울 때에도 싸우자고하는 투쟁심도 별로 없고 순간만 발끈할 뿐입니다\n" + "때문에 상대가 그런 태도에 맥이빠져 막판엔 웃어버릴지도 모르겠네요");
-		} else {
-			System.out.println("1부터 4까지 보기를 입력하세요");
+			System.out.println("\n많이 싫어합니까?\n");
+			System.out.print("===<보기>===\n");
+			System.out.println("1. 네");
+			System.out.println("2. 아니오");
+			System.out.print("선택 : ");
+			choice = sc.nextInt();
+			if (choice == 1) {
+				System.out.println("당신은 멸치입니다");
+			} else {
+				System.out.println("다행히 멸치는 아니네요ㅎㅎ");
+			}
 		}
+
 	}
 }

@@ -18,7 +18,7 @@ public class testMain9 {
 		} else if ((inNum % 3 != 0) && (inNum % 4 != 0)) {
 			System.out.println("[" + inNum + "]" + "은(는) 3의 배수도 4의 배수도 아닙니다.");
 		} else {
-			System.out.println("0 은(는) 3의 배수도 4의 배수도 아닙니다.");
+			System.out.println("[0]은 3의 배수도 4의 배수도 아닙니다.");
 		}
 
 	}
