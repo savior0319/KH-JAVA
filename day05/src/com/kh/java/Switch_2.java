@@ -17,25 +17,25 @@ public class Switch_2 {
 		System.out.println("--------------------");
 		
 		System.out.print("메뉴 번호 입력 : ");
-		int select = sc.nextInt();
+		int select = sc.nextInt(); // 메뉴 번호 select 변수에 입력
 		
 		switch (select) {
-		case 1:
+		case 1: // 1번 메뉴 일 때
 			System.out.println("입력메뉴선택");
 			break;
-		case 2:
+		case 2: // 2번 메뉴 일 때
 			System.out.println("수정메뉴선택");
 			break;
-		case 3:
+		case 3: // 3번 메뉴 일 때
 			System.out.println("조회메뉴선택");
 			break;
-		case 4:
+		case 4: // 4번 메뉴 일 때
 			System.out.println("삭제메뉴선택");
 			break;
-		case 0:
+		case 0: // 0번 메뉴 일 때
 			System.out.println("프로그램을 종료합니다");
 			break;
-		default:
+		default: // 메뉴에 없는 번호 눌렀을 때 
 			System.out.println("번호를 잘못 누르셨습니다");
 			break;
 		}

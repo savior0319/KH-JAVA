@@ -8,22 +8,22 @@ public class Switch_6 {
 		System.out.print("장학금 지불 시스템입니다\n");
 		System.out.print("학생 학점을 입력해주세요 : ");
 		
-		char grade = sc.next().charAt(0);
+		char grade = sc.next().charAt(0); // grade 변수에 학점 입력
 		
 		switch(grade) {
-		case 'A' :
+		case 'A' : // A일 때
 			System.out.println("수고하셨습니다. 장학금을 100% 지급해드리겠습니다");
 			break;
-		case 'B' :
+		case 'B' : // B일 때
 			System.out.println("약간 아쉽네요. 장학금 50% 지원입니다");
 			break;
-		case 'C' :
+		case 'C' : // C일 때
 			System.out.println("이번 학기 장학금은 없네요... 힘내세요");
 			break;
-		case 'D' :
+		case 'D' : // D일 때
 			System.out.println("학고는 면하셨네요... 노력하세요");
 			break;
-		case 'F' :
+		case 'F' : // F일 때
 			System.out.println("이번학기는 학고를 맞으셨습니다");
 		}
 	}
