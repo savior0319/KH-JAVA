@@ -1,3 +1,4 @@
+package com.kh.hw;
 //package kh.java.hw;
 //
 //import java.util.Scanner;
