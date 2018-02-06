@@ -14,7 +14,7 @@ public class Switch_1 {
 		System.out.println("*********************");
 		
 		System.out.print("\n과일이름 입력 : ");
-		String fName = sc.nextLine();
+		String fName = sc.nextLine(); 
 		System.out.println();
 		
 		switch (fName) {
