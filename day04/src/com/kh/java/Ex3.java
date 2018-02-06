@@ -18,7 +18,7 @@ public class Ex3 {
 		} else if (avgWeight - 1 > weight) {
 			System.out.println("표준체중은 " + String.format("%.1f", avgWeight) + "kg입니다.");
 			System.out.println("고로 당신은 저체중 입니다");
-		} else if (avgWeight - 1 <= weight && weight <= avgWeight + 1) {
+		} else {
 			System.out.println("표준체중은 " + String.format("%.1f", avgWeight) + "kg입니다.");
 			System.out.println("고로 당신은 표준체중 입니다");
 		}
