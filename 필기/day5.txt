@@ -1,0 +1,16 @@
+ @ Switch문
+  - 변수의 값을 case 에서 찾아 명령을 수행하는 조건문
+  - 해당하는 값이 없을 경우에에는 default의 명령문을 수행
+  
+  	* case와 명령문 사이에는 콜론 : 을 써야 함
+ 
+ ex) 
+ 	Switch(변수){
+ 	
+ 	case 1 : 실행문1;
+ 			break;
+ 	case 2 : 실행문2;
+ 			break;
+ 	default : 실행문3; // else 와 같음
+ 	
+ }
