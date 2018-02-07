@@ -29,5 +29,13 @@ public class TestMain4 {
 			}
 		}
 		System.out.print(num1 + "부터 " + num2 + "까지의 합  : " + sum);
+		
+		try {
+			while(true) {
+				Thread.sleep(1);
+			}
+		} catch (Exception e) {
+			System.out.println("Thread Error");
+		}
 	}
 }
