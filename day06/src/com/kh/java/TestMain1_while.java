@@ -2,7 +2,7 @@ package com.kh.java;
 
 import java.util.Scanner;
 
-public class TestMain1 {
+public class TestMain1_while {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
@@ -18,6 +18,5 @@ public class TestMain1 {
 		}
 		System.out.println();
 		System.out.print("5개 정수의 합 :" + sum);
-
 	}
 }

@@ -46,7 +46,9 @@ public class TestMain7 {
 		} while (add == 'y');
 		System.out.print("\n총 주문 금액은 : " + sumPay + "원 입니다");
 		try {
-			Thread.sleep(10000);
+			while (true) {
+				Thread.sleep(1);
+			}
 		} catch (Exception e) {
 			System.out.print("Thread Err");
 		}
