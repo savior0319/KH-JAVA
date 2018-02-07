@@ -27,8 +27,8 @@ public class TestMain5 {
 				count++;
 			}
 			num1++;
-		}
-
+		} 
+	
 		avg = ((double) sum / (count));
 		System.out.print("합 : " + sum + "\n평균 : " + String.format("%.1f", avg));
 	}
