@@ -4,19 +4,21 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class UpAndDownEasy {
-	public static void main(String[] args) {
 
+	static int count = 1;
+
+	public static void main(String[] args) {
 		int menu, ran, input;
-		int count = 1;
 		boolean start = true;
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
-
-		System.out.println(" === Up & Down (Easy) === ");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★");
+		System.out.println("★  === Up & Down (Easy) ===  ★");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★\n");
 		while (start) {
 			start = false;
 			System.out.println("1. 게임시작");
-			System.out.println("2. 게임종료");
+			System.out.println("2. 게임종료\n");
 			System.out.print("메뉴를 선택하세요 > ");
 			menu = sc.nextInt();
 			if (menu == 2) {
@@ -48,14 +50,8 @@ public class UpAndDownEasy {
 						} else if (ran == input) {
 							System.out.println("정답");
 							System.out.println(count + "번 만에 맞추셨습니다\n");
-							try {
-								System.out.println("---게임을 다시 시작 합니다---");
-								count = 1;
-								Thread.sleep(1000);
-								System.out.println();
-							} catch (Exception e) {
-								System.err.println("쓰레드 오류");
-							}
+							System.out.println("---게임을 다시 시작합니다---\n");
+							delay();
 							start = true;
 							break;
 						}
@@ -64,5 +60,15 @@ public class UpAndDownEasy {
 					System.out.println("\n1부터 100까지 입력하세요\n");
 			}
 		}
+	}
+
+	public static void delay() {
+		try {
+			count = 1;
+			Thread.sleep(1000);
+		} catch (Exception e) {
+			System.err.print("쓰레드 오류");
+		}
+
 	}
 }

@@ -16,14 +16,17 @@ public class UpAndDownHard {
 
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
-
-		System.out.println(" === Up & Down === ");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★");
+		System.out.println("★  === Up & Down (Hard) ===  ★");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★\n");
 		while (start) {
 			start = false;
 			System.out.println("1. 게임시작");
-			System.out.println("2. 게임종료");
+			System.out.println("2. 게임종료\n");
 			System.out.print("메뉴를 선택하세요 > ");
+
 			menu = sc.nextInt();
+
 			if (menu == 2) {
 				System.out.println("\n게임을 종료합니다");
 				return;
@@ -95,7 +98,7 @@ public class UpAndDownHard {
 						}
 					}
 				} else
-					System.out.print(rangeMin + "부터 " + rangeMax + "까지 입력하세요\n\n");
+					System.out.print("\n" + rangeMin + "부터 " + rangeMax + "까지 입력하세요\n\n");
 				inLoop = true;
 			}
 		}

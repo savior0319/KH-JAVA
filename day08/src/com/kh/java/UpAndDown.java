@@ -13,12 +13,13 @@ public class UpAndDown {
 
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
-
-		System.out.println(" === Up & Down === ");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★");
+		System.out.println("★         ====   Up & Down   ==== ★");
+		System.out.println("★★★★★★★★★★★★★★★★★★★★★★\n");
 		while (start) {
 			start = false;
 			System.out.println("1. 게임시작");
-			System.out.println("2. 게임종료");
+			System.out.println("2. 게임종료\n");
 			System.out.print("메뉴를 선택하세요 > ");
 			menu = sc.nextInt();
 			if (menu == 2) {
