@@ -62,6 +62,7 @@ public class UpAndDownEasy {
 		}
 	}
 
+
 	public static void delay() {
 		try {
 			count = 1;
