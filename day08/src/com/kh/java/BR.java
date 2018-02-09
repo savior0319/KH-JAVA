@@ -20,7 +20,7 @@ public class BR {
 		for (i = 0; i <= rule.length(); i++) {
 			try {
 				System.out.print(rule.charAt(i));
-				Thread.sleep(30);
+				Thread.sleep(0);
 			} catch (Exception e) {
 				while (true) {
 					if (total < 31) {
@@ -31,7 +31,7 @@ public class BR {
 							System.out.println("\n1부터 3까지 숫자만 입력");
 							continue;
 						}
-
+					
 						for (i = total; i <= total + input - 1; i++) {
 							System.out.println("User : " + i);
 
@@ -42,8 +42,9 @@ public class BR {
 						}
 						total += input;
 					}
-
-					int comRan = rd.nextInt(2) + 1;
+					delay();
+					
+					int comRan = rd.nextInt(3);
 
 					for (i = total; i <= total + comRan; i++) {
 						System.out.println("Com : " + i);
@@ -58,5 +59,19 @@ public class BR {
 				}
 			}
 		}
+	}
+	public static void delay() {
+		try {
+			System.out.print("\n컴퓨터의 차례");
+			for(int i = 0; i <= 3; i++) {
+			Thread.sleep(200);
+			System.out.print(".");
+			}
+			Thread.sleep(200);
+			System.out.println("\n");
+		} catch (Exception e) {
+			System.err.print("쓰레드 오류");
+		}
+
 	}
 }
