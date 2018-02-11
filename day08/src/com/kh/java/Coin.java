@@ -8,16 +8,17 @@ public class Coin {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
-
-		int win = 0, lose = 0, money = 0, nowMoney = 0;
+		
+		final int NOMONEY = 0;
+		int win = 0, lose = 0, money = 0, nowMoney = 20000000;
 		double winRatio = 0;
 		char goStop = 0;
 		boolean yn = true;
-		
+	
 		System.out.println("=== 동전 앞 뒤 맞추기===");
 		
 		while (true) {
-			if (nowMoney > 0) {
+			if (nowMoney > NOMONEY) {
 				System.out.print("\n배팅하세요 <현재 소지금 : " + nowMoney + "원 / 배당금 2배>\n");
 				System.out.print(" 배팅금 : ");
 				money = sc.nextInt();
