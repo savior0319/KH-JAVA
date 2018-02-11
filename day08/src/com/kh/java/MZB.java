@@ -34,6 +34,10 @@ public class MZB {
 
 			delay(rcpMenu);
 			userRcp = sc.nextInt();
+			if (!(userRcp == 1 || userRcp == 2 || userRcp == 3)) {
+				System.out.println("\n***1~3까지만 입력하세요***\n");
+				continue;
+			}
 			comRcp = rd.nextInt(3) + 1;
 
 			if (userRcp == 1) {
@@ -52,24 +56,29 @@ public class MZB {
 				strComRcp = "보";
 			}
 
-			System.out.println("\n유저 : " + strUserRcp);
+			System.out.println("\n당신 : " + strUserRcp);
 			inDelay(500);
 			System.out.println("컴퓨터 : " + strComRcp + "");
 			// 가위 바위 보 비겼을 때 - 다시 가위 바위 보
 			if (userRcp == comRcp) {
 				delay(draw);
 				// 가위 바위 보 이겼을 때 -> 묵찌빠 내 공격권
-			} else if (userRcp == 1 && comRcp == 3 || userRcp == 2 && comRcp == 1 || userRcp == 3 && comRcp == 2) {
+			} else if (userRcp == 1 && comRcp == 3 || userRcp == 2 
+					&& comRcp == 1 || userRcp == 3 && comRcp == 2) {
 				delay(win + "\n");
 				rcpLoop = false; // 가위 바위 보 종료
 				delay(myTurn);
 				while (mzbLoop1) {
 					delay(mbzMenu);
 					userMzb = sc.nextInt();
+					if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
+						System.out.println("\n***1~3까지만 입력하세요***\n");
+						continue;
+					}
 					comMzb = rd.nextInt(3) + 1;
 					mbzToStr();
 
-					System.out.println("당신 : " + strUserMzb);
+					System.out.println("\n당신 : " + strUserMzb);
 					inDelay(500);
 					System.out.println("컴퓨터 : " + strComMzb + "\n");
 
@@ -80,7 +89,8 @@ public class MZB {
 						mzbLoop1 = false; // 이겼을 때 반복 종료
 						rcpLoop = true; // 다시시작
 						break;
-					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+					} else if (userMzb == 1 && comMzb == 2 
+							|| userMzb == 2 && comMzb == 3
 							|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 						delay(myTurn);
 					} else {
@@ -89,10 +99,14 @@ public class MZB {
 						while (mzbLoop2) {
 							delay(mbzMenu);
 							userMzb = sc.nextInt();
+							if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
+								System.out.println("\n***1~3까지만 입력하세요***\n");
+								continue;
+							}
 							comMzb = rd.nextInt(3) + 1;
 							mbzToStr();
 
-							System.out.println("당신 : " + strUserMzb);
+							System.out.println("\n당신 : " + strUserMzb);
 							inDelay(500);
 							System.out.println("컴퓨터 : " + strComMzb + "\n");
 
@@ -103,7 +117,8 @@ public class MZB {
 								mzbLoop2 = false; // 졌을 떄 반복 종료
 								rcpLoop = true; // 다시시작
 								break;
-							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+							} else if (userMzb == 1 && comMzb == 2 
+									|| userMzb == 2 && comMzb == 3
 									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 								delay(myTurn);
 							} else {
@@ -122,9 +137,13 @@ public class MZB {
 				while (mzbLoop2) {
 					delay(mbzMenu);
 					userMzb = sc.nextInt();
+					if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
+						System.out.println("\n***1~3까지만 입력하세요***\n");
+						continue;
+					}
 					comMzb = rd.nextInt(3) + 1;
 					mbzToStr();
-					System.out.println("당신 : " + strUserMzb);
+					System.out.println("\n당신 : " + strUserMzb);
 					inDelay(500);
 					System.out.println("컴퓨터 : " + strComMzb + "\n");
 					if (userMzb == comMzb) { // 묵찌빠 졌을 때
@@ -134,16 +153,21 @@ public class MZB {
 						mzbLoop2 = false; // 이겼을 때 반복 종료
 						rcpLoop = true; // 다시시작
 						break;
-					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+					} else if (userMzb == 1 && comMzb == 2 
+							|| userMzb == 2 && comMzb == 3
 							|| userMzb == 3 && comMzb == 1) {
 						delay(myTurn);
 						mzbLoop1 = true;
 						while (mzbLoop1) {
 							delay(mbzMenu);
 							userMzb = sc.nextInt();
+							if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
+								System.out.println("\n***1~3까지만 입력하세요***\n");
+								continue;
+							}
 							comMzb = rd.nextInt(3) + 1;
 							mbzToStr();
-							System.out.println("당신 : " + strUserMzb);
+							System.out.println("\n당신 : " + strUserMzb);
 							inDelay(500);
 							System.out.println("컴퓨터 : " + strComMzb + "\n");
 							if (userMzb == comMzb) { // 묵찌빠 이겼을 때
@@ -153,7 +177,8 @@ public class MZB {
 								mzbLoop1 = false; // 졌을 때 반복 종료
 								rcpLoop = true; // 다시시작
 								break;
-							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+							} else if (userMzb == 1 && comMzb == 2 
+									|| userMzb == 2 && comMzb == 3
 									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 								delay(myTurn);
 							} else {
@@ -219,6 +244,6 @@ public class MZB {
 				System.err.println("dot err");
 			}
 		}
-		System.out.println();
+		System.out.println("\n");
 	}
 }
