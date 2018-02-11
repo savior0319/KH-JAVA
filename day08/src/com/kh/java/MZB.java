@@ -119,10 +119,11 @@ public class MZB {
 							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 								delay(myTurn);
+								mzbLoop2 = false;
+								mzbLoop1 = true;
 							} else {
 								delay(comTurn);
-								mzbLoop1 = false;
-								mzbLoop2 = true;
+
 							}
 						}
 					}
@@ -150,7 +151,6 @@ public class MZB {
 						dot();
 						mzbLoop2 = false; // 이겼을 때 반복 종료
 						rcpLoop = true; // 다시시작
-						break;
 					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 							|| userMzb == 3 && comMzb == 1) {
 						delay(myTurn);
@@ -172,6 +172,7 @@ public class MZB {
 								delay(restart);
 								dot();
 								mzbLoop1 = false; // 졌을 때 반복 종료
+								mzbLoop2 = false;
 								rcpLoop = true; // 다시시작
 								break;
 							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
