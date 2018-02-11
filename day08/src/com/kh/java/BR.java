@@ -8,70 +8,71 @@ public class BR {
 
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
+		final int ENDNUM = 31;
+		int input, comRd;
+		int total = 0;
 
-		int input = 0, i = 0, total = 1;
+		String title = "=========베스킨 라빈스 게임=========\n\n";
+		String rule = "**************게임룰**************\n " 
+					+ "마지막 31을 먼저 말하는 사람이 지는게임!\n" 
+					+ " 한번에 1~3개 까지 말 할 수 있다!\n"
+					+ "********************************\n";
+		outPut(title + rule);
 
-		String rule = "***********게임룰 설명***********" + 
-					  "\n마지막 31을 먼저 말하는 사람이 지는게임!" + 
-					  "\n한번에 1~3개 까지 말 할 수 있다!" + 
-					  "\n*****************************";
-		
-		System.out.println("     === 베스킨 라빈스 게임 ====\n");
-		for (i = 0; i <= rule.length(); i++) {
+		while (total < ENDNUM) {
+			System.out.print("\n1~3개의 숫자 입력 : ");
+			input = sc.nextInt();
+			
+			if (!(input == 1 || input == 2 || input == 3)) {
+				System.out.println("\n*오류*\n1부터 3까지만 입력가능\n");
+				continue;
+			}
+			
+			for (int i = total + 1; i <= input + total; i++) {
+				System.out.println("User : " + i);
+			}
+			total += input;
+
 			try {
-				System.out.print(rule.charAt(i));
-				Thread.sleep(0);
-			} catch (Exception e) {
-				while (true) {
-					if (total < 31) {
-						System.out.print("\n<1~3>개의 숫자 입력 : ");
-						input = sc.nextInt();
-
-						if (!(1 <= input && input <= 3)) {
-							System.out.println("\n1부터 3까지 숫자만 입력");
-							continue;
-						}
-					
-						for (i = total; i <= total + input - 1; i++) {
-							System.out.println("User : " + i);
-
-							if (i >= 31) {
-								System.out.print("\n컴퓨터가 이겼습니다");
-								return;
-							}
-						}
-						total += input;
-					}
-					delay();
-					
-					int comRan = rd.nextInt(3);
-
-					for (i = total; i <= total + comRan; i++) {
-						System.out.println("Com : " + i);
-
-						if (i >= 31) {
-							System.out.print("\n유저가 이겼습니다");
-							return;
-						}
-
-					}
-					total += comRan + 1;
+				System.out.print("\n컴퓨터의 차례");
+				for (int i = 0; i <= 5; i++) {
+					Thread.sleep(250);
+					System.out.print(".");
 				}
+				System.out.println();
+			} catch (Exception e) {
+				System.err.println("쓰레드 오류");
+			}
+			
+			comRd = rd.nextInt(3) + 1;
+			
+			if (total + comRd < ENDNUM) {
+				for (int i = total + 1; i <= comRd + total; i++) {
+					System.out.println("Com : " + i);
+				}
+				total += comRd;
+			} else if (total > ENDNUM) {
+				System.out.print("졌습니다");
+				return;
+			} else if (total < ENDNUM) {
+				for (int i = total + 1; i <= ENDNUM; i++) {
+					System.out.println("Com : " + i);
+				}
+				System.out.print("이겼습니다");
+				return;
 			}
 		}
+		System.out.print("졌습니다");
 	}
-	public static void delay() {
-		try {
-			System.out.print("\n컴퓨터의 차례");
-			for(int i = 0; i <= 3; i++) {
-			Thread.sleep(200);
-			System.out.print(".");
-			}
-			Thread.sleep(200);
-			System.out.println("\n");
-		} catch (Exception e) {
-			System.err.print("쓰레드 오류");
-		}
 
+	private static void outPut(String strIn) {
+		try {
+			for (int i = 0; i < strIn.length(); i++) {
+				System.out.print(strIn.charAt(i));
+				Thread.sleep(30);
+			}
+		} catch (Exception e) {
+			System.err.println("outPut err");
+		}
 	}
 }
