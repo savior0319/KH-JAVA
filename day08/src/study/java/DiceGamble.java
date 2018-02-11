@@ -16,69 +16,69 @@ public class DiceGamble {
 		System.out.println("<<<Game Start>>>");
 
 		while (true) {
-			System.out.println("\n¡Ú¡Ú¡Ú¡Ú¡Ú¸Ş´º¡Ú¡Ú¡Ú¡Ú¡Ú");
-			System.out.println("1. ½ÃÀÛ");
-			System.out.println("2. Á¾·á");
-			System.out.println("¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú¡Ú");
-			System.out.print("¸Ş´º ¼±ÅÃ >> ");
+			System.out.println("\nâ˜…â˜…â˜…â˜…â˜…ë©”ë‰´â˜…â˜…â˜…â˜…â˜…");
+			System.out.println("1. ì‹œì‘");
+			System.out.println("2. ì¢…ë£Œ");
+			System.out.println("â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…â˜…");
+			System.out.print("ë©”ë‰´ ì„ íƒ >> ");
 			choice = sc.next().charAt(0);
 
 			if (choice == '1') {
-				System.out.print("\nÁÖ»çÀ§¸¦ 3¹ø ´øÁı´Ï´Ù");
+				System.out.print("\nì£¼ì‚¬ìœ„ë¥¼ 3ë²ˆ ë˜ì§‘ë‹ˆë‹¤");
 				for (int i = 1; i <= MAXDICE;) {
-					System.out.print("\n" + i + "¹øÂ° (´øÁö·Á¸é q, Q) : ");
+					System.out.print("\n" + i + "ë²ˆì§¸ (ë˜ì§€ë ¤ë©´ q, Q) : ");
 					choice = sc.next().charAt(0);
 					if (!(choice == 'q' || choice == 'Q')) {
-						System.out.println("q¸¸ ÀÔ·Â°¡´ÉÇÕ´Ï´Ù");
+						System.out.println("që§Œ ì…ë ¥ê°€ëŠ¥í•©ë‹ˆë‹¤");
 					} else if (choice == 'q' || choice == 'Q') {
 						diceValue = rd.nextInt(6) + 1;
-						System.out.println(i + "¹øÂ° °ª : " + diceValue);
+						System.out.println(i + "ë²ˆì§¸ ê°’ : " + diceValue);
 						sumDiceValue += diceValue;
 						i++;
 					}
 				}
-				cSumDiceValue = rd.nextInt(15) + 3; // 3¹ø ÁÖ»çÀ§ ÃÖ¼Ò°ª 3 ~ ÃÖ´ë°ª 18
-				System.out.println("\n³»°¡" + MAXDICE + "¹ø ´øÁø ÁÖ»çÀ§ÀÇ ÇÕ : " + sumDiceValue);
+				cSumDiceValue = rd.nextInt(15) + 3; // 3ë²ˆ ì£¼ì‚¬ìœ„ ìµœì†Œê°’ 3 ~ ìµœëŒ€ê°’ 18
+				System.out.println("\në‚´ê°€" + MAXDICE + "ë²ˆ ë˜ì§„ ì£¼ì‚¬ìœ„ì˜ í•© : " + sumDiceValue);
 				try {
-					System.out.print("ÄÄÇ»ÅÍ°¡ ÁÖ»çÀ§ ´øÁö´Â Áß");
+					System.out.print("ì»´í“¨í„°ê°€ ì£¼ì‚¬ìœ„ ë˜ì§€ëŠ” ì¤‘");
 					for (int i = 0; i <= 4; i++) {
 						Thread.sleep(250);
 						System.out.print(".");
 					}
 					System.out.println();
 				} catch (Exception e) {
-					System.err.println("¾²·¹µå ¿À·ù");
+					System.err.println("ì“°ë ˆë“œ ì˜¤ë¥˜");
 				}
-				System.out.println("ÄÄÇ»ÅÍ°¡" + MAXDICE + "¹ø ´øÁø ÁÖ»çÀ§ÀÇ ÇÕ : " + cSumDiceValue + "\n");
+				System.out.println("ì»´í“¨í„°ê°€" + MAXDICE + "ë²ˆ ë˜ì§„ ì£¼ì‚¬ìœ„ì˜ í•© : " + cSumDiceValue + "\n");
 
 				if (sumDiceValue > cSumDiceValue) {
 					winCount++;
 					System.out.print("---------------------------------");
-					System.out.println("\n³ª : " + sumDiceValue + ", ÄÄÇ»ÅÍ : " + cSumDiceValue);
-					System.out.println("ÀÌ°å½À´Ï´Ù!");
-					System.out.println(winCount + "½Â " + drawCount + "¹« " + loseCount + "ÆĞ ");
+					System.out.println("\në‚˜ : " + sumDiceValue + ", ì»´í“¨í„° : " + cSumDiceValue);
+					System.out.println("ì´ê²¼ìŠµë‹ˆë‹¤!");
+					System.out.println(winCount + "ìŠ¹ " + drawCount + "ë¬´ " + loseCount + "íŒ¨ ");
 					System.out.println("---------------------------------");
 					sumDiceValue = 0;
 				} else if (sumDiceValue == cSumDiceValue) {
 					drawCount++;
 					System.out.print("---------------------------------");
-					System.out.println("\n³ª : " + sumDiceValue + ", ÄÄÇ»ÅÍ : " + cSumDiceValue);
-					System.out.println("ºñ°å½À´Ï´Ù!");
-					System.out.println(winCount + "½Â " + drawCount + "¹« " + loseCount + "ÆĞ ");
+					System.out.println("\në‚˜ : " + sumDiceValue + ", ì»´í“¨í„° : " + cSumDiceValue);
+					System.out.println("ë¹„ê²¼ìŠµë‹ˆë‹¤!");
+					System.out.println(winCount + "ìŠ¹ " + drawCount + "ë¬´ " + loseCount + "íŒ¨ ");
 					System.out.println("---------------------------------");
 					sumDiceValue = 0;
 				} else {
 					loseCount++;
 					System.out.print("---------------------------------");
-					System.out.println("\n³ª : " + sumDiceValue + ", ÄÄÇ»ÅÍ : " + cSumDiceValue);
-					System.out.println("Á³½À´Ï´Ù!");
-					System.out.println(winCount + "½Â " + drawCount + "¹« " + loseCount + "ÆĞ ");
+					System.out.println("\në‚˜ : " + sumDiceValue + ", ì»´í“¨í„° : " + cSumDiceValue);
+					System.out.println("ì¡ŒìŠµë‹ˆë‹¤!");
+					System.out.println(winCount + "ìŠ¹ " + drawCount + "ë¬´ " + loseCount + "íŒ¨ ");
 					System.out.println("---------------------------------");
 					sumDiceValue = 0;
 				}
 
 			} else if (choice == '2') {
-				System.out.print("\n°ÔÀÓÀ» Á¾·áÇÕ´Ï´Ù");
+				System.out.print("\nê²Œì„ì„ ì¢…ë£Œí•©ë‹ˆë‹¤");
 				try {
 					for (int i = 0; i <= 4; i++) {
 						Thread.sleep(250);
@@ -86,11 +86,11 @@ public class DiceGamble {
 					}
 					System.exit(0);
 				} catch (Exception e) {
-					System.err.println("¾²·¹µå ¿À·ù");
+					System.err.println("ì“°ë ˆë“œ ì˜¤ë¥˜");
 				}
 				System.exit(0);
 			} else
-				System.out.println("\n***¸Ş´º¸¦ Àß¸øÀÔ·ÂÇß½À´Ï´Ù***");
+				System.out.println("\n***ë©”ë‰´ë¥¼ ì˜ëª»ì…ë ¥í–ˆìŠµë‹ˆë‹¤***");
 
 		}
 	}
