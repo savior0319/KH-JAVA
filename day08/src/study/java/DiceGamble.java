@@ -31,6 +31,16 @@ public class DiceGamble {
 					if (!(choice == 'q' || choice == 'Q')) {
 						System.out.println("q만 입력가능합니다");
 					} else if (choice == 'q' || choice == 'Q') {
+						try {
+							System.out.print("주사위를 던지는중");
+							for (int j = 1; j <= 4; j++) {
+								System.out.print(".");
+								Thread.sleep(250);
+							}
+							System.out.println();
+						} catch (Exception e) {
+							System.err.println("쓰레드 오류");
+						}
 						diceValue = rd.nextInt(6) + 1;
 						System.out.println(i + "번째 값 : " + diceValue);
 						sumDiceValue += diceValue;
