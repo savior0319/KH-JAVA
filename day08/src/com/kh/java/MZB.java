@@ -4,144 +4,221 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class MZB {
-
-	static int mzbUser, mzbCom;
-	static String rcpUser = null;
-	static String rcpCom = null;
+	private static String strUserMzb = null, strComMzb = null; // 묵찌빠 문자로 저장 할 변수
+	private static int userMzb, comMzb; // 묵찌빠 입력 받을 변수
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
 
-		boolean draw = true;
-		boolean rcpLoop = true; boolean rcpLoop1 = true;
+		int userRcp, comRcp; // 가위 바위 보 입력 받을 변수
+		String strUserRcp = null, strComRcp = null; // 가위 바위 보 문자로 저장 할 변수
+		boolean rcpLoop = true, mzbLoop1 = true, mzbLoop2 = true;
+		/* rcpLoop = 가위 바위 보 반복 / mzbLoop1 = 묵찌빠 공격권 1 / mzbLoop2 = 묵찌빠 공격권2 */
+		String menu = "-----------묵찌빠 게임-----------\n";
+		String mbzMenu = "1. 묵  / 2. 찌  / 3. 빠\n선택 >>> ";
+		String rcpMenu = "1. 가위  / 2. 바위  / 3. 보\n선택 >>> ";
+		String lose = "졌습니다\n";
+		String win = "이겼습니다\n";
+		String draw = "비겼습니다\n\n-----가위 바위 보를 다시 합니다-----\n";
+		String restart = "다시시작 합니다";
+		String myTurn = "당신이 공격권을 가져갑니다!\n";
+		String comTurn = "컴퓨터가 공격권을 가져갑니다!\n";
 
-		System.out.println("---------------묵 찌 빠 게 임---------------");
-		System.out.println("우선 가위바위보를 합시다");
-		while (draw) {
-			System.out.println("1. 가위 / 2. 바위 / 3. 보");
-			System.out.print("선택 : ");
-			int user = sc.nextInt();
-			int com = rd.nextInt(3) + 1;
+		delay(menu);
+		// 가위 바위 보 (이기거나 질 때 까지 반복)
+		while (rcpLoop) {
+			mzbLoop1 = true;
+			mzbLoop2 = true;
 
-			if (com == 1) {
-				rcpCom = "가위";
-			} else if (com == 2) {
-				rcpCom = "바위";
-			} else if (com == 3) {
-				rcpCom = "보";
+			delay(rcpMenu);
+			userRcp = sc.nextInt();
+			comRcp = rd.nextInt(3) + 1;
+
+			if (userRcp == 1) {
+				strUserRcp = "가위";
+			} else if (userRcp == 2) {
+				strUserRcp = "바위";
+			} else if (userRcp == 3) {
+				strUserRcp = "보";
 			}
 
-			if (user == 1) {
-				rcpUser = "가위";
-			} else if (user == 2) {
-				rcpUser = "바위";
-			} else if (user == 3) {
-				rcpUser = "보";
+			if (comRcp == 1) {
+				strComRcp = "가위";
+			} else if (comRcp == 2) {
+				strComRcp = "바위";
+			} else if (comRcp == 3) {
+				strComRcp = "보";
 			}
 
-			System.out.println("\n사용자는 " + rcpUser + "를 냈습니다");
-			System.out.println("컴퓨터는 " + rcpCom + "를 냈습니다");
+			System.out.println("\n유저 : " + strUserRcp);
+			inDelay(500);
+			System.out.println("컴퓨터 : " + strComRcp + "");
+			// 가위 바위 보 비겼을 때 - 다시 가위 바위 보
+			if (userRcp == comRcp) {
+				delay(draw);
+				// 가위 바위 보 이겼을 때 -> 묵찌빠 내 공격권
+			} else if (userRcp == 1 && comRcp == 3 || userRcp == 2 && comRcp == 1 || userRcp == 3 && comRcp == 2) {
+				delay(win + "\n");
+				rcpLoop = false; // 가위 바위 보 종료
+				delay(myTurn);
+				while (mzbLoop1) {
+					delay(mbzMenu);
+					userMzb = sc.nextInt();
+					comMzb = rd.nextInt(3) + 1;
+					mbzToStr();
 
-			if (com == 1 && user == 1 || com == 2 && user == 2 || com == 3 && user == 3) {
-				System.out.println("비겼습니다. 다시 가위바위보를 합니다\n");
-			} else if (com == 1 && user == 2 || com == 2 && user == 3 || com == 3 && user == 1) {
-				System.out.println("-----공격권-----\n당신이 공격권을 가져갑니다\n");
-				draw = false;
+					System.out.println("당신 : " + strUserMzb);
+					inDelay(500);
+					System.out.println("컴퓨터 : " + strComMzb + "\n");
 
-				System.out.println("당신의 공격 입니다 !");
-				while (rcpLoop) {
-					System.out.println("1.묵 / 2.찌 / 3.빠");
-					System.out.print("선택 : ");
-					mzbUser = sc.nextInt();
-					mzbCom = rd.nextInt(3) + 1;
-					tran();
-					System.out.println("당신 : " + rcpUser);
-					delay();
-					System.out.println("컴퓨터 : " + rcpCom);
-					System.out.println();
-					if (mzbCom == mzbUser) {
-						System.out.println("이겼습니다\n\n -----다시시작-----");
-						rcpLoop = false;
-						draw = true;
-					} else if (mzbCom == 1 && mzbUser == 2 || mzbCom == 2 && mzbUser == 3
-							|| mzbCom == 3 && mzbUser == 1) {
-						System.out.println("컴퓨터가 공격권을 가져갑니다");
-					} else
-						System.out.println("당신의 공격권 입니다.");
-					while (rcpLoop1) {
-						System.out.println("1.묵 / 2.찌 / 3.빠");
-						System.out.print("선택 : ");
-						mzbUser = sc.nextInt();
-						mzbCom = rd.nextInt(3) + 1;
-						tran();
-						System.out.println("당신 : " + rcpUser);
-						delay();
-						System.out.println("컴퓨터 : " + rcpCom);
-						System.out.println();
-						if (mzbCom == mzbUser) {
-							System.out.println("졌습니다\n\n -----다시시작-----");
-							rcpLoop1 = false;
-							draw = true;
-						} else if (mzbCom == 1 && mzbUser == 2 || mzbCom == 2 && mzbUser == 3
-								|| mzbCom == 3 && mzbUser == 1) {
-							System.out.println("컴퓨터가 공격권을 가져갑니다");
-							rcpLoop1 = false;
-						} else
-							System.out.println("당신의 공격권 입니다.");
+					if (userMzb == comMzb) {
+						delay(win);
+						delay(restart);
+						dot();
+						mzbLoop1 = false; // 이겼을 때 반복 종료
+						rcpLoop = true; // 다시시작
+						break;
+					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+							|| userMzb == 3 && comMzb == 1) { // 공격권 변경
+						delay(myTurn);
+					} else {
+						delay(comTurn);
+						mzbLoop1 = false;
+						while (mzbLoop2) {
+							delay(mbzMenu);
+							userMzb = sc.nextInt();
+							comMzb = rd.nextInt(3) + 1;
+							mbzToStr();
+
+							System.out.println("당신 : " + strUserMzb);
+							inDelay(500);
+							System.out.println("컴퓨터 : " + strComMzb + "\n");
+
+							if (userMzb == comMzb) { // 묵찌빠 졌을 경우
+								delay(lose);
+								delay(restart);
+								dot();
+								mzbLoop2 = false; // 졌을 떄 반복 종료
+								rcpLoop = true; // 다시시작
+								break;
+							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
+								delay(myTurn);
+							} else {
+								delay(comTurn);
+								mzbLoop1 = false;
+								mzbLoop2 = true;
+							}
+						}
 					}
 				}
-			} else if (com == 1 && user == 3 || com == 2 && user == 1 || com == 3 && user == 2) {
-				System.out.println("-----공격권-----\n컴퓨터가 공격권을 가져갑니다\n");
-				draw = true;
-				while (rcpLoop1) {
-					System.out.println("1.묵 / 2.찌 / 3.빠");
-					System.out.print("선택 : ");
-					mzbUser = sc.nextInt();
-					mzbCom = rd.nextInt(3) + 1;
-					tran();
-					System.out.println("당신 : " + rcpUser);
-					delay();
-					System.out.println("컴퓨터 : " + rcpCom);
-					System.out.println();
-					if (mzbCom == mzbUser) {
-						System.out.println("졌습니다\n\n -----다시시작-----");
-						rcpLoop1 = false;
-					} else if (mzbCom == 1 && mzbUser == 2 || mzbCom == 2 && mzbUser == 3
-							|| mzbCom == 3 && mzbUser == 1) {
-						System.out.println("컴퓨터가 공격권을 가져갑니다");
-					} else
-						System.out.println("당신의 공격권 입니다.");
+				// 가위 바위 보 졌을 경우 -> 묵찌빠 컴퓨터 공격권
+			} else {
+				delay(lose + "\n");
+				rcpLoop = false; // 가위 바위 보 종료
+				delay(comTurn);
+				while (mzbLoop2) {
+					delay(mbzMenu);
+					userMzb = sc.nextInt();
+					comMzb = rd.nextInt(3) + 1;
+					mbzToStr();
+					System.out.println("당신 : " + strUserMzb);
+					inDelay(500);
+					System.out.println("컴퓨터 : " + strComMzb + "\n");
+					if (userMzb == comMzb) { // 묵찌빠 졌을 때
+						delay(lose);
+						delay(restart);
+						dot();
+						mzbLoop2 = false; // 이겼을 때 반복 종료
+						rcpLoop = true; // 다시시작
+						break;
+					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+							|| userMzb == 3 && comMzb == 1) {
+						delay(myTurn);
+						mzbLoop1 = true;
+						while (mzbLoop1) {
+							delay(mbzMenu);
+							userMzb = sc.nextInt();
+							comMzb = rd.nextInt(3) + 1;
+							mbzToStr();
+							System.out.println("당신 : " + strUserMzb);
+							inDelay(500);
+							System.out.println("컴퓨터 : " + strComMzb + "\n");
+							if (userMzb == comMzb) { // 묵찌빠 이겼을 때
+								delay(win);
+								delay(restart);
+								dot();
+								mzbLoop1 = false; // 졌을 때 반복 종료
+								rcpLoop = true; // 다시시작
+								break;
+							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
+									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
+								delay(myTurn);
+							} else {
+								mzbLoop1 = false;
+							}
+						}
+					} else {
+						delay(comTurn);
+						mzbLoop2 = true;
+					}
 				}
 			}
 		}
 	}
 
-	public static void tran() {
-		if (mzbCom == 1) {
-			rcpCom = "묵";
-		} else if (mzbCom == 2) {
-			rcpCom = "찌";
-		} else if (mzbCom == 3) {
-			rcpCom = "빠";
+	// 입력한 숫자 -> 묵찌빠(문자) 변환 메소드
+	private static void mbzToStr() {
+		if (userMzb == 1) {
+			strUserMzb = "묵";
+		} else if (userMzb == 2) {
+			strUserMzb = "찌";
+		} else if (userMzb == 3) {
+			strUserMzb = "빠";
 		}
 
-		if (mzbUser == 1) {
-			rcpUser = "묵";
-		} else if (mzbUser == 2) {
-			rcpUser = "찌";
-		} else if (mzbUser == 3) {
-			rcpUser = "빠";
+		if (comMzb == 1) {
+			strComMzb = "묵";
+		} else if (comMzb == 2) {
+			strComMzb = "찌";
+		} else if (comMzb == 3) {
+			strComMzb = "빠";
 		}
-
 	}
 
-	public static void delay() {
+	// 입력값 딜레이 메소드
+	private static void inDelay(int delayValue) {
 		try {
-				Thread.sleep(500);
+			Thread.sleep(delayValue);
 		} catch (Exception e) {
-			System.err.println("쓰레드 오류");
+			System.err.println("inDelay err");
 		}
+	}
+
+	// 한 글자씩 출력 메소드 25ms
+	private static void delay(String inStr) {
+		try {
+			for (int i = 0; i < inStr.length(); i++) {
+				System.out.print(inStr.charAt(i));
+				Thread.sleep(25);
+			}
+		} catch (Exception e) {
+			System.err.println("delay err");
+		}
+	}
+
+	// 다시시작 시 . 출력 메소드 250ms
+	private static void dot() {
+		for (int i = 0; i <= 4; i++) {
+			try {
+				System.out.print(".");
+				Thread.sleep(250);
+			} catch (InterruptedException e) {
+				System.err.println("dot err");
+			}
+		}
+		System.out.println();
 	}
 }
