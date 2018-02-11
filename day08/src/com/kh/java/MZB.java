@@ -63,10 +63,10 @@ public class MZB {
 			if (userRcp == comRcp) {
 				delay(draw);
 				// 가위 바위 보 이겼을 때 -> 묵찌빠 내 공격권
-			} else if (userRcp == 1 && comRcp == 3 || userRcp == 2 
-					&& comRcp == 1 || userRcp == 3 && comRcp == 2) {
+			} else if (userRcp == 1 && comRcp == 3 || userRcp == 2 && comRcp == 1 || userRcp == 3 && comRcp == 2) {
 				delay(win + "\n");
 				rcpLoop = false; // 가위 바위 보 종료
+
 				delay(myTurn);
 				while (mzbLoop1) {
 					delay(mbzMenu);
@@ -89,8 +89,7 @@ public class MZB {
 						mzbLoop1 = false; // 이겼을 때 반복 종료
 						rcpLoop = true; // 다시시작
 						break;
-					} else if (userMzb == 1 && comMzb == 2 
-							|| userMzb == 2 && comMzb == 3
+					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 							|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 						delay(myTurn);
 					} else {
@@ -117,8 +116,7 @@ public class MZB {
 								mzbLoop2 = false; // 졌을 떄 반복 종료
 								rcpLoop = true; // 다시시작
 								break;
-							} else if (userMzb == 1 && comMzb == 2 
-									|| userMzb == 2 && comMzb == 3
+							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 								delay(myTurn);
 							} else {
@@ -153,8 +151,7 @@ public class MZB {
 						mzbLoop2 = false; // 이겼을 때 반복 종료
 						rcpLoop = true; // 다시시작
 						break;
-					} else if (userMzb == 1 && comMzb == 2 
-							|| userMzb == 2 && comMzb == 3
+					} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 							|| userMzb == 3 && comMzb == 1) {
 						delay(myTurn);
 						mzbLoop1 = true;
@@ -177,11 +174,11 @@ public class MZB {
 								mzbLoop1 = false; // 졌을 때 반복 종료
 								rcpLoop = true; // 다시시작
 								break;
-							} else if (userMzb == 1 && comMzb == 2 
-									|| userMzb == 2 && comMzb == 3
+							} else if (userMzb == 1 && comMzb == 2 || userMzb == 2 && comMzb == 3
 									|| userMzb == 3 && comMzb == 1) { // 공격권 변경
 								delay(myTurn);
 							} else {
+								delay(comTurn);
 								mzbLoop1 = false;
 							}
 						}
