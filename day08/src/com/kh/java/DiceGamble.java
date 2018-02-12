@@ -1,4 +1,4 @@
-package study.java;
+package com.kh.java;
 
 import java.util.Random;
 import java.util.Scanner;
