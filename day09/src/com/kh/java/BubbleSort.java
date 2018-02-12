@@ -1,4 +1,4 @@
-/*02-12 BubbleSort*/
+/*BubbleSort*/
 package com.kh.java;
 
 import java.util.Scanner;
