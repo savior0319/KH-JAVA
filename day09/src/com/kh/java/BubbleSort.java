@@ -7,7 +7,7 @@ public class BubbleSort {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-
+	
 		System.out.print("정렬할 배열의 개수 입력 : ");
 		int size = sc.nextInt();
 		System.out.println();
