@@ -17,7 +17,7 @@ public class ArrayTest3 {
 				System.out.printf("%5s", arr[i][j]);
 			}
 			System.out.println();
-		}		
+		}
 		System.out.println();
 		System.out.println("2번.");
 		k = 1;
@@ -62,7 +62,68 @@ public class ArrayTest3 {
 				}
 			}
 		}
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				System.out.printf("%5s", arr[i][j]);
+			}
+			System.out.println();
+		}
 
+		System.out.println();
+		System.out.println("5번.");
+		k = 1;
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 0; j++) {
+				arr[i][j] = k++;
+			}
+		}
+
+		for (int i = 0; i < 5; i++) {
+			if (i % 2 == 0) {
+				for (int j = 4; j >= 0; j--) {
+					System.out.printf("%5s", arr[i][j]);
+				}
+			} else {
+				for (int j = 4; j >= 0; j--) {
+					System.out.printf("%5s", arr[i][j]);
+				}
+			}
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println("6번.");
+		k = 1;
+		for (int i = 0; i < 5; i++) {
+			if (i % 2 == 0) {
+				for (int j = 0; j < 5; j++) {
+					arr[j][i] = k++;
+				}
+			} else {
+				for (int j = 4; j >= 0; j--) {
+					arr[j][i] = k++;
+				}
+			}
+		}
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				System.out.printf("%5s", arr[i][j]);
+			}
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println("7번.");
+		k = 1;
+		for (int i = 0; i < 5; i++) {
+			if (i % 2 == 0) {
+				for (int j = 4; j >= 0; j--) {
+					arr[j][i] = k++;
+				}
+			} else {
+				for (int j = 0; j < 5; j++) {
+					arr[j][i] = k++;
+				}
+			}
+		}
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
 				System.out.printf("%5s", arr[i][j]);
