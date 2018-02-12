@@ -24,6 +24,11 @@ public class Lotto {
 			System.out.print(i + 1 + "번째 번호 입력 : ");
 			tempInput = sc.nextInt();
 			boolean isFlag = true;
+			if(!(1<=tempInput && tempInput<=45)){
+				System.out.println("1부터 45까지만 입력하세요");
+				i--;
+				continue;
+			}
 			for (int j = 0; j < i; j++) {
 				if (tempInput == input[j]) {
 					i -= 1;
@@ -56,7 +61,7 @@ public class Lotto {
 			System.out.println();
 
 			for (int i = 0; i < lotto.length; i++) {
-				for (int j = 0; j < i; j++) {
+				for (int j = 0; j <= i; j++) {
 					if (lotto[i] == input[j]) {
 						count++;
 						if (count == 4) {
