@@ -5,8 +5,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class LottoNumber {
-	public static void main(String[] args) {
 
+	public LottoNumber() {
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
 		int[] lotto = new int[6];
@@ -59,6 +59,10 @@ public class LottoNumber {
 				System.out.println("메뉴를 잘못선택했습니다");
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		new LottoNumber();
 
 	}
 }

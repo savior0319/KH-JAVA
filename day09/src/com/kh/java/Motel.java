@@ -4,8 +4,8 @@ package com.kh.java;
 import java.util.Scanner;
 
 public class Motel {
-	public static void main(String[] args) {
 
+	public Motel() {
 		Scanner sc = new Scanner(System.in);
 		int menu, selectRoom, roomSize;
 		boolean isFlag = true;
@@ -27,12 +27,12 @@ public class Motel {
 				System.out.println("<<입실을 선택했습니다>>\n");
 				System.out.print("방을 선택하세요 <1~" + roomSize + "번방> : ");
 				selectRoom = sc.nextInt();
-					if (room[selectRoom - 1] == 0) {
-						room[selectRoom - 1] = 1;
-						System.out.println(selectRoom + "번방이 예약되었습니다");
-					} else {
-						System.out.println(selectRoom + "번방은 현재 손님이 있습니다");
-					} 
+				if (room[selectRoom - 1] == 0) {
+					room[selectRoom - 1] = 1;
+					System.out.println(selectRoom + "번방이 예약되었습니다");
+				} else {
+					System.out.println(selectRoom + "번방은 현재 손님이 있습니다");
+				}
 			} else if (menu == 2) {
 				System.out.println("<<퇴실을 선택했습니다>>\n");
 				System.out.print("퇴실할 방을 선택하세요 <1~10번방> : ");
@@ -62,5 +62,10 @@ public class Motel {
 				System.out.println("***메뉴를 잘못 선택했습니다***");
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		new Motel();
+
 	}
 }

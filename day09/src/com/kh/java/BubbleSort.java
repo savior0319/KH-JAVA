@@ -4,15 +4,16 @@ package com.kh.java;
 import java.util.Scanner;
 
 public class BubbleSort {
-	public static void main(String[] args) {
+
+	public BubbleSort() {
 
 		Scanner sc = new Scanner(System.in);
-	
+
 		System.out.print("정렬할 배열의 개수 입력 : ");
 		int size = sc.nextInt();
 		System.out.println();
 		int[] inArr = new int[size];
-		
+
 		for (int i = 0; i < inArr.length; i++) {
 			System.out.print("정렬 할 " + (i + 1) + "번째 숫자 : ");
 			inArr[i] = sc.nextInt();
@@ -35,6 +36,9 @@ public class BubbleSort {
 		for (int i = inArr.length - 1; i >= 0; i--) {
 			System.out.print(inArr[i] + " ");
 		}
+	}
 
+	public static void main(String[] args) {
+		new BubbleSort();
 	}
 }
