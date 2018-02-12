@@ -56,23 +56,56 @@ public class Lotto {
 			System.out.println();
 
 			for (int i = 0; i < lotto.length; i++) {
-				for (int j = 1; j < lotto.length; j++) {
+				for (int j = 0; j < i; j++) {
 					if (lotto[i] == input[j]) {
 						count++;
 						if (count == 4) {
-							System.out.println("\n\n★★★★★★3등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
+							System.out.println("#################\t#################");
+							System.out.println("                #\t#				 ");
+							System.out.println("                #\t#                ");
+							System.out.println("                #\t#                ");
+							System.out.println("                #\t#################");
+							System.out.println("#################");
+							System.out.println("                #\t###################");
+							System.out.println("                #");
+							System.out.println("                #\t ###############");
+							System.out.println("                #\t#\t\t#");
+							System.out.println("#################\t ###############");
+							System.out.println("3등 현재까지 : " + totalCount +"번");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
 							}
 						} else if (count == 5) {
-							System.out.println("\n\n★★★★★★2등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
+							System.out.println("#################\t#################");
+							System.out.println("                #\t#				 ");
+							System.out.println("                #\t#                ");
+							System.out.println("                #\t#                ");
+							System.out.println("                #\t#################");
+							System.out.println("#################");
+							System.out.println("#               #\t###################");
+							System.out.println("#               #");
+							System.out.println("#               #\t ###############");
+							System.out.println("#               #\t#\t\t#");
+							System.out.println("#################\t ###############");
+							System.out.println("2등 현재까지 : " + totalCount +"번");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
 							}
 						} else if (count == 6) {
-							System.out.println("\n\n★★★★★★1등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
+							System.out.println("        #        \t#################");
+							System.out.println("        #        \t#				 ");
+							System.out.println("        #        \t#                ");
+							System.out.println("        #        \t#                ");
+							System.out.println("        #        \t#################");
+							System.out.println("        #");
+							System.out.println("        #        \t###################");
+							System.out.println("        #       ");
+							System.out.println("        #        \t ###############");
+							System.out.println("        #        \t#\t\t#");
+							System.out.println("        #        \t ###############");
+							System.out.println("1등 현재까지 : " + totalCount +"번");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
