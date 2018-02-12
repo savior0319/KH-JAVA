@@ -60,19 +60,19 @@ public class Lotto {
 					if (lotto[i] == input[j]) {
 						count++;
 						if (count == 4) {
-							System.out.println("★★★★★★3등입니다\t-" + totalCount +"번★★★★★★");
+							System.out.println("\n\n★★★★★★3등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
 							}
 						} else if (count == 5) {
-							System.out.println("★★★★★★2등입니다\t-" + totalCount +"번★★★★★★");
+							System.out.println("\n\n★★★★★★2등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
 							}
 						} else if (count == 6) {
-							System.out.println("★★★★★★1등입니다\t-" + totalCount +"번★★★★★★");
+							System.out.println("\n\n★★★★★★1등입니다.\t현재까지 - " + totalCount + "번★★★★★★");
 							try {
 								Thread.sleep(3000);
 							} catch (Exception e) {
