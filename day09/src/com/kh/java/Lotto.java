@@ -8,7 +8,6 @@ package com.kh.java;
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.CountDownLatch;
 
 public class Lotto {
 	public static void main(String[] args) {
@@ -24,7 +23,7 @@ public class Lotto {
 			System.out.print(i + 1 + "번째 번호 입력 : ");
 			tempInput = sc.nextInt();
 			boolean isFlag = true;
-			if(!(1<=tempInput && tempInput<=45)){
+			if (!(1 <= tempInput && tempInput <= 45)) {
 				System.out.println("1부터 45까지만 입력하세요");
 				i--;
 				continue;
@@ -61,7 +60,7 @@ public class Lotto {
 			System.out.println();
 
 			for (int i = 0; i < lotto.length; i++) {
-				for (int j = 0; j <= i; j++) {
+				for (int j = 0; j < lotto.length; j++) {
 					if (lotto[i] == input[j]) {
 						count++;
 						if (count == 4) {
@@ -76,9 +75,9 @@ public class Lotto {
 							System.out.println("                #\t ###############");
 							System.out.println("                #\t#\t\t#");
 							System.out.println("#################\t ###############");
-							System.out.println("3등 현재까지 : " + totalCount +"번");
+							System.out.println("3등 현재까지 : " + totalCount + "번");
 							try {
-								Thread.sleep(3000);
+								Thread.sleep(1000);
 							} catch (Exception e) {
 							}
 						} else if (count == 5) {
@@ -93,9 +92,9 @@ public class Lotto {
 							System.out.println("#               #\t ###############");
 							System.out.println("#               #\t#\t\t#");
 							System.out.println("#################\t ###############");
-							System.out.println("2등 현재까지 : " + totalCount +"번");
+							System.out.println("2등 현재까지 : " + totalCount + "번");
 							try {
-								Thread.sleep(3000);
+								Thread.sleep(1000);
 							} catch (Exception e) {
 							}
 						} else if (count == 6) {
@@ -110,9 +109,11 @@ public class Lotto {
 							System.out.println("        #        \t ###############");
 							System.out.println("        #        \t#\t\t#");
 							System.out.println("        #        \t ###############");
-							System.out.println("1등 현재까지 : " + totalCount +"번");
+							System.out.println("1등 현재까지 : " + totalCount + "번");
 							try {
-								Thread.sleep(3000);
+								while (true) {
+									Thread.sleep(1);
+								}
 							} catch (Exception e) {
 							}
 						}

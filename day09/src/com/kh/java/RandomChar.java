@@ -16,7 +16,6 @@ public class RandomChar {
 			horizontal = sc.nextInt();
 			if (1 <= horizontal && horizontal <= 10) {
 				isFlag = false;
-
 			} else {
 				System.out.println("**1부터 10까지만 입력하세요**");
 				continue;
@@ -35,7 +34,7 @@ public class RandomChar {
 
 		for (int i = 0; i < horizontal; i++) {
 			for (int j = 0; j < vertical; j++) {
-				ch[i][j] = (char) ('a' + rd.nextInt(25));
+				ch[i][j] = (char) ('A' + rd.nextInt(25));
 			}
 		}
 		for (int i = 0; i < horizontal; i++) {
