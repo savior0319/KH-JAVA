@@ -8,14 +8,33 @@ public class ArrayApart {
 		Scanner sc = new Scanner(System.in);
 		int floor = 0;
 		System.out.println("---- A 아파트 정보 입력 ----");
-		System.out.print("건물 총 층수 입력 : ");
-		floor = sc.nextInt();
+		while (true) {
+			System.out.print("건물 총 층수 입력 : ");
+			floor = sc.nextInt();
+			if (floor <= 0) {
+				System.out.println("0층 보다 큰 값을 입력하세요");
+				continue;
+			} else {
+				break;
+			}
+		}
 		System.out.println(floor + " 층이 생성 되었습니다");
 		String[][] apart = new String[floor][];
-
 		for (int i = 0; i < floor; i++) {
-			System.out.print(i + 1 + "층의 총 호실 입력 : ");
-			apart[i] = new String[sc.nextInt()];
+			while (true) {
+				System.out.print(i + 1 + "층의 총 호실 입력 : ");
+				try {
+					apart[i] = new String[sc.nextInt()];
+					if (apart[i].length <= 0) {
+						System.out.println("0보다 큰 값을 입력하세요");
+						continue;
+					} else {
+						break;
+					}
+				} catch (Exception e) {
+					System.out.println("0호실 보다 큰 값을 입력하세요");
+				}
+			}
 		}
 		sc.nextLine();
 		for (int i = 0; i < floor; i++) {
@@ -39,7 +58,7 @@ public class ArrayApart {
 			System.out.println();
 		}
 	}
-	
+
 	public static void main(String[] args) {
 		new ArrayApart();
 	}
