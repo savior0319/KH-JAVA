@@ -8,21 +8,17 @@ public class Ex9 {
 
 		for (int i = 0; i < array.length; i++) {
 			min = array[i];
+			max = array[i];
 			for (int j = 0; j < array.length; j++) {
 				if (min > array[j]) {
 					min = array[j];
 				}
-			}
-		}
-		System.out.println("최소값 : " + min);
-		for (int i = 0; i < array.length; i++) {
-			max = array[i];
-			for (int j = 0; j < array.length; j++) {
 				if (max < array[j]) {
 					max = array[j];
 				}
 			}
 		}
+		System.out.println("최소값 : " + min);
 		System.out.println("최대값 : " + max);
 	}
 }

@@ -11,7 +11,7 @@ public class Ex10 {
 			array[i] = sc.nextInt();
 		}
 
-		for (int i = 0; i < array.length; i++) {
+		for (int i = 1; i < array.length; i++) {
 			for (int j = 0; j < array.length; j++) {
 				if (array[i] < array[j]) {
 					int temp = array[i];
