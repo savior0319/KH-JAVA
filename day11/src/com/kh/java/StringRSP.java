@@ -1,6 +1,7 @@
 package com.kh.java;
 
 import java.util.Random;
+import java.lang.*;
 
 public class StringRSP {
 	public static void main(String[] args) {
@@ -15,7 +16,6 @@ public class StringRSP {
 		} else if (args[0].equals("º¸")) {
 			rspInt = 3;
 		}
-
 		comChoice = rd.nextInt(3) + 1;
 
 		if (comChoice == 1) {
