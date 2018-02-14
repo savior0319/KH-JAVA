@@ -1,7 +1,6 @@
 package com.kh.java;
 
 import java.util.Random;
-import java.lang.*;
 
 public class StringRSP {
 	public static void main(String[] args) {
