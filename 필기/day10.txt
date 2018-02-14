@@ -1,92 +1,90 @@
- @ °¡º¯ ¹è¿­
- - 2Â÷¿ø ¹è¿­ ¼±¾ð ½Ã ¸¶Áö¸· ¿­ Å©±â¸¦ ÁöÁ¤ÇÏÁö ¾Ê°í, ÃßÈÄ¿¡ ÁöÁ¤ÇÔÀ¸·Î½á
-       °íÁ¤µÈ 2Â÷¿ø ¹è¿­ Å©±â°¡ ¾Æ´Ñ À¯µ¿ÀûÀÎ °¡º¯ ¹è¿­À» ±¸¼ºÇÒ ¼ö ÀÖÀ½
+@ ê°€ë³€ ë°°ì—´
+ - 2ì°¨ì› ë°°ì—´ ì„ ì–¸ ì‹œ ë§ˆì§€ë§‰ ì—´ í¬ê¸°ë¥¼ ì§€ì •í•˜ì§€ ì•Šê³ , ì¶”í›„ì— ì§€ì •í•¨ìœ¼ë¡œì¨
+       ê³ ì •ëœ 2ì°¨ì› ë°°ì—´ í¬ê¸°ê°€ ì•„ë‹Œ ìœ ë™ì ì¸ ê°€ë³€ ë°°ì—´ì„ êµ¬ì„±í•  ìˆ˜ ìžˆìŒ
        
-       ÀÚ·áÇü [][] = º¯¼öÀÌ¸§ = new ÀÚ·áÇü[Çà±æÀÌ][];
-    	=> Çà ¸¶´Ù ¿­ÀÇ ±æÀÌ°¡ °¡º¯ÀûÀÓ
+       ìžë£Œí˜• [][] = ë³€ìˆ˜ì´ë¦„ = new ìžë£Œí˜•[í–‰ê¸¸ì´][];
+    	=> í–‰ ë§ˆë‹¤ ì—´ì˜ ê¸¸ì´ê°€ ê°€ë³€ì ìž„
     	
    ex) int[][] arr = new int[3][];
    	   arr[0] = new int[3];
    	   arr[1] = new int[2];
    	   arr[2] = new int[5];
    	   
- @ ¸Þ¼Òµå
- - ¸Þ¼Òµå´Â Å¸ ¾ð¾î¿¡¼­´Â ÇÔ¼ö(function)¶ó°í ºÎ¸§
- - ¿ì¸®°¡ ±âÁ¸¿¡ ÀÛ¼ºÇÏ´ø °ø°£(main ¹× ±âÅ¸ ¸Þ¼Òµå)µµ ÇÏ³ªÀÇ ¸Þ¼ÒµåÀÓ
- - ¸Þ¼Òµå¸¦ »ç¿ëÇÏ°Ô µÊÀ¸·Î½á ±â´Éº° ±¸ºÐÀ» ÇÒ ¼ö ÀÖ°Ô µÊ
- - Àç»ç¿ëÇÏ´Â ÄÚµåµéÀ» ¸Þ¼Òµå·Î Á¤ÀÇÇÔÀ¸·Î½á ºÒÇÊ¿äÇÑ Áßº¹ ÄÚµåµéÀ» ÁÙ ÀÏ ¼ö ÀÖÀ½
- - ¸Þ¼Òµå¸íÀº ÇØ´ç ±â´É¸íÀ» ÀÛ¼ºÇÏ´Â°Ô ¿øÄ¢ÀÌ°í, ³«Å¸Ç¥±â¹ýÀ» µû¸§
+ @ ë©”ì†Œë“œ
+ - ë©”ì†Œë“œëŠ” íƒ€ ì–¸ì–´ì—ì„œëŠ” í•¨ìˆ˜(function)ë¼ê³  ë¶€ë¦„
+ - ìš°ë¦¬ê°€ ê¸°ì¡´ì— ìž‘ì„±í•˜ë˜ ê³µê°„(main ë° ê¸°íƒ€ ë©”ì†Œë“œ)ë„ í•˜ë‚˜ì˜ ë©”ì†Œë“œìž„
+ - ë©”ì†Œë“œë¥¼ ì‚¬ìš©í•˜ê²Œ ë¨ìœ¼ë¡œì¨ ê¸°ëŠ¥ë³„ êµ¬ë¶„ì„ í•  ìˆ˜ ìžˆê²Œ ë¨
+ - ìž¬ì‚¬ìš©í•˜ëŠ” ì½”ë“œë“¤ì„ ë©”ì†Œë“œë¡œ ì •ì˜í•¨ìœ¼ë¡œì¨ ë¶ˆí•„ìš”í•œ ì¤‘ë³µ ì½”ë“œë“¤ì„ ì¤„ ì¼ ìˆ˜ ìžˆìŒ
+ - ë©”ì†Œë“œëª…ì€ í•´ë‹¹ ê¸°ëŠ¥ëª…ì„ ìž‘ì„±í•˜ëŠ”ê²Œ ì›ì¹™ì´ê³ , ë‚™íƒ€í‘œê¸°ë²•ì„ ë”°ë¦„
  
- @ ¸Þ¼ÒµåÀÇ ÇüÅÂ
+ @ ë©”ì†Œë“œì˜ í˜•íƒœ
  	public int sum(int a, int b){
  		int c;
  		c = a+b;
  		return c;
  	}
  	
- 	public ¹ÝÈ¯Çü ¸Þ¼Òµå¸í(¸Å°³º¯¼ö){
- 		ÄÚ	µå
- 	return ¹ÝÈ¯;
+ 	public ë°˜í™˜í˜• ë©”ì†Œë“œëª…(ë§¤ê°œë³€ìˆ˜){
+ 		ì½”	ë“œ
+ 	return ë°˜í™˜;
  	}
  	
-  # ¸Þ¼Òµå¸¦ ÀÛ¼ºÇÒ ¶§ Tip
-  -> ¼ø¼­´ë·Î ¸¸µé¸é ½±°Ô Á¦ÀÛÀÌ °¡´É ÇÔ
-  	1. ±âº»Æ²À» ÀÛ¼º ÇÔ
-  	2. ¸Þ¼Òµå¸íÀ» ¼öÁ¤ ÇÔ
-  	3. ¸Å°³º¯¼ö¸¦ ¼öÁ¤ ÇÔ
-  	4. ½ÌÇà ÄÚµå¸¦ ¼öÁ¤ ÇÔ
-  	5. ¸®ÅÏ µ¥ÀÌÅÍ Å¸ÀÔÀ» ¼öÁ¤ ÇÔ
+  # ë©”ì†Œë“œë¥¼ ìž‘ì„±í•  ë•Œ Tip
+  -> ìˆœì„œëŒ€ë¡œ ë§Œë“¤ë©´ ì‰½ê²Œ ì œìž‘ì´ ê°€ëŠ¥ í•¨
+  	1. ê¸°ë³¸í‹€ì„ ìž‘ì„± í•¨
+  	2. ë©”ì†Œë“œëª…ì„ ìˆ˜ì • í•¨
+  	3. ë§¤ê°œë³€ìˆ˜ë¥¼ ìˆ˜ì • í•¨
+  	4. ì‹±í–‰ ì½”ë“œë¥¼ ìˆ˜ì • í•¨
+  	5. ë¦¬í„´ ë°ì´í„° íƒ€ìž…ì„ ìˆ˜ì • í•¨
   	
- 	Caller : È£Ãâ ÇÑ ¸Þ¼Òµå
- 	Callee : È£Ãâ ´çÇÑ ¸Þ¼Òµå
+ 	Caller : í˜¸ì¶œ í•œ ë©”ì†Œë“œ
+ 	Callee : í˜¸ì¶œ ë‹¹í•œ ë©”ì†Œë“œ
  	
- 	public : Á¢±Ù Á¦¾îÀÚ 
- 	int : ¸®ÅÏ µ¥ÀÌÅÍ Å¸ÀÔ
- 	sum : ¸Þ¼Òµå ¸í
- 	(int x, int y) -> ¸Å°³ º¯¼ö(Parameter) ÀÎÀÚ ÀÎ¼ö(Argument)¸¦ ÀúÀåÇÏ´Â º¯¼ö
+ 	public : ì ‘ê·¼ ì œì–´ìž 
+ 	int : ë¦¬í„´ ë°ì´í„° íƒ€ìž…
+ 	sum : ë©”ì†Œë“œ ëª…
+ 	(int x, int y) -> ë§¤ê°œ ë³€ìˆ˜(Parameter) ì¸ìž ì¸ìˆ˜(Argument)ë¥¼ ì €ìž¥í•˜ëŠ” ë³€ìˆ˜
  	
- 	{ÄÚµå} : ÇØ´ç ¸Þ¼Òµå È£Ãâ ½Ã ½ÇÇàÇÏ´Â ÄÚµå
- 	return c; : È£ÃâÀÌ ³¡³ª¸é µ¹¾Æ°¥ ¶§ °¡Á®°¡´Â °ª
+ 	{ì½”ë“œ} : í•´ë‹¹ ë©”ì†Œë“œ í˜¸ì¶œ ì‹œ ì‹¤í–‰í•˜ëŠ” ì½”ë“œ
+ 	return c; : í˜¸ì¶œì´ ëë‚˜ë©´ ëŒì•„ê°ˆ ë•Œ ê°€ì ¸ê°€ëŠ” ê°’
  	
- 		* ¸Þ¼Òµå´Â ¸®ÅÏ °ªÀÌ ÀÖÀ» °æ¿ì ¸®ÅÏ µ¥ÀÌÅÍ Å¸ÀÔÀÌ ¸íÈ®ÇØ¾ß ÇÔ
- 		* ¸®ÅÏ °ªÀÌ ¾ø´Â °æ¿ì¿¡´Â void ÇüÀ» »ç¿ë ÇÔ
- 		* ¸Å°³º¯¼ö°¡ ¾ø´Â °æ¿ì¿¡´Â ¸Å°³ º¯¼ö ºÎºÐÀ» ºñ¿ö ³õÀ½ 
+ 		* ë©”ì†Œë“œëŠ” ë¦¬í„´ ê°’ì´ ìžˆì„ ê²½ìš° ë¦¬í„´ ë°ì´í„° íƒ€ìž…ì´ ëª…í™•í•´ì•¼ í•¨
+ 		* ë¦¬í„´ ê°’ì´ ì—†ëŠ” ê²½ìš°ì—ëŠ” void í˜•ì„ ì‚¬ìš© í•¨
+ 		* ë§¤ê°œë³€ìˆ˜ê°€ ì—†ëŠ” ê²½ìš°ì—ëŠ” ë§¤ê°œ ë³€ìˆ˜ ë¶€ë¶„ì„ ë¹„ì›Œ ë†“ìŒ 
  		
-  @ ¸Þ¼ÒµåÀÇ ±¸ºÐ
-  - ¸Þ¼Òµå´Â Àü´ÞÀÎÀÚ(Argument)¿Í ¹ÝÈ¯ °ª(return value)ÀÇ À¯¹«¿¡ µû¶ó 4°¡Áö À¯ÇüÀÌ ÀÖÀ½
+  @ ë©”ì†Œë“œì˜ êµ¬ë¶„
+  - ë©”ì†Œë“œëŠ” ì „ë‹¬ì¸ìž(Argument)ì™€ ë°˜í™˜ ê°’(return value)ì˜ ìœ ë¬´ì— ë”°ë¼ 4ê°€ì§€ ìœ í˜•ì´ ìžˆìŒ
   
-  1. Àü´ÞÀÎÀÚ(o), ¹ÝÈ¯°ª(o)
+  1. ì „ë‹¬ì¸ìž(o), ë°˜í™˜ê°’(o)
   		public int sum(int num1, int num2){
   			return num1 + num2;
   		}
   
-  2. Àü´ÞÀÎÀÚ(o), ¹ÝÈ¯°ª(x)
+  2. ì „ë‹¬ì¸ìž(o), ë°˜í™˜ê°’(x)
   		public void printValue(int value){
   			System.out.print(value);
   		}
   
-  3. Àü´ÞÀÎÀÚ(x), ¹ÝÈ¯°ª(o)
+  3. ì „ë‹¬ì¸ìž(x), ë°˜í™˜ê°’(o)
   		public int value(){
   			Scanner sc = new Scanner(System.in);
   			return sc.nextInt();
   		}
   		
-  4. Àü´ÞÀÎÀÚ(x), ¹ÝÈ¯°ª(x)
+  4. ì „ë‹¬ì¸ìž(x), ë°˜í™˜ê°’(x)
   		public void printOnly(){
-  			System.out.print("¼ö°íÇÏ¼Ì½À´Ï´Ù");
+  			System.out.print("ìˆ˜ê³ í•˜ì…¨ìŠµë‹ˆë‹¤");
   		}
   
-  @ ¸Þ¼ÒµåÀÇ ¸Þ¸ð¸® Ã³¸® 
-  - ¸Þ¼Òµå ¾È¿¡¼­ »ý¼ºµÇ´Â º¯¼öµéÀº ¸Þ¼Òµå¿¡¼­¸¸ »ç¿ëÀÌ °¡´ÉÇÔ
-  		- ÇØ´ç ¸Þ¼Òµå¿¡¼­¸¸ »ç¿ëÀÌ °¡´ÉÇÏ±â ¶§¹®¿¡ ÀÌ¸§ Áßº¹ ¹®Á¦°¡ ¹ß»ýÇÏÁö ¾ÊÀ½
+  @ ë©”ì†Œë“œì˜ ë©”ëª¨ë¦¬ ì²˜ë¦¬ 
+  - ë©”ì†Œë“œ ì•ˆì—ì„œ ìƒì„±ë˜ëŠ” ë³€ìˆ˜ë“¤ì€ ë©”ì†Œë“œì—ì„œë§Œ ì‚¬ìš©ì´ ê°€ëŠ¥í•¨
+  		- í•´ë‹¹ ë©”ì†Œë“œì—ì„œë§Œ ì‚¬ìš©ì´ ê°€ëŠ¥í•˜ê¸° ë•Œë¬¸ì— ì´ë¦„ ì¤‘ë³µ ë¬¸ì œê°€ ë°œìƒí•˜ì§€ ì•ŠìŒ
   
-  @ ¸Þ¼ÒµåÀÇ È£Ãâ ¹æ½Ä
-  - ¸Þ¼Òµå¸¦ È£ÃâÇÒ ¶§ ÀÎ¼ö(È¤Àº ÀÎÀÚ)¸¦ Àü´ÞÇÏ´Â ¹æ½Ä
+  @ ë©”ì†Œë“œì˜ í˜¸ì¶œ ë°©ì‹
+  - ë©”ì†Œë“œë¥¼ í˜¸ì¶œí•  ë•Œ ì¸ìˆ˜(í˜¹ì€ ì¸ìž)ë¥¼ ì „ë‹¬í•˜ëŠ” ë°©ì‹
   
- 	Àü´Þ¹æ½Ä¿¡ µû¸¥ È£Ãâ(Call by Value)
- 		-> ÀÎ¼öÀÇ °ªÀ» È£ÃâÇÑ ¸Þ¼Òµå¿¡ Àü´Þ
- 	ÂüÁ¶¿¡ ÀÇÇÑ È£Ãâ (Call By Reference)
- 		-> ÀÎ¼öÀÇ ÁÖ¼Ò¸¦ È£Ãâ ¸Þ¼Òµå¿¡ Àü´Þ
- 		-> ¿øº» °ª ¼öÁ¤ °¡´É
-  
-    
+ 	ì „ë‹¬ë°©ì‹ì— ë”°ë¥¸ í˜¸ì¶œ(Call by Value)
+ 		-> ì¸ìˆ˜ì˜ ê°’ì„ í˜¸ì¶œí•œ ë©”ì†Œë“œì— ì „ë‹¬
+ 	ì°¸ì¡°ì— ì˜í•œ í˜¸ì¶œ (Call By Reference)
+ 		-> ì¸ìˆ˜ì˜ ì£¼ì†Œë¥¼ í˜¸ì¶œ ë©”ì†Œë“œì— ì „ë‹¬
+ 		-> ì›ë³¸ ê°’ ìˆ˜ì • ê°€ëŠ¥
