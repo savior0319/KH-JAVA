@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*숫자 사각형 3*/
 import java.util.Scanner;
 
 public class TwoByArr {

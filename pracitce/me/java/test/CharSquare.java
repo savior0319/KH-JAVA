@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*문자 사각형 출력*/
 import java.util.Scanner;
 
 public class CharSquare {

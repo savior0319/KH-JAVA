@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*8비트 2진수 -> 10진수*/
 import java.util.Scanner;
 
 public class BinToDec {

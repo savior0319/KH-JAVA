@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*3개 값 정렬*/
 import java.util.Scanner;
 
 public class Sort_1 {

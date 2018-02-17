@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*2차원 배열 숫자출력*/
 import java.util.Scanner;
 
 public class CodeUpTest {

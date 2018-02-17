@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*로또 번호 출력*/
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;

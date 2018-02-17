@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*q입력시 프로그램 종료*/
 import java.util.Scanner;
 
 public class CodeUpTest02 {

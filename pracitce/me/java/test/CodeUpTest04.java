@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*문자 -> ASCII 코드 출력*/
 import java.util.Scanner;
 
 public class CodeUpTest04 {

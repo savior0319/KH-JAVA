@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*2진수 8진수 16진수 출력*/
 import java.util.Scanner;
 
 public class CodeUpTest06 {

@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*ÅõÇ¥*/
 import java.util.Scanner;
 
 public class CodeUpTest08 {

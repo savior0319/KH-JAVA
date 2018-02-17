@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*정렬 - Collections Framework - ArrayList 사용*/
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;

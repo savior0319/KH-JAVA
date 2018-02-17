@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*생년월일 출력*/
 import java.util.Scanner;
 
 public class CodeUpTest01 {

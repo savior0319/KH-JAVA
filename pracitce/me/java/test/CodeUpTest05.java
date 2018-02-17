@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*3개 입력 -> 합과 평균 출력*/
 import java.util.Scanner;
 
 public class CodeUpTest05 {

@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*가변 배열 아파트*/
 import java.util.Scanner;
 
 public class VarArrApart {

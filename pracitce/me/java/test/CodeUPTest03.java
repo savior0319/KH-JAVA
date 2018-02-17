@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*문자 - 한 글자씩 출력*/
 import java.util.Scanner;
 
 public class CodeUPTest03 {

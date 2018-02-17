@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*10진수 -> 2진수 출력*/
 import java.util.Scanner;
 
 public class DecToBin {

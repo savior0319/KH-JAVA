@@ -1,5 +1,5 @@
 package me.java.test;
-
+/*최대 값과 두번째로 큰 값 출력*/
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
