@@ -7,7 +7,7 @@ public class Ex6 {
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
-		int selelct = 0;
+		int select = 0;
 
 		while (true) {
 			System.out.println("<<<메뉴>>>");
@@ -17,16 +17,16 @@ public class Ex6 {
 			System.out.println("4. 삭제");
 			System.out.println("5. 종료");
 			System.out.print("선택 : ");
-			selelct = sc.nextInt();
+			select = sc.nextInt();
 
-			if (!(1 <= selelct && selelct <= 5)) {
+			if (!(1 <= select && select <= 5)) {
 				System.out.println("메뉴를 잘못선택했습니다\n");
 				continue;
 			} else
 				break;
 		}
 
-		switch (selelct) {
+		switch (select) {
 		case 1:
 			System.out.println("*** 입력이 정상적으로 되었습니다 ***");
 			break;
