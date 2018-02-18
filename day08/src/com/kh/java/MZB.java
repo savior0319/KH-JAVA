@@ -18,13 +18,15 @@ public class MZB {
 		/* rcpLoop = 가위 바위 보 반복 / mzbLoop1 = 묵찌빠 공격권 1 / mzbLoop2 = 묵찌빠 공격권2 */
 		String menu = "-----------묵찌빠 게임-----------\n";
 		String mbzMenu = "1. 묵  / 2. 찌  / 3. 빠\n선택 >>> ";
-		String rcpMenu = "1. 가위  / 2. 바위  / 3. 보\n선택 >>> ";
+		String rcpMenu = "1. 가위  / 2. 바위  / 3. 보  / 4. 종료\n선택 >>> ";
 		String lose = "졌습니다\n";
 		String win = "이겼습니다\n";
 		String draw = "비겼습니다\n\n-----가위 바위 보를 다시 합니다-----\n";
 		String restart = "다시시작 합니다";
 		String myTurn = "당신이 공격권을 가져갑니다!\n";
 		String comTurn = "컴퓨터가 공격권을 가져갑니다!\n";
+		String notNumErr = "숫자만 입력하세요!";
+		String exitMsg = "\n※종료합니다";
 
 		delay(menu);
 		// 가위 바위 보 (이기거나 질 때 까지 반복)
@@ -32,12 +34,22 @@ public class MZB {
 			mzbLoop1 = true;
 			mzbLoop2 = true;
 
-			delay(rcpMenu);
+			delay(rcpMenu);			
+			while(!sc.hasNextInt()) {
+				sc.next();
+				System.out.println("\n"+notNumErr+"\n");
+				delay(rcpMenu);
+			}
 			userRcp = sc.nextInt();
+			if(userRcp == 4) {
+				delay(exitMsg);
+				System.exit(0);
+			}
 			if (!(userRcp == 1 || userRcp == 2 || userRcp == 3)) {
 				System.out.println("\n***1~3까지만 입력하세요***\n");
 				continue;
 			}
+			
 			comRcp = rd.nextInt(3) + 1;
 
 			if (userRcp == 1) {
@@ -70,6 +82,11 @@ public class MZB {
 				delay(myTurn);
 				while (mzbLoop1) {
 					delay(mbzMenu);
+					while(!sc.hasNextInt()) {
+						sc.next();
+						System.out.println("\n"+notNumErr+"\n");
+						delay(mbzMenu);
+					}
 					userMzb = sc.nextInt();
 					if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
 						System.out.println("\n***1~3까지만 입력하세요***\n");
@@ -97,6 +114,11 @@ public class MZB {
 						mzbLoop1 = false;
 						while (mzbLoop2) {
 							delay(mbzMenu);
+							while(!sc.hasNextInt()) {
+								sc.next();
+								System.out.println("\n"+notNumErr+"\n");
+								delay(mbzMenu);
+							}
 							userMzb = sc.nextInt();
 							if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
 								System.out.println("\n***1~3까지만 입력하세요***\n");
@@ -135,6 +157,11 @@ public class MZB {
 				delay(comTurn);
 				while (mzbLoop2) {
 					delay(mbzMenu);
+					while(!sc.hasNextInt()) {
+						sc.next();
+						System.out.println("\n"+notNumErr+"\n");
+						delay(mbzMenu);
+					}
 					userMzb = sc.nextInt();
 					if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
 						System.out.println("\n***1~3까지만 입력하세요***\n");
@@ -157,6 +184,11 @@ public class MZB {
 						mzbLoop1 = true;
 						while (mzbLoop1) {
 							delay(mbzMenu);
+							while(!sc.hasNextInt()) {
+								sc.next();
+								System.out.println("\n"+notNumErr+"\n");
+								delay(mbzMenu);
+							}
 							userMzb = sc.nextInt();
 							if (!(userMzb == 1 || userMzb == 2 || userMzb == 3)) {
 								System.out.println("\n***1~3까지만 입력하세요***\n");
