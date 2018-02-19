@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Car{
 	Scanner sc = new Scanner(System.in);
-	@SuppressWarnings("unused")
 	private int startSpeed = 0, nowSpeed, Displacement;
 	private long price;
 	private double maxSpeed, fuelEconomy;
@@ -200,5 +199,13 @@ public class Car{
 	private void exit() {
 		System.out.println("\n※프로그램을 종료합니다");
 		System.exit(0);
+	}
+
+	public int getStartSpeed() {
+		return startSpeed;
+	}
+
+	public void setStartSpeed(int startSpeed) {
+		this.startSpeed = startSpeed;
 	}
 }

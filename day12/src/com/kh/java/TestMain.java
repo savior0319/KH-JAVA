@@ -12,7 +12,12 @@ public class TestMain {
 		
 		//new Monitor().start();
 		
-		new Car().start();
-	
+		Car c = new Car();
+//		c.setStartSpeed(30);
+		c.start();
+		
+//		new Car().start();
+//		TestClass tc = new TestClass();
+//		System.out.print(tc.temp);
 	}
 }
