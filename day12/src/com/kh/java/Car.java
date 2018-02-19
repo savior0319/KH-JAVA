@@ -2,19 +2,20 @@ package com.kh.java;
 
 import java.util.Scanner;
 
-public class Car {
+public class Car{
 	Scanner sc = new Scanner(System.in);
-	int startSpeed = 0, nowSpeed, Displacement;
-	long price;
-	double maxSpeed, fuelEconomy;
-	String carName = "", factory;
-	boolean carPower = false;
-
+	@SuppressWarnings("unused")
+	private int startSpeed = 0, nowSpeed, Displacement;
+	private long price;
+	private double maxSpeed, fuelEconomy;
+	private String carName = "", factory;
+	private boolean carPower = false;
+	
 	public void start() {
 		menu();
 	}
 
-	public void menu() {
+	private void menu() {
 		while (true) {
 			System.out.println("-------------<메뉴>-------------");
 			System.out.println("1. 차 정보 입력");
@@ -53,7 +54,7 @@ public class Car {
 		}
 	}
 
-	public void carInfoIn() {
+	private void carInfoIn() {
 		System.out.print("차 모델명을 입력하세요 : ");
 		carName = sc.next();
 		System.out.print("제조 회사를 입력하세요 : ");
@@ -90,7 +91,7 @@ public class Car {
 		System.out.println("\n----- " + carName + "이(가) 입력되었습니다 -----\n");
 	}
 
-	public void carInfoView() {
+	private void carInfoView() {
 		if (carName.equals("")) {
 			System.out.println("\n※조회할 정보가 없습니다!\n");
 		} else {
@@ -108,7 +109,7 @@ public class Car {
 		}
 	}
 
-	public void car(String str) {
+	private void car(String str) {
 		System.out.println("-------------<조회>-------------");
 		System.out.printf("모델명 : %s\n", carName);
 		System.out.printf("제조회사 : %s\n", factory);
@@ -120,7 +121,7 @@ public class Car {
 		System.out.println("-------------------------------");
 	}
 
-	public void carOnOff() {
+	private void carOnOff() {
 		if (carName.equals("")) {
 			System.out.println("\n※차가 없습니다!\n");
 		}
@@ -135,7 +136,7 @@ public class Car {
 
 	}
 
-	public void carDrive() {
+	private void carDrive() {
 		int choice;
 		if (carName.equals("")) {
 			System.out.println("\n※차가 없습니다!\n");
@@ -192,11 +193,11 @@ public class Car {
 		}
 	}
 
-	// public void carPrint() {
+	// private void carPrint() {
 	//
 	// }
 
-	public void exit() {
+	private void exit() {
 		System.out.println("\n※프로그램을 종료합니다");
 		System.exit(0);
 	}
