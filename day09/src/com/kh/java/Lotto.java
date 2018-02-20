@@ -87,10 +87,10 @@ public class Lotto {
 							System.out.println("                #\t#                ");
 							System.out.println("                #\t#################");
 							System.out.println("#################");
-							System.out.println("#               #\t###################");
-							System.out.println("#               #");
-							System.out.println("#               #\t ###############");
-							System.out.println("#               #\t#\t\t#");
+							System.out.println("#                \t###################");
+							System.out.println("#                ");
+							System.out.println("#                \t ###############");
+							System.out.println("#                \t#\t\t#");
 							System.out.println("#################\t ###############");
 							System.out.println("2등 현재까지 : " + totalCount + "번");
 							try {
