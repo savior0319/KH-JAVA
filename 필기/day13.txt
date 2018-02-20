@@ -68,6 +68,48 @@
  				int localVal; // 지역변수 
  			}
  		}
+ 		
+ 	@ final 키워드
+ 	-> 상수화 시키는 키워드
+ 	-> 변수 데이터 타입 앞에 final 키워드를 붙이면 상수화 시키겠다 라는 의미가 됨
+ 	
+ 	ex) final int A = 10; // 상수 a 
+ 		      int a = 10; 
+ 		      
+ 	-> static을 명시하면서 final 키워드를 붙이게 되면 어디서든 사용가능한 상수 라는 의미가 됨
+ 	ex) public static final int RED = 0xFF0000;
+ 	
+ 	※ 꼭 기억해야 하는것은 final 변수는 명명규칙에 의하여 대문자를 사용
+ 	
+ 	@ 메소드에 사용되는 static 키워드 와 final 키워드
+ 	-> 우리가 정적을 의미하는 키워드인 static을 메소드에 명시하게 되면
+ 	       해당 메소드는 이제 더이상 객체의 메소드가 아닌 클래스의 메소드가 되기 때문에 따로
+ 	       객체를 만들고 사용하지 않아도 됨(즉석 사용이 가능함)
+ 	       
+ 	-> 메소드에 final 키워드를 붙이게 되면 메소드 오버라이딩을 막겠다는 의미
+ 	-> 클래스에 final 키워드를 붙이게 되면 상속을 막겠다는 의미
+ 	
+ 	
+ 	@ has a 포함 관계
+ 	-> A has a B : A안에는 B가 포함되어있다
+ 	-> 자바에서 포함이란 재활용하고 싶은 클래스의 객체를 멤버변수로 선언하는 방법임
+ 	-> A 클래스 안에  B클래스 멤버 변수로 사용하겠다 라는 것
+ 	-> 자바에서는 데이터를 표현하는 클래스와 해당 데이터를 운영하는 클래스를 별도로 두고 있음
+ 		※ 기존에는 하나의 클래스 안에 데이터 저장과 운용을 한번에 했었음
+ 		
+ 		- 데이터가 되는 클래스 : Entitiy, VO, DTO
+ 		- 데이터를 컨트롤 하는 클래스 : Controller
+ 		
+ 	public Student{
+ 		private String name;
+ 		public void setName(String name) { this.name = name; } 
+ 		public String getName() { return this.name; } 
+ 	}
+ 	
+ 	public StuMgr{
+ 		private Student;
+ 	}
+ 	
  	
  	
  	

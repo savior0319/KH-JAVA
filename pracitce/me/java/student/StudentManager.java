@@ -34,6 +34,7 @@ public class StudentManager {
 			menuSel = sc.nextInt();
 			switch (menuSel) {
 			case 1:
+				System.out.println("\n-> 학생정보 입력 메뉴를 선택했습니다\n");
 				stdInfoIn();
 				break;
 			case 2:
@@ -129,9 +130,9 @@ public class StudentManager {
 					+ "------------------------------------------------");
 		}
 /*
-		System.out.println("******************************************");
+		System.out.println("==========================================");
 		System.out.println("1. 평균 오름차순정렬\t2. 평균 내림차순정렬");
-		System.out.println("******************************************");
+		System.out.println("==========================================");
 		System.out.print("선택 >> ");
 		while (!sc.hasNextInt()) {
 			sc.next();
