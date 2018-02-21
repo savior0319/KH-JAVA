@@ -29,31 +29,27 @@ public class Student {
 	public String getName() {
 		return name;
 	}
-	
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	
+
 	public String getAddr() {
 		return addr;
 	}
-	
+
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
-	
+
 	public char getGender() {
 		return gender;
 	}
-	
+
 	public void setGrade(double grade) {
 		this.grade = grade;
 	}
-	
+
 	public double getGrade() {
 		return grade;
 	}
-
-
-
 }
