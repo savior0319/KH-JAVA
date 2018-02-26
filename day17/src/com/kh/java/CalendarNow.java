@@ -2,7 +2,7 @@ package com.kh.java;
 
 import java.util.Calendar;
 
-public class Calen {
+public class CalendarNow {
 
 	public static void main(String[] args) {
 		Calendar cld = Calendar.getInstance();
