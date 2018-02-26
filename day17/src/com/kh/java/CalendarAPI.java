@@ -27,13 +27,8 @@ public class CalendarAPI {
 		long nowGetDay = nowCl.getTimeInMillis() / (60 * 60 * 24 * 1000);
 		long getDay = cl.getTimeInMillis() / (60 * 60 * 24 * 1000);
 		long differ = getDay - nowGetDay;
-		if(differ < 0) {
-		System.out.println(Math.abs(differ) + "일 지났습니다");
-		} else if (getDay == nowGetDay) {
-			System.out.println("D-Day입니다");
-		} else {
-			System.out.println(differ + "일 남았습니다");
-		}
-
+		if(differ < 0) { System.out.println(Math.abs(differ) + "일 지났습니다"); } 
+		else if (getDay == nowGetDay) { System.out.println("D-Day입니다"); } 
+		else { System.out.println(differ + "일 남았습니다"); }
 	}
 }
