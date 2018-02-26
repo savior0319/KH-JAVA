@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Random;
 
-public class SetLottoCollections {
+public class SetLottoCollections1 {
 	public static void main(String[] args) {
 		int temp, count = 1;
 

@@ -1,7 +1,5 @@
 package com.kh.java;
 
-import java.util.Set;
-
 public class TestMain {
 
 	public static void main(String[] args) {
@@ -9,5 +7,14 @@ public class TestMain {
 		double b = 0;
 		
 		System.out.println(Double.isFinite(a / b));
+		
+		
+		int i = 5000;
+		String str = String.valueOf(i);
+		System.out.println(str);
+		
+		String j = "5000";
+		int it = Integer.parseInt(j);
+		System.out.println(it);
 	}
 }
