@@ -2,7 +2,7 @@ package com.kh.java;
 
 import java.util.*;
 
-public class CalendarAPI {
+public class CalendarDDAY {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Calendar nowCl = Calendar.getInstance();
