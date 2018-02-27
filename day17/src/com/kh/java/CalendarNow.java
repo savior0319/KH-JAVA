@@ -7,7 +7,7 @@ public class CalendarNow {
 	public static void main(String[] args) {
 		Calendar cld = Calendar.getInstance();
 		int year = cld.get(Calendar.YEAR);
-		int month = cld.get(Calendar.MONTH);
+		int month = cld.get(Calendar.MONTH) + 1;
 		int day = cld.get(Calendar.DAY_OF_MONTH);
 		int week = cld.get(Calendar.DAY_OF_WEEK);
 		int hour = cld.get(Calendar.HOUR_OF_DAY);
