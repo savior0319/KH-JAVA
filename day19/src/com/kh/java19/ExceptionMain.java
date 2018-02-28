@@ -7,7 +7,7 @@ public class ExceptionMain {
 		try {
 			t.sum(0, 100);
 		} catch (NoZeroException e) {
-			System.out.println(e.getMessage());
+			System.out.println("¤·¤·¤· " + e.getMessage());
 		}
 	}
 

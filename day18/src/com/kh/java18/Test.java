@@ -16,12 +16,13 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Test extends JFrame implements ActionListener, KeyListener {
 	private int count = 0;
 	private Container ct = getContentPane();
 	private JLabel jlb = new JLabel("´©¸¥ È½¼ö : " + count);
-	private String path = "https://pbs.twimg.com/media/DUTT_lBVoAAp3nm.jpg";
+	private String path = "http://i.imgur.com/1ALnB2s.gif";
 	private ImageIcon imi = new ImageIcon();
 	private JButton jbt = new JButton();
 
@@ -68,6 +69,7 @@ public class Test extends JFrame implements ActionListener, KeyListener {
 		if (e.getSource() == jbt) {
 			count++;
 			jlb.setText("´©¸¥È½¼ö : " + count);
+			JOptionPane.showConfirmDialog(null, "Test");
 		}
 	}
 
