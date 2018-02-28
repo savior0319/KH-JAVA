@@ -1,0 +1,64 @@
+	
+	 @ Exception
+	 -> 예외
+	 -> 프로그래머가 만든 프로그램에서 예상한 정상적인 처리에서 벗어나는 경우를 예외 라고 볼 수 있음
+	 -> 이 때, 예외에 대한 처리를 해주어야 하는데 그것을 예외처리 라고 부름
+	 -> 자바에서 예외처리를 하기 위한 문법을 try ~ catch 구문 이라고 부름
+	 
+	 @ try ~ catch
+	 -> 예외 처리를 하기 위한 문법
+	 -> try는 반드시 예외 처리를 해야 하는 구문
+	 -> catch는 예외가 발생하면 실행되는 구문
+	 
+	 @ finally
+	 -> try 와 catch 구문에 관계 없이 무조건 실행되는 구문
+	 -> try와 catch 이후에만 사용할 수 있고, try 코드가 정상처리 되어도
+	 	finally 코드를 실행하고, catch(예외) 코드를 실행하게 되어도 finally 코드를 실행 함
+	 
+	 @ try ~ with ~ resource
+	 
+	 @ 예외의 종류
+	 Throwable : 예외의 가장 큰 조상
+	 Error : 프로그램 문제가 아닌 시스템 에러 (프로그램 개발자가 해결 할 수 없음)
+	 Exception : 프로그램 코드 문제로 발생하는 에러 (프로그램 개발자가 처리 해야 함)
+	 RuntimeException : 어플리케이션이 동작하는 도중에 발생하는 에러
+	 
+	 @ Checked Exception과 Unchecked Exception
+	 -> 예외처리는 크게 2가지로 설정 할 수 있음
+	 	- 강제화 할것인가? 아니면 선택 할 것인가?
+	 	
+	 -> Checked Exception은 예외처리를 강제화 시키는 것
+	 	- 즉, Checked Exception이 설정된 메소드는 사용시 강제로 try ~ catch 구문
+	 -> Unchecked Exception은 예외처리를 선택화 시키는 것
+	 	- 즉, Unchecked Exception이 설정된 메소드는 사용시 try ~ catch 구문
+	   	처리를 해도 되고 안해도 됨
+	   	
+	  @ Exception 확인하기
+	  -> Exception 처리를 할 때에는 가장 큰 Exception으로 처리 해도 되지만
+		  명확한 Exception 별로 처리하는것을 권장 함
+	  -> 이 때 어떠한 Exception 처리를 해야 할지 알기 위해서는 API Document 사이트에서
+	 	 해당 클래스에 대한 생성자나 메소드를 검색하면, 그 메소드가 어떠한 Exception을 발생시킬 가능성이 있는지를 확인 할 수 있음
+	 	 
+	  @ 사용자 정의 예외
+	  -> 표준 예외 클래스로도 많은 예외 상황을 표현할 수 있으니 그렇지 않은 경우도 있음
+	  	(예를 들어 숫자 1을 입력하면 예외를 발생시키고 싶으나 그러한 표준 예외는 없음)
+	  -> 사용자만의 예오히를 만들 수 있음
+	  -> 단, 예외를 만들기 전에는 checked Exception으로 만들것인지 아니면
+	  	unchecked Exception으로 만들 것인지 선택해야 함
+	  	
+	  	※ 사용자 예외를 만들기 위해서는 예외 클래스를 선택하여 상속 받아야 함
+	  	Exception을 상속 받게 되면 checked Exception 이 되고, RuntimeException을 상속 받게 되면 unchecked Exception이 됨
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
+	  	
