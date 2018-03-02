@@ -1,0 +1,84 @@
+
+ArrayList를 이용한 학생관리 프로그램 만들기
+-> CRUD가 기본 이루어져야 함
+	- C : Create (회원정보 입력)
+	- R : Read (회원정보 출력)
+	- U : Update (회원정보 수정)
+	- D : Delete (회원정보 삭제)
+
+프로젝트명 : collectionStudent
+
+패키지 : 
+
+student.vo		// vo 용
+	- Student 클래스
+
+student.view		// view 용
+	- StudentView 클래스
+
+student.controller	// controll
+	- StudentController 클래스
+
+student.run		// 실행용
+	- Main 클래스
+
+설명
+
+## 학생정보 클래스 : student.vo.Student.java
+
+필드(변수) - private
+- classNumber 	: int		// 학번
+- name		: String	// 이름
+- age		: int		// 나이
+- address	: String	// 주소
+- grade		: double	// 학점
+
+기본 메소드 - public
+- getter, setter, 생성자
+
+
+
+## 프로그램 view 클래스 : student.view.StudentView.java
+
+기본 메소드 - public
+-> mainMemu 메소드 (다음 메뉴 출력및 선택)
+	1. 학생 전체 정보 출력
+	2. 학생 정보 조회(학번)
+	3. 학생 정보 입력
+	4. 학생 정보 변경
+	5. 학생 삭제
+	0. 프로그램 종료
+
+-> selectAll 메소드 (학생 전체 출력 메소드 - 로직은 컨트롤러에서 하고, 결과 출력만 담당)
+-> selectOne 메소드 (학생 한명 조회 메소드 - 로직은 컨트롤러에서 하고, 결과 출력만 담당)
+-> insertStudent 메소드 (학생 정보 입력 메소드 - 로직은 컨트롤러에서 하고, 결과 출력만 담당)
+-> updateStudent 메소드 (학생 정보 변경 메소드 - 로직은 컨트롤러에서 하고, 결과 출력만 담당)
+-> deleteStudent 메소드 (학생 정보 삭제 메소드 - 로직은 컨트롤러에서 하고, 결과 출력만 담당)
+
+
+
+## 프로그램 controller 클래스 : student.controller.StudentController.java
+
+필드(변수) - private
+-> ArrayList<Student> 생성 (학생 정보 저장용)
+
+메소드 - public
+-> public ArrayList<Student> selectAll()  // 학생 전체 조회 메소드
+-> public Student selectOne(int classNumber)  // 학생 한명 조회 메소드
+-> public void insertStudent(Student s)  //학생 입력 메소드
+-> public void updateStudent(Student oldStudent, Student newStudent) // 학생 정보 변경 메소드
+-> public void deleteStudent(int classNumber)  // 학생 정보 삭제 메소드
+
+
+## 시작용 클래스 : student.run.Main.java
+-> view 메소드 생성 및 mainMenu 호출
+
+
+
+
+
+
+
+
+
+
