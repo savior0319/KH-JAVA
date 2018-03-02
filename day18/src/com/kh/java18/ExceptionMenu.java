@@ -34,18 +34,16 @@ public class ExceptionMenu {
 
 	public void start() {
 		int choice = 0;
+
 		this.menuPrint();
-		// while(!sc.hasNextInt()) {
-		// sc.next();
-		// System.out.println("숫자만 입력하세요!");
-		// System.out.print("입력 : ");
-		// }
-		// choice = sc.nextInt();
-		try {
-			choice = sc.nextInt();
-		} catch (InputMismatchException e) {
-			System.out.println("숫자만 입력하세요");
+		while (true) {
+			try {
+				choice = sc.nextInt();
+			} catch (InputMismatchException e) {
+				sc = new Scanner(System.in);
+				System.out.println("숫자만 입력하세요");
+			}
+			ExceptionDemo1_Print(choice);
 		}
-		ExceptionDemo1_Print(choice);
 	}
 }
