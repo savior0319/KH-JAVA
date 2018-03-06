@@ -1,6 +1,9 @@
 package com.kh.java22;
 
-public class studentVO {
+import java.io.Serializable;
+
+public class studentVO implements Serializable {
+	private static final long serialVersionUID = 6756020705713379646L;
 	private String name, address;
 	private int age;
 	private final String desktopPath = System.getProperty("user.home") + "/Desktop/Student.txt"; 

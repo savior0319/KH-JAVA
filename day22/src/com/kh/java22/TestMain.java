@@ -5,8 +5,9 @@ public class TestMain {
 		//new FileWrite();
 		//new FileReaderTest();
 		//new StudentRW();
-		new GifStream().fileLoad();
-		
+		//new GifStream().fileLoad();
+		//new FileSearch();
+		new FolderFileSearch();
 		//		byte a = (byte)(Integer.parseInt("FF",16));
 		//		System.out.println(a);
 	}
