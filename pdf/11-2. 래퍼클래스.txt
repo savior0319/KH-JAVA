@@ -1,0 +1,139 @@
+
+
+@ Wrapper 클래스
+-> 기본 자료형을 객체화 해주는 클래스 
+-> 기본 자료형의 데이터를 포장하여 표현하기 때문에 Wrapper Class가 부름
+-> 객체지향 언어에서는 이루어져 있는 전반적인 것들이 객체이기 때문에 객체로만 처리할 수 있는 것들이 있음
+	- 그렇기 때문에 String도 객체 그외 나머지도 객체
+-> 하지만 객체가 아니것들이 존재함 (기본 자료형 - byte,char,short,int,long,float,double,boolean)
+-> 기본 자료형들은 단순히 데이터의 타입을 명시하는것이기 때문에 객체가 아닌 단순 자료형으로만 존재하는 것임
+-> 하지만 이러한 문제로 인하여 객체만 처리 가능한 상황에서는 기본 자료형을 쓸수가 없게 됨
+	(객체만 처리 가능한 부분은 후에 Generic에서 보게 됩니다.)
+-> 그래서 기본 자료형을 객체로 감싸(Wrapper)서 객체화 해주는 클래스를 Wrapper 클래스 라고 부름
+
+
+## 기본 자료형 ##
+boolean
+byte
+char
+short
+int
+long
+float
+double
+
+
+## Wrapper Class ##
+Boolean
+Byte
+Character
+Short
+Integer
+Long
+Float
+Double
+
+
+## 기본형으로 래퍼 클래스 생성 ##
+
+Boolean bool = new Boolean(true);
+Byte b = new Byte((byte)1);
+Character c = new Character(‘A’);
+Short s = new Short((short)2);
+Integer age = new Integer(30);
+Long l = new Long(100L);
+Float f =new Float(0.7f);
+Double d = new Double(0.75);
+
+
+
+@ 오토박싱(Auto Boxing)과 오토언박싱 (Auto Unboxing)
+-> 랩퍼 클래스 안에 기본 자료형 데이터를 넣거나 혹은 빼낼때에는 박싱과 언박싱 작업을 해주어야 함
+
+박싱 : Integer num = new Integer(10);
+언박싱 : int n = num.intValue();
+
+-> 하지만 실제 사용할때에는 자동(오토)으로 박싱과 언박싱 처리를 함
+
+## 오토박싱 ##
+기본 자료형에서 Wrapper 클래스로 자동 변환되는 것을 오토박싱이라고 함
+
+Wrapper 클래스를 사용하려면 아래와 같아야 함
+ex) Integer num = new Integer(10);
+오토박싱 -> Integer num = 10;
+
+
+## 오토언박싱 ##
+Wrapper 클래스에서 기본자료형으로 자동 변환되는 것을 오토 언박싱 이라고 함
+
+ex) int n = num.intValue();
+오토언박싱 -> int n = num;
+
+
+
+
+
+
+@ 래퍼 클래스를 이용한 문자열 처리
+- 래퍼클래스를 이용하면 문자열 -> 기본 자료형 , 기본 자료형 -> 문자열로 변경이 가능함
+
+## 문자열 -> 기본 자료형 ##
+
+String data = "999";
+int i = Integer.parseInt(data);
+
+
+
+## 기본 자료형 -> 문자열 ##
+
+int i = 999;
+String data = Integer.valueOf(i).toString();
+
+혹은
+
+int i = 999;
+String data = String.valueOf(i);
+
+
+				
+
+
+@ 래퍼클래스 실습
+
+
+다음 Calculator interface를 상속 받아 계산할 수 있는 클래스를 만드시오
+그리고 실행용 클래스에서 작동할 수 있도록 만들어 보시오
+
+ex)
+연산자 입력(+,-,*,/) : +
+첫번째 숫자 입력 : 10
+두번째 숫자 입력 : 20
+
+10 + 20 = 30
+
+
+public static void main(String [] args)
+{
+	new Calculator().start();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

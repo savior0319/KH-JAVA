@@ -1,0 +1,67 @@
+
+
+@ 숫자와 문자
+-> 자바와 같은 프로그래밍에서는 숫자와 문자는 무엇보다도 많이 사용하게 된다.
+-> 그러므로 우리는 자바에서 어떻게 숫자를 표현하고 문자를 표현하는지
+기본적으로 숙지 하고 있어야 한다.
+
+우리가 자바에서 사용하는 데이터의 종류는 다양하지만 표준적으로 4가지가 있음
+
+정수		: 소수점을 포함하지 않은 수
+실수		: 소수점을 포함한 수
+문자		: ' ' 안에 표현한 문자
+문자열		: " " 안에 표현한 문자
+	
+	※ 문자는 1글자만 표기할 수 있고, 문자열은 1글자 이상을 표기할 수 있음
+	※ 문자는 사실상 하나의 숫자값임 (초반에 배운 아스키코드값 기억하세요!)
+
+
+자바에서는 숫자는 있는 그대로 쓰고, 문자는 ' ' 안에 넣는다.
+System.out.println(1);		// 숫자 1
+System.out.println(1.1);	// 실수 1.1
+System.out.println('1');	// 문자 1
+System.out.println("1");	// 문자열 1
+
+
+System.out.println(1 + 1);  	// 무엇이 출력 될까? (정답은 2)
+System.out.println(1.1 + 1.1);	// 무엇이 출력 될까? (정답은 2.2)
+System.out.println('1'+'1');	// 무엇이 출력 될까? (정답은 98 -> 아스키코드값 더하기임)
+System.out.println("1" + "1");	// 무엇이 출력 될까? (정답은 11 -> +는 문자열을 이어줌)
+
+
+
+System.out.println("MS" + "Love");  // MSLOVE 라는 문자열로 출력이 됨
+
+
+	※ 문자열이 우선순위가 높기 때문에 + 할시 다른 값들도 문자열로 자동 변환 함
+
+
+ex)
+
+		System.out.println("Hello" + 'q');		// Helloq
+		System.out.println("Hello" + 10);		// Hello10
+		System.out.println("Hello" + 3.14);		// Hello3.14
+		System.out.println(10+"Hello");			// 10Hello
+		System.out.println(10+20+"Hello");		// 30Hello
+		System.out.println(10+(20+"Hello"));		// 1020Hello
+		System.out.println(10+"Hello"+20);		// 10Hello20
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

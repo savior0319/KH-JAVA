@@ -1,0 +1,259 @@
+
+
+@ Object Class
+-> 자바에서 상속은 필수적임, 상속을 하지 않아도 암묵적인 상속을 하고 있음
+	- 우리가 실제로 클래스를 만들기만 해도 자동으로 Object라는 클래스를 상속 받음
+-> Object Class는 모든 Class의 조상 Class 임
+
+ex)
+
+class Test
+{
+	
+}
+
+-> 위에 클래스를 만들고 객체 new Test() 를 하여 레퍼런스로 객체에 접근하여 보자
+그때 우리는 만든적이 없는 메소드들이 있는것을 확인할 수 있음
+
+-> 사실 암묵적으로 모든 클래스는 extends Object 를 하고 있는 것임
+-> 그 이유는 클래스라면 공통적으로 포함하고 있어야 하는 기능을 제공 해야 하기 때문 임
+
+Object 클래스의 계층 구조를 보여줌
+※ https://docs.oracle.com/javase/8/docs/api/index.html?overview-summary.html
+
+
+
+-> 자바에서는 Object 클래스를 상속 받음으로써 몇개의 다양한 메소드 기능들을
+제공함
+-> 그 중 우리는 몇가지만 보도록 할 것임
+	- toString, clone, hashcode, equals 만 볼 것임
+
+
+
+
+@ toString
+-> Object 클래스에 속해 있는 toString 메소드
+
+package kr.or.iei.ObjectClass;
+
+class TestObject
+{
+	
+}
+
+public class ObjectDemo2 {
+
+	public static void main(String[] args) {
+		TestObject o = new TestObject();
+		System.out.println(o);//kr.or.iei.ObjectClass.TestObject@7852e922 이러한 정보가 나옴
+		System.out.println(o.toString()); // 위에 값과 같은것이 나옴
+		// o 를 작성하게 되면 자바는 내부적으로 toString이라는 메소드를 자동으로 호출하도록 약속 되어 있음
+	}
+}
+
+
+해당 인스턴스를 println으로 출력하여 정보를 보게 되면
+kr.or.iei.ObjectClass.TestObject@7852e922 이러한 정보가 나오게 됨
+
+
+kr.or.iei.ObjectClass.  : 여기 까지는 해당 패키지 명
+TestObject : 클래스명
+@ : 의미 없음 (구분자 정도)
+7852e922 : 인스턴스를 식별하기 위한 값 (인스턴스들마다 다른값을 가지게 됨)
+
+그리고 또한 TestObject 클래스안에는 toString 이라는 메소드는 없다
+그렇다면 어디서 온것일까?
+바로 모든 Class는 Object 라는 클래스를 상속 받고 있기 때문이다.
+toString 이라는 메소드는 Object의 메소드 이다. 
+
+
+
+
+ex)
+
+class Ms
+{
+	public Ms(){		
+	}
+}
+
+
+	Ms m1 = new Ms(); // Ms 객체 생성
+	Ms m2 = new Ms(); // Ms 객체 생성
+	System.out.println(m1); // m1 값 출력 (자동으로 toString 메소드 호출)
+	System.out.println(m1.hashCode()); // hashCode 값 출력
+	System.out.println(Integer.toHexString(m1.hashCode())); // hashcode를 16진수로 변경
+		
+	System.out.println(m2); // m2 값 출력 (자동으로 toString 메소드 호출)
+	System.out.println(m2.hashCode()); // hashCode 값 출력
+	System.out.println(Integer.toHexString(m2.hashCode())); // hashcode를 16진수로 변경
+
+
+
+
+-> toString은 오버라이딩 하여 사용 가능함
+
+
+ex)
+
+class Ms
+{
+	public Ms(){	}
+	public String toString() {
+		String introduce = super.toString() + "\n패키지명 : " 
+				+ super.getClass() +"\n인스턴스주소 : " 
+				+  Integer.toHexString(super.hashCode()) + "\n";
+		return introduce;
+	}
+}
+
+
+		Ms m1 = new Ms(); // Ms 객체 생성
+		Ms m2 = new Ms(); // Ms 객체 생성
+		System.out.println(m1); // m1 값 출력 (자동으로 toString 메소드 호출)
+		System.out.println(m2); // m2 값 출력 (자동으로 toString 메소드 호출)
+
+
+
+@ hashcode
+-> 객체를 구별하기 위해 고유한 정수값으로 출력시켜주는 메소드
+-> hashcode값은 흔히들 객체의 주소값으로 오해하고 있지만 실질적으로는
+해당 되는 값을 hash알고리즘으로 계산하여 나온 값을 의미함
+-> 같은 객체는 같은 값을 갖고 다른 객체는 다른 값을 갖음
+
+
+
+
+
+
+@ clone
+-> clone은 복제 라는 뜻을 가지고 있음
+-> Object Class 안에는 clone 이라는 메소드를 가지고 있기 때문에
+객체 자체를 복제하여 다른 객체에서도 사용하려면 clone을 사용 해야 함
+-> 하지만 Object 클래스의 메소드 중 clone을 확인해 보면 (API 참조)
+메소드가 public이 아닌 protected로 되어 있음 (즉, 다른 패키지에서는 사용 불가함)
+-> 그렇기 때문에 오버라이딩 해서 새롭게 정의 해야함
+-> clone 메소드를 만들때에는 Cloneable interface를 상속 받아서 해야 함
+	- Cloneable은 복제 가능한 Class라는 사실을 JVM에 알려주기 위한 구분자
+	(자바에서는 아무런 클래스나 복제 할 수 있는 것은 아니기 때문임)
+
+
+class CloneTest{
+	private int data;
+	CloneTest(){}
+	CloneTest(int data){this.data = data;}
+	public int getData() {return data;}
+	public void setData(int data) {this.data = data;}
+}
+
+
+public static void main(String[] args)  {
+		CloneTest c1 = new CloneTest(10);
+		CloneTest c2;
+		c2 = c1.clone();
+		
+}
+
+=> 현재 위에 코드는 에러가 발생함 (clone 메소드를 사용할 수 없으므로)
+
+
+class CloneTest implements Cloneable{
+	private int data;
+	CloneTest(){}
+	CloneTest(int data){this.data = data;}
+	public int getData() {return data;}
+	public void setData(int data) {this.data = data;}
+	public Object clone() throws CloneNotSupportedException {
+			//CloneNotSupportedException 을 throws 해주어야 함
+		return super.clone();
+		// 부모의 clone 메소드를 통해 객체를 새롭게 만들어서 
+		// 새롭게 만든 객체의 주소값을 리턴 하는 것임
+		// 이때 clone 메소드는 native 이므로 실제 코드는 볼 수 없음
+	}
+}
+
+=> 실행용 클래스 main 코드 
+
+	public static void main(String[] args)  {
+		CloneTest c1 = new CloneTest(10);
+		CloneTest c2 = null;
+		try {
+			c2 = (CloneTest)c1.clone(); //복사하여 가져온 객체 주소를 c2에 대입
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+		}
+		System.out.println(c2.getData());
+}
+
+
+
+
+
+
+
+
+@ equals
+-> equals는 객체와 객체가 같은 것인지를 비교하는 메소드
+
+
+	String str1 = new String("Hello");
+	String str2 = new String("Hello");
+		
+	System.out.println(str1.hashCode());
+	System.out.println(str2.hashCode());
+		
+	if(str1==str2) {
+		System.out.println("객체가 같습니다.");
+	}
+	else{
+		System.out.println("객체가 다릅니다.");
+	}
+
+-> 분명 hashCode는 같지만 실제 객체는 다르기 때문에 다르다고 출력이 됨
+만약 String의 경우 데이터(String)가 같은지를 비교 하고 싶다면
+아래 코드와 같이 작성 하면 됨
+
+
+		String str1 = new String("Hello");
+		String str2 = new String("Hello");
+		
+		System.out.println(str1.hashCode());
+		System.out.println(str2.hashCode());
+		
+		if(str1.equals(str2)) {
+			System.out.println("객체가 같습니다.");
+		}
+		else{
+			System.out.println("객체가 다릅니다.");
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
