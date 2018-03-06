@@ -39,7 +39,6 @@ public class SerializableVC {
 	}
 
 	public void load() {
-
 		try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(desktopPath))) {
 			try {
 				sv = (SerializableVO) (ois.readObject());
