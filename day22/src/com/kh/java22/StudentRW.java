@@ -1,6 +1,11 @@
 package com.kh.java22;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class StudentRW {
@@ -36,7 +41,7 @@ public class StudentRW {
 			System.out.println("\n※ 정보를 불러왔습니다\n");
 		} catch (FileNotFoundException e) {
 			System.out.println("\n※ 불러올 파일이 없습니다\n");
-		}
+		} 
 	}
 
 	public void save() {
@@ -46,9 +51,7 @@ public class StudentRW {
 			bw.write(str);
 			bw.close();
 			System.out.println("\n※ 저장되었습니다\n");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		} catch (IOException e) {}
 	}
 
 	public void print() {
@@ -74,6 +77,8 @@ public class StudentRW {
 		} else if (stvo.getName() == null) {
 			System.out.println("\n※ 저장된 정보가 없습니다\n");
 		}
+		try {br.close();} 
+		catch (IOException e) {}
 	}
 
 	public void insert() {
