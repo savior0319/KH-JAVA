@@ -14,14 +14,14 @@ public class TCPServerSoket {
 		Socket csk = null;
 		final int PORT = 5606;
 		try {
-			ssk = new ServerSocket(PORT); // server sokcet
+			ssk = new ServerSocket(PORT);
 			System.out.println("클라이언트 대기중...");
-			csk = ssk.accept(); // client socket
+			csk = ssk.accept(); 
 			System.out.println(csk.getInetAddress() + " 클라이어트가 접속했습니다");
-			OutputStream out = csk.getOutputStream();// out - main stream
+			OutputStream out = csk.getOutputStream();//
 			InputStream in = csk.getInputStream();
-			DataOutputStream dos = new DataOutputStream(out); // slave stream
-			dos.writeUTF("※ [알림]서버에 오신것을 환영합니다\n");// to client
+			DataOutputStream dos = new DataOutputStream(out);
+			dos.writeUTF("※ [알림]채팅 서버에 입장했습니다!\n");
 			while (true) {
 				Date date = new Date();
 				SimpleDateFormat sdf = new SimpleDateFormat("[hh:mm:ss]");
