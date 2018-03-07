@@ -111,7 +111,7 @@
 	 	ex) ServerSocket ss = new ServerSocket(7777);
 	 3. 클라이언트 쪽에서 접속 요청이 오길 기다림
 	 4. 접속 요청이 오면 요청을 수락하고 해당 클라이언트에 대한 소켓 객체를 생성함
-	 	Socket ClientSockey = serverSocket.accept();
+	 	Socket ClientSocket = serverSocket.accept();
 	 	
 	 5. 연결된 클라이언트와 입출력 스트림을 생성함
 	 InputStream input 스트림 레퍼런스 = 클라이언트 소켓 레퍼런스.getInputStream();
@@ -131,6 +131,18 @@
 	 	
 	 	## 출력용 스트림 ##
 	 	PrintWriter 레퍼런스 = new PrintWriter(Output 스트림 레퍼런스);
+	 	
+	 6. 스트림을 통한 읽고 쓰기를 함
+	 	ex) dis.readUTF():
+	 	ex) dos.writeUTF("안녕");
+	 	
+	 	읽기용 레퍼런스.read() 또는 읽기용 레퍼런스.readLine() 가능
+	 	쓰기용 레퍼런스.println() 가능
+	 	
+	7. 통신 종료 (스트림 정리)
+		입력 스트림 레퍼런스.close();
+		출력 스트림 레퍼런스.close();
+		소켓 레퍼런스.close();
 	 
 	 ## 클라이언트용 소켓 ##
 	 
