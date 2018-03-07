@@ -1,4 +1,4 @@
-package kh.java.server.socket;
+package kh.java.client.socket;
 
 import java.io.*;
 import java.net.*;
@@ -6,27 +6,24 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
-public class TCPServerSoket {
-	public TCPServerSoket() {
+public class TCPClientSocket {
+	public TCPClientSocket() {
 
 		Scanner sc = new Scanner(System.in);
-		ServerSocket ssk = null;
-		Socket csk = null;
 		final int PORT = 5606;
+		final String SERVER_IP = "localhost";
+		Socket csk = null;
 		try {
-			ssk = new ServerSocket(PORT); // server sokcet
-			System.out.println("클라이언트 대기중...");
-			csk = ssk.accept(); // client socket
-			System.out.println(csk.getInetAddress() + " 클라이어트가 접속했습니다");
-			OutputStream out = csk.getOutputStream();// out - main stream
+			csk = new Socket(SERVER_IP, PORT);
+			System.out.println("서버와의 연결이 되었습니다");
 			InputStream in = csk.getInputStream();
-			DataOutputStream dos = new DataOutputStream(out); // slave stream
-			dos.writeUTF("※ [알림]서버에 오신것을 환영합니다\n");// to client
+			OutputStream out = csk.getOutputStream();
 			while (true) {
 				Date date = new Date();
 				SimpleDateFormat sdf = new SimpleDateFormat("[hh:mm:ss]");
 				String time = sdf.format(date);
 				DataInputStream dis = new DataInputStream(in);
+				DataOutputStream dos = new DataOutputStream(out);
 				String data = dis.readUTF();
 				System.out.println(time + " 상대 -> " + data);
 				System.out.print(time + " 나 -> ");
@@ -37,12 +34,13 @@ public class TCPServerSoket {
 				}
 				dos.writeUTF(send);
 			}
+		} catch (UnknownHostException e) {
+			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		} finally {
 			try {
 				csk.close();
-				ssk.close(); // client socket, server socket close
 			} catch (IOException e) {
 				System.out.println(e.getMessage());
 			}

@@ -145,6 +145,41 @@
 		소켓 레퍼런스.close();
 	 
 	 ## 클라이언트용 소켓 ##
+	
+	1. 서버가 정한 포트번호와 서버의 IP 주소가 필요함
+		ex) String server IpAddress = "127.0.0.1" / 127.0.0.1은 루프백 주소
+		ex) int serverPort = 7777;
+		
+	2. 클라이언트용 소켓 객체를 생성함
+		Socket 소켓 레퍼런스 = new Socket(서버 IP, 포트번호);
+		// 객체 생성 시 서버와 자동 연결 요청함
+		// 연결이 실패하면 null 값이 리턴됨
+		// 연결을 끊고 나서 다시 연결을 원할때는 connect() 메소드를 사용
+		ex) Socket socket = new Socket(serverIpAddress.serverPort);
+		
+	3. 서버와의 입출력 스트림을 생성
+		InputStream input스트림 레퍼런스 = 소켓 레퍼런스.getInputStream();
+		OutputStream out스트림 레퍼런스 = 소켓 레퍼런스.getOutputStream();
+		
+		ex) InputStream in = socket.getInputStream();
+		
+	3-1. 보조 스트림을 활용하여 성능 개선도 할 수 있음
+		ex) DataInputStream dis = new DataInputStream(in);
+		
+		
+	4. 스트림을 통한 읽고 쓰기
+		읽기용 레퍼런스.read() 또는 읽기용 레퍼런스.readLint();
+		쓰기용 레퍼런스.println();
+		
+		한글 처리를 위하여 readUTF 메소드와 writeUTF 메소드를 추천
+		
+		ex) dos.writeUTF
+		ex) dis.readUTF();
+		
+	5. 통신을 종료하려면
+		입력 스트림 레퍼런스.close();
+		출력 스트림 레퍼런스.close();
+		소켓 레퍼런스.close();
 	 
 	 
 	 
