@@ -31,15 +31,15 @@ public class TCPServerSocket {
 			SimpleDateFormat clientJoinSdf = new SimpleDateFormat("[HH:mm:ss]");
 			String clientJoinTime = clientJoinSdf.format(clientJoinDate);
 			System.out.println("\n" + clientJoinTime + " " + csk.getInetAddress() + " 클라이어트가 채팅서버에 접속했습니다");
-			OutputStream out = csk.getOutputStream();//
+			OutputStream out = csk.getOutputStream();
 			InputStream in = csk.getInputStream();
 			DataOutputStream dos = new DataOutputStream(out);
+			DataInputStream dis = new DataInputStream(in);
 			dos.writeUTF("※ [알림]채팅 서버에 입장했습니다!");
 			while (true) {
 				Date date = new Date();
 				SimpleDateFormat sdf = new SimpleDateFormat("[HH:mm:ss]");
 				String nowTime = sdf.format(date);
-				DataInputStream dis = new DataInputStream(in);
 				String receive = dis.readUTF();
 				if (receive.equals("exit")) {
 					System.out.println("※ 종료합니다\n");
