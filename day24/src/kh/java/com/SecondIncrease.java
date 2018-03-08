@@ -2,7 +2,7 @@ package kh.java.com;
 
 import java.util.Scanner;
 
-public class SecondIncrease extends Thread {
+public class SecondIncrease implements Runnable {
 	@Override
 	public void run() {
 		while (true) {

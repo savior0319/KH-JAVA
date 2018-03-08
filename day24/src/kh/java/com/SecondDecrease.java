@@ -1,8 +1,9 @@
 package kh.java.com;
 
-public class SecondDecrease extends Thread {
-	public static int second = 30;
+import org.omg.CORBA.PUBLIC_MEMBER;
 
+public class SecondDecrease implements Runnable {
+	public static int second = 30;
 	@Override
 	public void run() {
 		while (second != 0) {
