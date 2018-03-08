@@ -17,8 +17,6 @@ public class TCPClientSocket implements Runnable {
 	@Override
 	public void run() {
 		try {
-		
-
 				Scanner sc = new Scanner(System.in);
 				final int PORT = 5606;
 				final String SERVER_IP = "localhost";
