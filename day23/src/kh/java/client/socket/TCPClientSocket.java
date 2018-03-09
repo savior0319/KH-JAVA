@@ -18,8 +18,8 @@ public class TCPClientSocket implements Runnable {
 	public void run() {
 		try {
 				Scanner sc = new Scanner(System.in);
-				final int PORT = 5606;
-				final String SERVER_IP = "localhost";
+				final int PORT = 49318;
+				final String SERVER_IP = "192.168.10.43";
 				Socket csk = null;
 				try {
 					csk = new Socket(SERVER_IP, PORT);
