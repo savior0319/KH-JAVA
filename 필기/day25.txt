@@ -121,4 +121,54 @@
 		-> JPanel 안에 JPanel을 포함한 다양한 컴포넌트를 배치할 수 있음
 		-> 실제 다양한 컴포넌트들을 Frame에 직접 배치하기 보다
 			여러개의 Panel을 생성하여 Panel에 각 각의 역할에 맞는 컴포넌트를 추가함
-						
+			
+			
+		## 패널 생성 및 추가 ##
+			private JPanel p1 = new JPanel();
+			private JPanel p2 = new JPanel();
+			private JButton button1 = new JButton("버튼1");
+			private JButton button2 = new JButton("버튼2");
+		
+		
+				p1.setSize(465,200);
+				p1.setLocation(10, 10);
+				p1.setBackground(Color.green);
+				p1.add(button1);
+				p2.setSize(465,200);
+				p2.setLocation(10, 220);
+				p2.setBackground(Color.yellow);
+				p2.add(button2);
+				this.add(p1);
+				this.add(p2);
+		
+		
+		※ 패널을 생성하여 각 컴포넌트들을 담을 수 있음
+		
+		@ JScrollPane
+		-> 단 하나의 컴포넌트만 포함할 수 있는 종속적인 컨테이너
+		-> 제한된 공간에서 큰 컴포넌트를 화면에 보여줄 때 사용 함
+		
+		@ JDialog
+		-> JFrame과 같은 독립적인 컨테이너, titlebar와 닫기 버튼을 가지고 있음
+		-> 주로 화면에 추가적인 메세지창을 보여주거나 사용자로부터 입력을 받을 때 사용
+		
+		
+		@ JFileChooser
+		-> 파일을 열거나 저장할 때 사용하는 Dialog
+		
+		if (e.getActionCommand().equals("파일열기")) {
+			JFileChooser jc1 = new JFileChooser();
+			int choiceVal1 = jc1.showOpenDialog(this);
+			if (choiceVal1 == JFileChooser.APPROVE_OPTION) {
+				JOptionPane.showMessageDialog(null, "선택한 파일 -> " + jc1.getSelectedFile().getName());
+			}
+		} else if (e.getActionCommand().equals("파일저장")) {
+			JFileChooser jc2 = new JFileChooser();
+			int choiceVal2 = jc2.showSaveDialog(this);
+			if (choiceVal2 == JFileChooser.APPROVE_OPTION) {
+				JOptionPane.showMessageDialog(null, "선택한 파일 -> " + jc2.getSelectedFile().getName());
+			}
+		}
+		
+		
+

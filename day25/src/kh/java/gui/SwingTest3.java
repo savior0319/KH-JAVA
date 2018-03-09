@@ -1,10 +1,9 @@
 package kh.java.gui;
 
-import java.awt.Color;
-import java.awt.Container;
+import java.awt.*;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import com.sun.xml.internal.bind.v2.schemagen.xmlschema.TypeHost;
 
 public class SwingTest3 extends JFrame {
 
@@ -16,6 +15,7 @@ public class SwingTest3 extends JFrame {
 	private JPanel jpn4 = new JPanel();
 	private JPanel jpn5 = new JPanel();
 	private JPanel jpn6 = new JPanel();
+	private JButton jbn1 = new JButton("버튼");
 
 	public SwingTest3() {
 		setTitle("스윙테스트");
@@ -28,6 +28,7 @@ public class SwingTest3 extends JFrame {
 		jpn1.setBackground(Color.RED);
 		jpn1.setSize(765, 200);
 		jpn1.setLocation(10, 10);
+		jbn1.setBounds(300, 100, 200, 40);
 
 		jpn2.setBackground(Color.YELLOW);
 		jpn2.setSize(375, 200);
@@ -55,6 +56,7 @@ public class SwingTest3 extends JFrame {
 		this.add(jpn4);
 		this.add(jpn5);
 		this.add(jpn6);
+		this.add(jbn1);
 	}
 
 	public static void main(String[] args) {
