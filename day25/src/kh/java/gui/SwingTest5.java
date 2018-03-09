@@ -5,6 +5,8 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -68,9 +70,9 @@ public class SwingTest5 extends JFrame implements ActionListener {
 			String getId = jtf.getText();
 			char[] getPwd = jpwf.getPassword();
 			String pwd = new String(getPwd);
-			if(getId.equals("admin")&& pwd.equals("admin")) {
+			if (getId.equals("admin") && pwd.equals("admin")) {
 				JOptionPane.showMessageDialog(null, "로그인에 성공했습니다");
-			} else if(!(getId.equals("admin") || pwd.equals("admin"))){
+			} else if (!(getId.equals("admin") || pwd.equals("admin"))) {
 				JOptionPane.showMessageDialog(null, "아이디 또는 비밀번호를 잘못입력했습니다");
 			}
 		}

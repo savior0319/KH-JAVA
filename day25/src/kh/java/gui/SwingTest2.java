@@ -17,6 +17,7 @@ public class SwingTest2 extends JFrame {
 
 	private Container ct = getContentPane();
 	private JLabel jlb = new JLabel("당신은 흡연자 입니까?", JLabel.CENTER);
+	private JLabel jlb1 = new JLabel("당신은 흡연충 입니까?", JLabel.CENTER);
 	private ButtonGroup bg = new ButtonGroup();
 	private JRadioButton btnYes = new JRadioButton("네");
 	private JRadioButton btnNO = new JRadioButton("아니오");
@@ -54,6 +55,7 @@ public class SwingTest2 extends JFrame {
 		
 		ct.add(jpn1, BorderLayout.NORTH);
 		ct.add(jpn2, BorderLayout.CENTER);
+		ct.add(jlb1, BorderLayout.SOUTH);
 	}
 
 	public static void main(String[] args) {
