@@ -61,7 +61,7 @@ public class BaseballServer {
 				dos.writeUTF(send);
 				System.out.print(strike + " 스트라이크 ");
 				System.out.println(ball + " 볼");
-				if(strike == 3) {
+				if (strike == 3) {
 					System.out.println("※ 클라이언트가 정답을 맞췄습니다\n 종료합니다!");
 					dos.close();
 					dis.close();
@@ -80,6 +80,5 @@ public class BaseballServer {
 				System.out.println(e.getMessage());
 			}
 		}
-
 	}
 }
