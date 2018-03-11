@@ -36,8 +36,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JPanel jpn = new JPanel();
 	private JPanel jpnLinePanel = new JPanel();
 	private Thread thread;
-	private SimpleDateFormat sdf = new SimpleDateFormat("a hh:mm:ss YYYY-MM-dd");
-	private String time = sdf.format(new Date());
+	private SimpleDateFormat sdf;
+	private String time;
 
 	public Memo() {
 		setTitle("메모장");
@@ -117,8 +117,10 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			JFileChooser jc = new JFileChooser();
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
-			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
-			jc.addChoosableFileFilter(filter);
+			FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
+			FileNameExtensionFilter filterLog = new FileNameExtensionFilter("로그 파일(.log)", "log");
+			jc.addChoosableFileFilter(filterTxt);
+			jc.addChoosableFileFilter(filterLog);
 			int result = jc.showSaveDialog(this);
 			String getText = jta.getText();
 			if (result == 0) {
@@ -134,8 +136,10 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			JFileChooser jc = new JFileChooser();
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
-			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
-			jc.addChoosableFileFilter(filter);
+			FileNameExtensionFilter filterTxt = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
+			FileNameExtensionFilter filterLog = new FileNameExtensionFilter("로그 파일(.log)", "log");
+			jc.addChoosableFileFilter(filterTxt);
+			jc.addChoosableFileFilter(filterLog);
 			int result = jc.showOpenDialog(this);
 			String loadText = new String();
 			String read = "";
@@ -163,6 +167,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		try {
 			while (true) {
 				Thread.sleep(1);
+				sdf = new SimpleDateFormat("a hh:mm:ss YYYY-MM-dd");
+				time = sdf.format(new Date());
 				String countText = jta.getText();
 				count = countText.length();
 				for (int i = 0; i < count; i++) {
