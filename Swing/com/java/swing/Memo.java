@@ -102,10 +102,11 @@ public class Memo extends JFrame implements ActionListener {
 			jc.addChoosableFileFilter(filter);
 			int result = jc.showSaveDialog(this);
 			String getText = jta.getText();
+			
 			if (result == 0) {
 				try (BufferedWriter bw = new BufferedWriter(new FileWriter(jc.getSelectedFile() + ".txt"))) {
-					bw.write(getText + System.lineSeparator());
-					bw.newLine();
+					getText = getText.replace("\n", System.lineSeparator());
+					bw.write(getText);
 				} catch (IOException e1) {
 					System.out.print(e1.getMessage());
 				}
