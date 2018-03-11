@@ -3,6 +3,7 @@ package com.java.swing;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,6 +17,7 @@ import java.io.IOException;
 
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -26,9 +28,11 @@ import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-public class Memo extends JFrame implements ActionListener {
+public class Memo extends JFrame implements ActionListener, Runnable {
 
 	private Container ct = getContentPane();
+	private int count = 0;
+	private String getText = new String();
 	private JMenuBar jMenuBar;
 	private JMenu jMenuFile;
 	private JMenu jMenuInfo;
@@ -36,10 +40,12 @@ public class Memo extends JFrame implements ActionListener {
 	private JMenuItem menuItemLoad;
 	private JMenuItem menuItemExit;
 	private JMenuItem menuItemInfo;
+	private JLabel jlbCounter = new JLabel("현재 글자 수 : " + count);
 	private JTextArea jta = new JTextArea();
 	private JScrollPane jsp = new JScrollPane(jta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	private JPanel jpn = new JPanel();
+	private Thread thread;
 
 	public Memo() {
 		setTitle("메모장");
@@ -84,8 +90,14 @@ public class Memo extends JFrame implements ActionListener {
 
 		jta.setLineWrap(true);
 
+		jlbCounter.setFont(new Font("굴림", Font.PLAIN, 15));
+
 		ct.add(jsp, BorderLayout.CENTER);
 		ct.add(jpn, BorderLayout.SOUTH);
+		ct.add(jlbCounter, BorderLayout.SOUTH);
+
+		thread = new Thread(this);
+		thread.start();
 	}
 
 	public static void main(String[] args) {
@@ -101,8 +113,7 @@ public class Memo extends JFrame implements ActionListener {
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
 			jc.addChoosableFileFilter(filter);
 			int result = jc.showSaveDialog(this);
-			String getText = jta.getText();
-			
+			getText = jta.getText();
 			if (result == 0) {
 				try (BufferedWriter bw = new BufferedWriter(new FileWriter(jc.getSelectedFile() + ".txt"))) {
 					getText = getText.replace("\n", System.lineSeparator());
@@ -137,5 +148,25 @@ public class Memo extends JFrame implements ActionListener {
 		} else if (e.getActionCommand().equals("메모장 정보")) {
 			JOptionPane.showMessageDialog(null, "만든사람\nAHJ");
 		}
+	}
+
+	@Override
+	public void run() {
+		try {
+			while (true) {
+				Thread.sleep(1);
+				String countText = jta.getText();
+				count = countText.length();
+				int MaxEnter = Integer.MAX_VALUE;
+				String nextline[] = getText.split("\n", MaxEnter);
+				int nlc = nextline.length;
+				jlbCounter.setText("현재 글자 수 : " + (count - nlc + 1));
+			}
+		}
+
+		catch (Exception e) {
+			System.out.print(e.getMessage());
+		}
+
 	}
 }
