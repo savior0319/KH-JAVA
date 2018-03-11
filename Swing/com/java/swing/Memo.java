@@ -78,7 +78,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 		/* 메뉴바 - 편집 */
 		menuItemInputTime = new JMenuItem("현재 시간 입력");
-		menuItemInputTime.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F5, ActionEvent.CTRL_MASK));
+		menuItemInputTime.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F5, 0));
 		menuItemInputTime.addActionListener(this);
 		jMenuEdit.add(menuItemInputTime);
 
