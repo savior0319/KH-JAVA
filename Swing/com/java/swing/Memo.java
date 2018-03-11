@@ -92,8 +92,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 		jta.setLineWrap(true);
 
-		jlbCounter.setFont(new Font("±¼¸²", Font.PLAIN, 15));
-		jlbNoneSpace.setFont(new Font("±¼¸²", Font.PLAIN, 15));
+		jlbCounter.setFont(new Font("±¼¸²", Font.BOLD, 15));
+		jlbNoneSpace.setFont(new Font("±¼¸²", Font.BOLD, 15));
 
 		jpnLinePanel.setLayout(new GridLayout(1, 2));
 		jpnLinePanel.add(jlbCounter);
