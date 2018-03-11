@@ -1,38 +1,17 @@
 package com.java.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.KeyStroke;
-import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.swing.*;
+import javax.swing.filechooser.*;
 
 public class Memo extends JFrame implements ActionListener, Runnable {
 
 	private Container ct = getContentPane();
-	private int count = 0;
-	private String getText = new String();
+	private int count = 0, space = 0;
+	private JLabel jlbCounter = new JLabel("공백포함 글자 수 : " + count);
+	private JLabel jlbNoneSpace = new JLabel("공백제외 글자 수 : " + count);
 	private JMenuBar jMenuBar;
 	private JMenu jMenuFile;
 	private JMenu jMenuInfo;
@@ -40,17 +19,17 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JMenuItem menuItemLoad;
 	private JMenuItem menuItemExit;
 	private JMenuItem menuItemInfo;
-	private JLabel jlbCounter = new JLabel("현재 글자 수 : " + count);
 	private JTextArea jta = new JTextArea();
 	private JScrollPane jsp = new JScrollPane(jta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	private JPanel jpn = new JPanel();
+	private JPanel jpnLinePanel = new JPanel();
 	private Thread thread;
 
 	public Memo() {
 		setTitle("메모장");
-		setSize(500, 500);
-		setMinimumSize(new Dimension(300, 300));
+		setSize(500, 600);
+		setMinimumSize(new Dimension(350, 350));
 		setResizable(true);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,10 +70,15 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		jta.setLineWrap(true);
 
 		jlbCounter.setFont(new Font("굴림", Font.PLAIN, 15));
+		jlbNoneSpace.setFont(new Font("굴림", Font.PLAIN, 15));
+
+		jpnLinePanel.setLayout(new GridLayout(1, 2));
+		jpnLinePanel.add(jlbCounter);
+		jpnLinePanel.add(jlbNoneSpace);
 
 		ct.add(jsp, BorderLayout.CENTER);
 		ct.add(jpn, BorderLayout.SOUTH);
-		ct.add(jlbCounter, BorderLayout.SOUTH);
+		ct.add(jpnLinePanel, BorderLayout.SOUTH);
 
 		thread = new Thread(this);
 		thread.start();
@@ -113,10 +97,10 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
 			jc.addChoosableFileFilter(filter);
 			int result = jc.showSaveDialog(this);
-			getText = jta.getText();
+			String getText = jta.getText();
 			if (result == 0) {
 				try (BufferedWriter bw = new BufferedWriter(new FileWriter(jc.getSelectedFile() + ".txt"))) {
-					getText = getText.replace("\n", System.lineSeparator());
+					getText = getText.replace("\n", "\r\n");
 					bw.write(getText);
 				} catch (IOException e1) {
 					System.out.print(e1.getMessage());
@@ -142,7 +126,6 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 					System.out.print(e1.getMessage());
 				}
 			}
-
 		} else if (e.getActionCommand().equals("종료")) {
 			System.exit(0);
 		} else if (e.getActionCommand().equals("메모장 정보")) {
@@ -157,16 +140,20 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 				Thread.sleep(1);
 				String countText = jta.getText();
 				count = countText.length();
+				for (int i = 0; i < count; i++) {
+					if (countText.charAt(i) == '\u0020') {
+						space++;
+					}
+				}
 				int MaxEnter = Integer.MAX_VALUE;
-				String nextline[] = getText.split("\n", MaxEnter);
+				String nextline[] = countText.split("\n", MaxEnter);
 				int nlc = nextline.length;
-				jlbCounter.setText("현재 글자 수 : " + (count - nlc + 1));
+				jlbCounter.setText("공백포함 글자 수 : " + (count));
+				jlbNoneSpace.setText("공백제외 글자수 : " + (count - space - nlc + 1));
+				space = 0;
 			}
-		}
-
-		catch (Exception e) {
+		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
-
 	}
 }
