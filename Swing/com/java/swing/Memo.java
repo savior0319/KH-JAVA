@@ -152,7 +152,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		} else if (e.getActionCommand().equals("종료")) {
 			System.exit(0);
 		} else if (e.getActionCommand().equals("메모장 정보")) {
-			JOptionPane.showMessageDialog(null, "만든사람\nAHJ");
+			JOptionPane.showMessageDialog(null, "AHJ");
 		} else if (e.getActionCommand().equals("현재 시간 입력")) {
 			jta.append(time);
 		}
