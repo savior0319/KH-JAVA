@@ -2,9 +2,18 @@ package com.java.swing;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.ImageObserver;
+import java.awt.image.ImageProducer;
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.swing.*;
 import javax.swing.filechooser.*;
+
+import com.sun.org.apache.bcel.internal.generic.NEW;
+import com.sun.swing.internal.plaf.metal.resources.metal_zh_TW;
+import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
 
 public class Memo extends JFrame implements ActionListener, Runnable {
 
@@ -15,16 +24,20 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JMenuBar jMenuBar;
 	private JMenu jMenuFile;
 	private JMenu jMenuInfo;
+	private JMenu jMenuEdit;
 	private JMenuItem menuItemSave;
 	private JMenuItem menuItemLoad;
 	private JMenuItem menuItemExit;
 	private JMenuItem menuItemInfo;
+	private JMenuItem menuItemInputTime;
 	private JTextArea jta = new JTextArea();
 	private JScrollPane jsp = new JScrollPane(jta, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 			JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	private JPanel jpn = new JPanel();
 	private JPanel jpnLinePanel = new JPanel();
 	private Thread thread;
+	private SimpleDateFormat sdf = new SimpleDateFormat("a hh:mm:ss YYYY-MM-dd");
+	private String time = sdf.format(new Date());
 
 	public Memo() {
 		setTitle("메모장");
@@ -32,11 +45,14 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		setMinimumSize(new Dimension(350, 350));
 		setResizable(true);
 		setLocationRelativeTo(null);
+		// setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\savior\\OneDrive\\바탕
+		// 화면\\memo.png"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		jMenuBar = new JMenuBar();
 		jMenuFile = new JMenu("파일");
 		jMenuInfo = new JMenu("정보");
+		jMenuEdit = new JMenu("편집");
 
 		/* 메뉴바 - 파일 */
 		menuItemSave = new JMenuItem("저장");
@@ -60,7 +76,14 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		menuItemInfo.addActionListener(this);
 		jMenuInfo.add(menuItemInfo);
 
+		/* 메뉴바 - 편집 */
+		menuItemInputTime = new JMenuItem("현재 시간 입력");
+		menuItemInputTime.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F5, ActionEvent.CTRL_MASK));
+		menuItemInputTime.addActionListener(this);
+		jMenuEdit.add(menuItemInputTime);
+
 		jMenuBar.add(jMenuFile);
+		jMenuBar.add(jMenuEdit);
 		jMenuBar.add(jMenuInfo);
 		setJMenuBar(jMenuBar);
 
@@ -130,6 +153,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			System.exit(0);
 		} else if (e.getActionCommand().equals("메모장 정보")) {
 			JOptionPane.showMessageDialog(null, "만든사람\nAHJ");
+		} else if (e.getActionCommand().equals("현재 시간 입력")) {
+			jta.append(time);
 		}
 	}
 
