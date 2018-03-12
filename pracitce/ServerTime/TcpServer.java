@@ -1,4 +1,4 @@
-package testServerClient;
+package ServerTime;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,6 +17,7 @@ public class TcpServer implements Runnable {
 	int count = 1;
 
 	public TcpServer() {
+
 		thread = new Thread(this);
 		thread.start();
 	}
@@ -32,12 +33,10 @@ public class TcpServer implements Runnable {
 			ssk = new ServerSocket(PORT);
 			while (true) {
 				csk = ssk.accept();
-				TcpThread tt = new TcpThread(csk);
+				TmeThread tt = new TmeThread(csk);
 				tt.start();
 				System.out.print(csk.getInetAddress() + " 가 서버에 접속 했습니다!");
 				System.out.println(" <현재 접속자수> -> " + count++);
-				dos = new DataOutputStream(csk.getOutputStream());
-				dos.writeUTF("서버에 접속했습니다");
 			}
 
 		} catch (IOException e) {

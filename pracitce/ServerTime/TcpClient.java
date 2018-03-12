@@ -1,4 +1,4 @@
-package testServerClient;
+package ServerTime;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
