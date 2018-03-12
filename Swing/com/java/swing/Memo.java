@@ -210,7 +210,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 		/* 메뉴바 - 정보 */
 		menuItemInfo = new JMenuItem("메모장 정보");
-		menuItemInfo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, ActionEvent.CTRL_MASK));
+		menuItemInfo.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F1, 0));
 		menuItemInfo.addActionListener(this);
 		jMenuInfo.add(menuItemInfo);
 
