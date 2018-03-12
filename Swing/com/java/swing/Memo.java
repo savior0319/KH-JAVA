@@ -2,6 +2,7 @@ package com.java.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -19,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -53,6 +55,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JMenu jMenuFile;
 	private JMenu jMenuInfo;
 	private JMenu jMenuEdit;
+	private JMenu jMenuSet;
 	private JMenuItem menuItemSave;
 	private JMenuItem menuItemLoad;
 	private JMenuItem menuItemExit;
@@ -60,6 +63,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JMenuItem menuItemNew;
 	private JMenuItem menuItemAutoNewLine;
 	private JMenuItem menuItemInputTime;
+	private JMenuItem menuItemChangeFont;
 
 	private boolean isAutoNewLineFlag = false;
 
@@ -74,28 +78,30 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 	private Thread thread;
 
+	private JDialog jdlogSetFont = new JDialog();
+
 	public void panel1() {
 		JPanel jpCounter = new JPanel();
 		JPanel jpTab = new JPanel();
-		
+
 		jpCounter.setLayout(new GridLayout(1, 2));
 		jlbCounter.setFont(new Font("맑은고딕", Font.PLAIN, 15));
 		jlbNoneSpace.setFont(new Font("맑은고딕", Font.PLAIN, 15));
 		jpCounter.add(jlbCounter);
 		jpCounter.add(jlbNoneSpace);
-		
+
 		jpTab.setLayout(new GridLayout(1, 2));
-		
+
 		jp1.setBackground(Color.WHITE);
 		jp1.setLayout(new BorderLayout());
-		
+
 		jbtAddTab.setFont(new Font("맑은고딕", Font.BOLD, 15));
 		jbtRemoveTab.setFont(new Font("맑은고딕", Font.BOLD, 15));
 		jpTab.add(jbtAddTab);
 		jpTab.add(jbtRemoveTab);
-		
-		jta[0] = new JTextArea();
 
+		jta[0] = new JTextArea();
+		jta[0].setFont(new Font("맑은고딕", Font.PLAIN, 13));
 		jp1.add(jsp[0] = new JScrollPane(jta[0], JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED), BorderLayout.CENTER);
 		jp1.add(jpTab, BorderLayout.NORTH);
@@ -151,16 +157,22 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	}
 
 	public Memo() {
-		Font font = new Font("맑은고딕", Font.PLAIN, 13);
-		UIManager.put("Menu.font", font);
-		UIManager.put("MenuItem.font", font);
+		/* 기본 레이아웃 글꼴 변경 */
+		Font font1 = new Font("맑은고딕", Font.PLAIN, 13);
+		Font font2 = new Font("맑은고딕", Font.PLAIN, 14);
+		UIManager.put("Menu.font", font1);
+		UIManager.put("MenuItem.font", font1);
+		UIManager.put("OptionPane.messageFont", font2);
+		UIManager.put("OptionPane.buttonFont", font2);
 
+		/* 기본 프레임 설정 */
 		setTitle("메모장");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setSize(650, 800);
 		setMinimumSize(new Dimension(350, 350));
 		setLocationRelativeTo(null);
 
+		/* 메뉴바 */
 		jMenuBar = new JMenuBar();
 		jMenuFile = new JMenu("파일(F)");
 		jMenuFile.setMnemonic(KeyEvent.VK_F);
@@ -168,13 +180,15 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		jMenuInfo.setMnemonic(KeyEvent.VK_O);
 		jMenuEdit = new JMenu("편집(E)");
 		jMenuEdit.setMnemonic(KeyEvent.VK_E);
+		jMenuSet = new JMenu("서식(S)");
+		jMenuSet.setMnemonic(KeyEvent.VK_S);
 
 		/* 메뉴바 - 파일 */
 		menuItemNew = new JMenuItem("새 메모");
 		menuItemNew.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_N, ActionEvent.CTRL_MASK));
 		menuItemNew.addActionListener(this);
 		jMenuFile.add(menuItemNew);
-		
+
 		jMenuFile.addSeparator();
 
 		menuItemSave = new JMenuItem("저장");
@@ -186,7 +200,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		menuItemLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
 		menuItemLoad.addActionListener(this);
 		jMenuFile.add(menuItemLoad);
-		
+
 		jMenuFile.addSeparator();
 
 		menuItemExit = new JMenuItem("종료");
@@ -211,13 +225,31 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		menuItemAutoNewLine.addActionListener(this);
 		jMenuEdit.add(menuItemAutoNewLine);
 
+		/* 메뉴바 - 서식 */
+		menuItemChangeFont = new JMenuItem("글꼴");
+		menuItemChangeFont.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_F2, 0));
+		menuItemChangeFont.addActionListener(this);
+		jMenuSet.add(menuItemChangeFont);
+
+		/* 메뉴바 프레임 추가 */
 		jMenuBar.add(jMenuFile);
 		jMenuBar.add(jMenuEdit);
+		jMenuBar.add(jMenuSet);
 		jMenuBar.add(jMenuInfo);
 		setJMenuBar(jMenuBar);
 
+		/* 글꼴 편집기 - JDialog */
+		jdlogSetFont.setTitle("글꼴 편집기");
+		jdlogSetFont.setSize(250, 150);
+		jdlogSetFont.setModal(true);
+		jdlogSetFont.setResizable(false);
+		jdlogSetFont.setAlwaysOnTop(true);
+		jdlogSetFont.setLocationRelativeTo(null);
+
+		/* 기본 패널 */
 		panel1();
 
+		/* 글자 수 체크 & 현재시간 Thread */
 		thread = new Thread(this);
 		thread.start();
 
@@ -229,17 +261,19 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
+
 		int nowTab = jTap.getSelectedIndex();
+
 		if (e.getActionCommand().equals("저장")) {
 			JFileChooser jc = new JFileChooser();
+			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
 			jc.addChoosableFileFilter(filter);
 			int result = jc.showSaveDialog(this);
 			String getText = jta[nowTab].getText();
-			
+
 			if (result == 0) {
 				try (BufferedWriter bw = new BufferedWriter(new FileWriter(jc.getSelectedFile() + ".txt"))) {
 					getText = getText.replace("\n", "\r\n");
@@ -250,8 +284,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			}
 
 		} else if (e.getActionCommand().equals("불러오기")) {
-			
 			JFileChooser jc = new JFileChooser();
+			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
@@ -259,7 +293,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			int result = jc.showOpenDialog(this);
 			String loadText = new String();
 			String read = "";
-			
+
 			if (result == 0) {
 				try (BufferedReader br = new BufferedReader(new FileReader(jc.getSelectedFile()))) {
 					while ((read = br.readLine()) != null) {
@@ -281,6 +315,20 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			jta[nowTab].setText("");
 		} else if (e.getActionCommand().equals("자동 줄 바꿈")) {
 			autoNewLine();
+		} else if (e.getActionCommand().equals("글꼴")) {
+			jdlogSetFont.setVisible(true);
+		}
+	}
+
+	public void setChooserFont(Component[] component) {
+		Font fontChooser = new Font("맑은고딕", Font.PLAIN, 12);
+		for (int x = 0; x < component.length; x++) {
+			if (component[x] instanceof Container)
+				setChooserFont(((Container) component[x]).getComponents());
+			try {
+				component[x].setFont(fontChooser);
+			} catch (Exception e) {
+			}
 		}
 	}
 
