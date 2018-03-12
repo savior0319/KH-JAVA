@@ -269,8 +269,10 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
-			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
-			jc.addChoosableFileFilter(filter);
+			FileNameExtensionFilter filterText = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
+			FileNameExtensionFilter filterJava = new FileNameExtensionFilter("자바 파일(.java)", "java");
+			jc.addChoosableFileFilter(filterText);
+			jc.addChoosableFileFilter(filterJava);
 			int result = jc.showSaveDialog(this);
 			String getText = jta[nowTab].getText();
 
@@ -288,8 +290,10 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
 			jc.removeChoosableFileFilter((jc.getFileFilter()));
-			FileNameExtensionFilter filter = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
-			jc.addChoosableFileFilter(filter);
+			FileNameExtensionFilter filterText = new FileNameExtensionFilter("텍스트 파일(.txt)", "txt");
+			FileNameExtensionFilter filterJava = new FileNameExtensionFilter("자바 파일(.java)", "java");
+			jc.addChoosableFileFilter(filterText);
+			jc.addChoosableFileFilter(filterJava);
 			int result = jc.showOpenDialog(this);
 			String loadText = new String();
 			String read = "";
