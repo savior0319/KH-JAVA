@@ -7,11 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.net.*;
   
-public class TabCloseTest extends JFrame implements ActionListener {
+public class MemoPad extends JFrame implements ActionListener {
    JTabbedPane tabbedPane;
    int ntabs = 0;
   
-   public TabCloseTest() {
+   public MemoPad() {
       getContentPane().setLayout(new BorderLayout());
       tabbedPane = new JTabbedPane();
       tabbedPane.setUI(new CustomTabbedPaneUI());
@@ -80,7 +80,7 @@ public class TabCloseTest extends JFrame implements ActionListener {
    }
   
    public static void main(String []args) {
-	   TabCloseTest main = new TabCloseTest();
+	   MemoPad main = new MemoPad();
 	   main.setVisible(true);
    }
 }
