@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -34,6 +35,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.KeyStroke;
 import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Memo extends JFrame implements ActionListener, Runnable {
@@ -44,9 +46,6 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 	private JPanel jp1 = new JPanel();
 	private JPanel jp[] = new JPanel[5];
-
-	private JButton jbtAddTab = new JButton("탭 추가");
-	private JButton jbtRemoveTab = new JButton("탭 제거");
 
 	private JTextArea jta[] = new JTextArea[5];
 	private JScrollPane jsp[] = new JScrollPane[5];
@@ -61,9 +60,12 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	private JMenuItem menuItemExit;
 	private JMenuItem menuItemInfo;
 	private JMenuItem menuItemNew;
+	private JMenuItem menuItemAddNewTab;
+	private JMenuItem menuItemDeleteTab;
 	private JMenuItem menuItemAutoNewLine;
 	private JMenuItem menuItemInputTime;
 	private JMenuItem menuItemChangeFont;
+	private JComboBox<String> jcBox = new JComboBox<String>();
 
 	private boolean isAutoNewLineFlag = false;
 
@@ -95,11 +97,6 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		jp1.setBackground(Color.WHITE);
 		jp1.setLayout(new BorderLayout());
 
-		jbtAddTab.setFont(new Font("맑은고딕", Font.BOLD, 15));
-		jbtRemoveTab.setFont(new Font("맑은고딕", Font.BOLD, 15));
-		jpTab.add(jbtAddTab);
-		jpTab.add(jbtRemoveTab);
-
 		jta[0] = new JTextArea();
 		jta[0].setFont(new Font("맑은고딕", Font.PLAIN, 13));
 		jp1.add(jsp[0] = new JScrollPane(jta[0], JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
@@ -107,8 +104,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		jp1.add(jpTab, BorderLayout.NORTH);
 		jp1.add(jpCounter, BorderLayout.SOUTH);
 
-		jbtAddTab.addActionListener(e -> {
-			if (e.getSource() == jbtAddTab) {
+		menuItemAddNewTab.addActionListener(e -> {
+			if (e.getSource() == menuItemAddNewTab) {
 				try {
 					addpanel();
 				} catch (Exception e1) {
@@ -117,8 +114,8 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 				}
 			}
 		});
-		jbtRemoveTab.addActionListener(e -> {
-			if (e.getSource() == jbtRemoveTab) {
+		menuItemDeleteTab.addActionListener(e -> {
+			if (e.getSource() == menuItemDeleteTab) {
 				if (tabCount > 0) {
 					jTap.remove(tabCount);
 					tabCount--;
@@ -127,7 +124,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 			}
 		});
-		jTap.addTab("메모1", null, jp1, "Text");
+		jTap.addTab("메모1", null, jp1, "메모장");
 		ct.add(jTap);
 	}
 
@@ -152,7 +149,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		} catch (Exception e) {
 			JOptionPane.showMessageDialog(null, "최대 사이즈 5", "경고", JOptionPane.ERROR_MESSAGE);
 		}
-		jTap.addTab("메모" + (tabCount + 1), null, jp[tabCount], "Text");
+		jTap.addTab("메모" + (tabCount + 1), null, jp[tabCount], "메모장");
 
 	}
 
@@ -189,14 +186,24 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		menuItemNew.addActionListener(this);
 		jMenuFile.add(menuItemNew);
 
+		menuItemAddNewTab = new JMenuItem("새 탭 추가하기");
+		menuItemAddNewTab.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_T, ActionEvent.CTRL_MASK));
+		menuItemAddNewTab.addActionListener(this);
+		jMenuFile.add(menuItemAddNewTab);
+
+		menuItemDeleteTab = new JMenuItem("탭 닫기");
+		menuItemDeleteTab.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Y, ActionEvent.CTRL_MASK));
+		menuItemDeleteTab.addActionListener(this);
+		jMenuFile.add(menuItemDeleteTab);
+
 		jMenuFile.addSeparator();
 
-		menuItemSave = new JMenuItem("저장");
+		menuItemSave = new JMenuItem("저장..");
 		menuItemSave.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 		menuItemSave.addActionListener(this);
 		jMenuFile.add(menuItemSave);
 
-		menuItemLoad = new JMenuItem("불러오기");
+		menuItemLoad = new JMenuItem("열기..");
 		menuItemLoad.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_O, ActionEvent.CTRL_MASK));
 		menuItemLoad.addActionListener(this);
 		jMenuFile.add(menuItemLoad);
@@ -238,13 +245,15 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 		jMenuBar.add(jMenuInfo);
 		setJMenuBar(jMenuBar);
 
-		/* 글꼴 편집기 - JDialog */
-		jdlogSetFont.setTitle("글꼴 편집기");
+		/* 글꼴  - JDialog */
+		jdlogSetFont.setTitle("글꼴");
 		jdlogSetFont.setSize(250, 150);
 		jdlogSetFont.setModal(true);
 		jdlogSetFont.setResizable(false);
 		jdlogSetFont.setAlwaysOnTop(true);
 		jdlogSetFont.setLocationRelativeTo(null);
+		setChangeFont();
+		jdlogSetFont.setLayout(null);
 
 		/* 기본 패널 */
 		panel1();
@@ -256,6 +265,15 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 	}
 
 	public static void main(String[] args) {
+		try {
+			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+				if ("Nimbus".equals(info.getName())) {
+					UIManager.setLookAndFeel(info.getClassName());
+					break;
+				}
+			}
+		} catch (Exception e) {
+		}
 		new Memo().setVisible(true);
 	}
 
@@ -264,7 +282,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 
 		int nowTab = jTap.getSelectedIndex();
 
-		if (e.getActionCommand().equals("저장")) {
+		if (e.getActionCommand().equals("저장..")) {
 			JFileChooser jc = new JFileChooser();
 			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
@@ -285,7 +303,7 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 				}
 			}
 
-		} else if (e.getActionCommand().equals("불러오기")) {
+		} else if (e.getActionCommand().equals("열기..")) {
 			JFileChooser jc = new JFileChooser();
 			setChooserFont(jc.getComponents());
 			jc.setCurrentDirectory(new File(System.getProperty("user.home") + "/Desktop"));
@@ -345,6 +363,23 @@ public class Memo extends JFrame implements ActionListener, Runnable {
 			isAutoNewLineFlag = false;
 			jta[nowTab].setLineWrap(false);
 		}
+	}
+
+	public void setChangeFont() {
+		JLabel jlbFontLabel = new JLabel("폰트 선택");
+		JButton jbtO = new JButton("확인");
+		JButton jbtX = new JButton("취소");
+		jcBox.addItem("굴림");
+		jcBox.addItem("맑은고딕");
+		jcBox.addItem("궁서체");
+		jcBox.setBounds(100, 10, 100, 30);
+		jlbFontLabel.setBounds(40, 10, 100, 30);
+		jbtO.setBounds(15, 80, 100, 30);
+		jbtX.setBounds(130, 80, 100, 30);
+		jdlogSetFont.add(jlbFontLabel);
+		jdlogSetFont.add(jcBox);
+		jdlogSetFont.add(jbtO);
+		jdlogSetFont.add(jbtX);
 	}
 
 	@Override
