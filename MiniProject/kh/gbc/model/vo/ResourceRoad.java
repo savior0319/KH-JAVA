@@ -163,11 +163,11 @@ public class ResourceRoad {
 	public Font getFontSize21() {
 		return this.sizedFont21f;
 	}
-	
+
 	public Font getFontSize24() {
 		return this.sizedFont24f;
 	}
-	
+
 	public void setMainBgImg() {
 		File path = new File(commonPath + "mainBG.png");
 		try {

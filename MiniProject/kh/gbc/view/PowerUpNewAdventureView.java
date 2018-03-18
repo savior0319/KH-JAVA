@@ -68,7 +68,9 @@ public class PowerUpNewAdventureView {
 		powerUpBack = vm.fitImageBtn(powerUpBack);
 		powerUpBack.setIcon(new ImageIcon(resRoad.getXIconImg()));
 		powerUpBack.setBounds(390, 18, 25, 25);
-		powerUpBack.addActionListener(e->{powerUpAdvCon.backToPowerUpView();});
+		powerUpBack.addActionListener(e -> {
+			powerUpAdvCon.backToPowerUpView();
+		});
 
 		powerUpSubTitle = new JLabel();
 		powerUpSubTitle
@@ -112,19 +114,27 @@ public class PowerUpNewAdventureView {
 		sanhoBtn = vm.fitImageBtn(sanhoBtn);
 
 		ganZilMsg = new JLabel("<html><font color='white'><span style='font-size:20px'> 몸이 가려워     +2.6KG</span></font>"
-				+ "<br>" + "<font color='white'><span style='font-size:12px'>\"나는 어디까지라도 점프 할 수 있어!\"</span></font>" + "</html>");
+				+ "<br>" + "<font color='white'><span style='font-size:12px'>\"나는 어디까지라도 점프 할 수 있어!\"</span></font>"
+				+ "</html>");
 		ganZilMsg.setBounds(118, 188, 300, 100);
-		
-		deepBlueMsg = new JLabel("<html><font color='white'><span style='font-size:16px'> 해저에는 진수성찬이     +3.9KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;100MP</span></font>" + "</html>");
+
+		deepBlueMsg = new JLabel(
+				"<html><font color='white'><span style='font-size:16px'> 해저에는 진수성찬이     +3.9KG</span></font>" + "<br>"
+						+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;100MP</span></font>"
+						+ "</html>");
 		deepBlueMsg.setBounds(118, 308, 300, 100);
-		
-		rockMsg = new JLabel("<html><font color='white'><span style='font-size:14px'> 바위의 그림자에는 보물이     +5.0KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;250MP</span></font>" + "</html>");
+
+		rockMsg = new JLabel(
+				"<html><font color='white'><span style='font-size:14px'> 바위의 그림자에는 보물이     +5.0KG</span></font>"
+						+ "<br>"
+						+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;250MP</span></font>"
+						+ "</html>");
 		rockMsg.setBounds(118, 428, 300, 100);
-		
+
 		sanhoMsg = new JLabel("<html><font color='white'><span style='font-size:23px'> 햇볕 쬐기    +14.0KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;720MP</span></font>" + "</html>");
+				+ "<br>"
+				+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;720MP</span></font>"
+				+ "</html>");
 		sanhoMsg.setBounds(118, 548, 300, 100);
 
 		powerUpFeedBgLabel = new JLabel();
@@ -139,15 +149,15 @@ public class PowerUpNewAdventureView {
 		powerUpFeedBgLabel.add(ganZilMsg);
 		powerUpFeedBgLabel.add(ganZilImg);
 		powerUpFeedBgLabel.add(ganZilBtn);
-		
+
 		powerUpFeedBgLabel.add(deepBlueMsg);
 		powerUpFeedBgLabel.add(deepBlueImg);
 		powerUpFeedBgLabel.add(deepBlueBtn);
-		
+
 		powerUpFeedBgLabel.add(rockMsg);
 		powerUpFeedBgLabel.add(rockImg);
 		powerUpFeedBgLabel.add(rockBtn);
-		
+
 		powerUpFeedBgLabel.add(sanhoMsg);
 		powerUpFeedBgLabel.add(sanhoImg);
 		powerUpFeedBgLabel.add(sanhoBtn);
@@ -155,7 +165,7 @@ public class PowerUpNewAdventureView {
 		powerUpFeedPanel = new JPanel();
 		powerUpFeedPanel.setBounds(0, -5, vm.getFrameWidth(), vm.getFrameHeight());
 		powerUpFeedPanel.add(powerUpFeedBgLabel);
-		
+
 		vm.setPanel(vm.getPowerNewAdventureName(), powerUpFeedPanel);
 		vm.getMainFrame().add(powerUpFeedPanel);
 	}

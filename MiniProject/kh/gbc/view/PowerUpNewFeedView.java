@@ -33,7 +33,7 @@ public class PowerUpNewFeedView {
 	private JLabel myulChiImg;
 	private JLabel ozingerImg;
 	private JLabel shrimpImg;
-	
+
 	private JLabel jellyFishMsg;
 	private JLabel myulChiMsg;
 	private JLabel ozingerMsg;
@@ -65,12 +65,14 @@ public class PowerUpNewFeedView {
 		powerUpPt.setForeground(Color.WHITE);
 		powerUpPt.setFont(new Font("맑은고딕", Font.PLAIN, 13));
 		powerUpPt.setBounds(300, 22, 30, 20);
-		
+
 		powerUpBack = new JButton();
 		powerUpBack = vm.fitImageBtn(powerUpBack);
 		powerUpBack.setIcon(new ImageIcon(resRoad.getXIconImg()));
 		powerUpBack.setBounds(390, 18, 25, 25);
-		powerUpBack.addActionListener(e->{powerUpNewFeedCon.backToPowerUpView();});
+		powerUpBack.addActionListener(e -> {
+			powerUpNewFeedCon.backToPowerUpView();
+		});
 
 		powerUpSubTitle = new JLabel();
 		powerUpSubTitle
@@ -112,21 +114,28 @@ public class PowerUpNewFeedView {
 		myulChiBtn.setIcon(new ImageIcon(resRoad.getBlueBtnImg()));
 		myulChiBtn.setBounds(10, 550, 420, 110);
 		myulChiBtn = vm.fitImageBtn(myulChiBtn);
-		
+
 		jellyFishMsg = new JLabel("<html><font color='white'><span style='font-size:24px'> 해파리     +0.2KG</span></font>"
-				+ "<br>" + "<font color='white'><span style='font-size:12px'>\"비밀봉투라도 먹을 수 있다!\"</span></font>" + "</html>");
+				+ "<br>" + "<font color='white'><span style='font-size:12px'>\"비밀봉투라도 먹을 수 있다!\"</span></font>"
+				+ "</html>");
 		jellyFishMsg.setBounds(130, 188, 300, 100);
-		
+
 		ozingerMsg = new JLabel("<html><font color='white'><span style='font-size:24px'> 오징어   +0.4KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;220MP</span></font>" + "</html>");
+				+ "<br>"
+				+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;220MP</span></font>"
+				+ "</html>");
 		ozingerMsg.setBounds(130, 308, 300, 100);
-		
+
 		shrimpMsg = new JLabel("<html><font color='white'><span style='font-size:24px'> 새우     +0.7KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;600MP</span></font>" + "</html>");
+				+ "<br>"
+				+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;600MP</span></font>"
+				+ "</html>");
 		shrimpMsg.setBounds(130, 428, 300, 100);
-		
+
 		myulChiMsg = new JLabel("<html><font color='white'><span style='font-size:24px'> 정어리    +1.1KG</span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;1200MP</span></font>" + "</html>");
+				+ "<br>"
+				+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;1200MP</span></font>"
+				+ "</html>");
 		myulChiMsg.setBounds(130, 548, 300, 100);
 
 		powerUpFeedBgLabel = new JLabel();
@@ -137,19 +146,19 @@ public class PowerUpNewFeedView {
 		powerUpFeedBgLabel.add(powerUpPt);
 		powerUpFeedBgLabel.add(powerUpSubTitle);
 		powerUpFeedBgLabel.add(powerUpBack);
-		
+
 		powerUpFeedBgLabel.add(jellyFishMsg);
 		powerUpFeedBgLabel.add(jellyFishimg);
 		powerUpFeedBgLabel.add(jellyFishBtn);
-		
+
 		powerUpFeedBgLabel.add(ozingerMsg);
 		powerUpFeedBgLabel.add(ozingerImg);
 		powerUpFeedBgLabel.add(ozingerBtn);
-		
+
 		powerUpFeedBgLabel.add(shrimpMsg);
 		powerUpFeedBgLabel.add(shrimpImg);
 		powerUpFeedBgLabel.add(shrimpBtn);
-		
+
 		powerUpFeedBgLabel.add(myulChiMsg);
 		powerUpFeedBgLabel.add(myulChiImg);
 		powerUpFeedBgLabel.add(myulChiBtn);
@@ -157,7 +166,7 @@ public class PowerUpNewFeedView {
 		powerUpFeedPanel = new JPanel();
 		powerUpFeedPanel.setBounds(0, -5, vm.getFrameWidth(), vm.getFrameHeight());
 		powerUpFeedPanel.add(powerUpFeedBgLabel);
-		
+
 		vm.setPanel(vm.getPowerNewFeedName(), powerUpFeedPanel);
 
 		vm.getMainFrame().add(powerUpFeedPanel);

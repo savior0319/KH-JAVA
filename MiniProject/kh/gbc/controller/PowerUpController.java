@@ -10,29 +10,27 @@ public class PowerUpController {
 	private PowerUpNewFeedController pNFC = new PowerUpNewFeedController();
 	private PowerUpLvUpController pLUC = new PowerUpLvUpController();
 	private ViewModel vm = ViewModel.getInstance();
-	public void startPowerUp()
-	{
+
+	public void startPowerUp() {
 		puV.loadPowerUpView();
 	}
-	
-	public void backToLobby()
-	{
+
+	public void backToLobby() {
 		vm.getPanel(vm.getPowerUpName()).setVisible(false);
 		vm.getPanel(vm.getLobbyName()).setVisible(true);
 	}
-	
-	public void startNewAdventure()
-	{
+
+	public void startNewAdventure() {
 		vm.getPanel(vm.getPowerUpName()).setVisible(false);
 		pNAC.startPowerUpNewAdventureView(puV);
 	}
-	public void startNewFeed()
-	{
+
+	public void startNewFeed() {
 		vm.getPanel(vm.getPowerUpName()).setVisible(false);
 		pNFC.startPowerUpNewFeedView(puV);
 	}
-	public void startLvUp()
-	{
+
+	public void startLvUp() {
 		vm.getPanel(vm.getPowerUpName()).setVisible(false);
 		pLUC.startPowerUpLvUpView(puV);
 	}

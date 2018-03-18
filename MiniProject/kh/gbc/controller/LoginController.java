@@ -9,7 +9,7 @@ import kh.gbc.view.LoginView;
 public class LoginController {
 	private LoginView loginView;
 	private DataGroup dataGroup = null;
-	private Member m; 
+	private Member m;
 
 	String id;
 	String pw;

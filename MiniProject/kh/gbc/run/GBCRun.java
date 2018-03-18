@@ -8,7 +8,7 @@ public class GBCRun {
 
 	public static void main(String[] args) {
 		new StartController().start();
-//		new  RunningThread().running();
-//		new UtilClass().moveMouse();
+		// new RunningThread().running();
+		// new UtilClass().moveMouse();
 	}
 }

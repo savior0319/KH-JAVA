@@ -34,7 +34,7 @@ public class PowerUpLvUpView {
 	private JLabel lev3Img;
 	private JLabel lev4Img;
 	private JLabel lev5Img;
-	
+
 	private JLabel lev2Msg;
 	private JLabel lev3Msg;
 	private JLabel lev4Msg;
@@ -65,17 +65,19 @@ public class PowerUpLvUpView {
 		powerUpPt.setForeground(Color.WHITE);
 		powerUpPt.setFont(new Font("맑은고딕", Font.PLAIN, 13));
 		powerUpPt.setBounds(300, 22, 30, 20);
-		
+
 		powerUpBack = new JButton();
 		powerUpBack = vm.fitImageBtn(powerUpBack);
 		powerUpBack.setIcon(new ImageIcon(resRoad.getXIconImg()));
 		powerUpBack.setBounds(390, 18, 25, 25);
-		powerUpBack.addActionListener(e->{powerlvController.backToPowerUpView();});
-		
+		powerUpBack.addActionListener(e -> {
+			powerlvController.backToPowerUpView();
+		});
+
 		lev2Img = new JLabel();
 		lev2Img.setIcon(new ImageIcon(resRoad.getLv2()));
 		lev2Img.setBounds(30, 210, 70, 70);
-		
+
 		lev3Img = new JLabel();
 		lev3Img.setIcon(new ImageIcon(resRoad.getLv3()));
 		lev3Img.setBounds(30, 330, 70, 70);
@@ -107,21 +109,25 @@ public class PowerUpLvUpView {
 		lev5Btn.setIcon(new ImageIcon(resRoad.getBlueBtnImg()));
 		lev5Btn.setBounds(10, 550, 420, 110);
 		lev5Btn = vm.fitImageBtn(lev5Btn);
-		
+
 		lev2Msg = new JLabel("<html><font color='white'><span style='font-size:20px'> 먹이의 수가 8개가 된다 </span></font>"
-				+ "<br>" + "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;24MP</span></font>" + "</html>");
+				+ "<br>"
+				+ "<font color='yellow'><span style='font-size:14px'>&emsp;&emsp;&emsp;&emsp;&emsp;24MP</span></font>"
+				+ "</html>");
 		lev2Msg.setBounds(120, 190, 300, 100);
-		
-		lev3Msg = new JLabel("<html><font color='white'><span style='font-size:20px'> 레벨 2 구입으로 해방</span></font></html>");
-			
+
+		lev3Msg = new JLabel(
+				"<html><font color='white'><span style='font-size:20px'> 레벨 2 구입으로 해방</span></font></html>");
+
 		lev3Msg.setBounds(120, 310, 300, 100);
-		
-		lev4Msg = new JLabel("<html><font color='white'><span style='font-size:20px'> 레벨 3 구입으로 해방</span></font></html>");
+
+		lev4Msg = new JLabel(
+				"<html><font color='white'><span style='font-size:20px'> 레벨 3 구입으로 해방</span></font></html>");
 		lev4Msg.setBounds(120, 430, 300, 100);
-		
-		lev5Msg = new JLabel("<html><font color='white'><span style='font-size:20px'> 레벨 4 구입으로 해방</span></font></html>");
+
+		lev5Msg = new JLabel(
+				"<html><font color='white'><span style='font-size:20px'> 레벨 4 구입으로 해방</span></font></html>");
 		lev5Msg.setBounds(120, 550, 300, 100);
-		
 
 		powerUpSubTitle = new JLabel();
 		powerUpSubTitle.setIcon(
@@ -136,19 +142,19 @@ public class PowerUpLvUpView {
 		powerUpBgLabel.add(powerUpPt);
 		powerUpBgLabel.add(powerUpSubTitle);
 		powerUpBgLabel.add(powerUpBack);
-		
+
 		powerUpBgLabel.add(lev2Msg);
 		powerUpBgLabel.add(lev2Img);
 		powerUpBgLabel.add(lev2Btn);
-		
+
 		powerUpBgLabel.add(lev3Msg);
 		powerUpBgLabel.add(lev3Img);
 		powerUpBgLabel.add(lev3Btn);
-		
+
 		powerUpBgLabel.add(lev4Msg);
 		powerUpBgLabel.add(lev4Img);
 		powerUpBgLabel.add(lev4Btn);
-		
+
 		powerUpBgLabel.add(lev5Msg);
 		powerUpBgLabel.add(lev5Img);
 		powerUpBgLabel.add(lev5Btn);

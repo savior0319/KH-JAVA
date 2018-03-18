@@ -4,13 +4,13 @@ import kh.gbc.view.RankingView;
 
 public class RankingController {
 	private RankingView rankingView;
-	public void showRanking()
-	{
+
+	public void showRanking() {
 		rankingView = new RankingView(this);
 		rankingView.loadRankView();
 	}
-	public void closeRanking()
-	{
+
+	public void closeRanking() {
 		rankingView.hideRankPopup();
 	}
 }

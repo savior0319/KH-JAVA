@@ -18,7 +18,7 @@ public class ShopView {
 	private ViewModel vm = ViewModel.getInstance();
 	private ShopController shopController;
 	private JPanel shopBgPanel;
-	
+
 	private JLabel shopBgLabel;
 	private JLabel shopTitle;
 	private JLabel btnLabel1;
@@ -26,7 +26,7 @@ public class ShopView {
 	private JLabel btnLabel3;
 	private JLabel btnLabel4;
 	private JLabel btnLabel5;
-	
+
 	private JButton shopBack;
 	private JButton shopBtn1;
 	private JButton shopBtn2;
@@ -52,7 +52,9 @@ public class ShopView {
 		shopBack = vm.fitImageBtn(shopBack);
 		shopBack.setIcon(new ImageIcon(resRoad.getXIconImg()));
 		shopBack.setBounds(390, 18, 25, 25);
-		shopBack.addActionListener(e -> {shopController.backToLobby();});
+		shopBack.addActionListener(e -> {
+			shopController.backToLobby();
+		});
 
 		shopBtn1 = new JButton();
 		shopBtn1.setIcon(new ImageIcon(resRoad.getShopBtnImg()));

@@ -36,29 +36,30 @@ public class PowerUpView {
 	}
 
 	public void loadPowerUpView() {
-		
+
 		powerUpTitle = new JLabel("ÆÄ¿ö¾÷");
 		powerUpTitle.setForeground(Color.WHITE);
 		powerUpTitle.setFont(new Font("¸¼Àº°íµñ", Font.BOLD, 25));
 		powerUpTitle.setBounds(160, 20, 100, 20);
-		
+
 		powerUpMp = new JLabel("MP");
 		powerUpMp.setForeground(Color.WHITE);
 		powerUpMp.setFont(new Font("¸¼Àº°íµñ", Font.PLAIN, 13));
 		powerUpMp.setBounds(270, 22, 30, 20);
-		
+
 		powerUpPt = new JLabel("0 PT");
 		powerUpPt.setForeground(Color.WHITE);
 		powerUpPt.setFont(new Font("¸¼Àº°íµñ", Font.PLAIN, 13));
 		powerUpPt.setBounds(300, 22, 30, 20);
-		
+
 		powerUpBack = new JButton();
 		powerUpBack.setIcon(new ImageIcon(resRoad.getXIconImg()));// µÚ·Î°¡±â.
 		powerUpBack.setBounds(390, 18, 25, 25);
-		powerUpBack.addActionListener(e->{puC.backToLobby();});
+		powerUpBack.addActionListener(e -> {
+			puC.backToLobby();
+		});
 		powerUpBack = vm.fitImageBtn(powerUpBack);
-	
-		
+
 		powerUpNewAdventrueBtn = new JButton();
 		powerUpNewAdventrueBtn.setIcon(new ImageIcon(resRoad.getPowerUpNewAdImg()));
 		powerUpNewAdventrueBtn.setBounds(10, 180, 420, 100);
@@ -74,21 +75,27 @@ public class PowerUpView {
 		powerUpNewAdventrueBtn.setIcon(new ImageIcon(resRoad.getPowerUpNewAdImg()));
 		powerUpNewAdventrueBtn.setBounds(30, 180, 400, 100);
 		powerUpNewAdventrueBtn = vm.fitImageBtn(powerUpNewAdventrueBtn);
-		powerUpNewAdventrueBtn.addActionListener(e->{puC.startNewAdventure();});
+		powerUpNewAdventrueBtn.addActionListener(e -> {
+			puC.startNewAdventure();
+		});
 
 		// »õ·Î¿î ¸ÔÀÌ
 		powerUpNewFeedBtn = new JButton();
 		powerUpNewFeedBtn.setIcon(new ImageIcon(resRoad.getPowerUpNewFeedImg()));
 		powerUpNewFeedBtn.setBounds(30, 320, 400, 100);
 		powerUpNewFeedBtn = vm.fitImageBtn(powerUpNewFeedBtn);
-		powerUpNewFeedBtn.addActionListener(e->{puC.startNewFeed();});
+		powerUpNewFeedBtn.addActionListener(e -> {
+			puC.startNewFeed();
+		});
 
 		// ¸ÔÀÌ °¹¼ö ¿Ã¸®±â.
 		powerUpFeedCountBtn = new JButton();
 		powerUpFeedCountBtn.setIcon(new ImageIcon(resRoad.getPowerUpFeeCountImg()));
 		powerUpFeedCountBtn.setBounds(30, 460, 400, 100);
 		powerUpFeedCountBtn = vm.fitImageBtn(powerUpFeedCountBtn);
-		powerUpFeedCountBtn.addActionListener(e->{puC.startLvUp();});
+		powerUpFeedCountBtn.addActionListener(e -> {
+			puC.startLvUp();
+		});
 
 		powerUpBgLabel = new JLabel();
 		powerUpBgLabel.setIcon(new ImageIcon(resRoad.getPowerUpBgImg()));
@@ -105,7 +112,7 @@ public class PowerUpView {
 		powerUpPanel = new JPanel();
 		powerUpPanel.setBounds(0, -5, vm.getFrameWidth(), vm.getFrameHeight());
 		powerUpPanel.add(powerUpBgLabel);
-		vm.setPanel(vm.getPowerUpName(),powerUpPanel);
+		vm.setPanel(vm.getPowerUpName(), powerUpPanel);
 		vm.getMainFrame().add(powerUpPanel);
 	}
 }
