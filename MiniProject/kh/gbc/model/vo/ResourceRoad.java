@@ -1,14 +1,14 @@
 package kh.gbc.model.vo;
 
+import java.awt.Font;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
 public class ResourceRoad {
-	private String commonPath = "../GeaBokChi/src/main/resources/";//"C:/Users/user/Documents/GitDesktop/JavaKH/KHMiniProject/GeaBokChi/src/main/resources/";
+	private String commonPath = "C:\\Users\\savio\\Documents\\Workspace\\KH-JAVA\\MiniProject\\main\\resources\\";
 	private Image mainBgImg;
 	private Image lobbyBgImg;
 	private Image blueBtnImg;
@@ -64,17 +64,20 @@ public class ResourceRoad {
 	private Image adventureLightImg;
 	private Image adventureMomGaryupImg;
 	private Image adventureRockImg;
-	
+
 	private Image menuBar;
+	private Image loginBgImg;
+
+	/* 폰트 */
+	private Font font, sizedFont24f, sizedFont21f;
 
 	private static ResourceRoad resRoad;
 
-	public ResourceRoad()
-	{
+	public ResourceRoad() {
 		setMainBgImg();
 		setLobbyBgImg();
 		setBlueBtnImg();
-//		setBluePresImg();
+		// setBluePresImg();
 		setAdventureBgImg();
 		setPopupBgImg();
 		setGcgLv1_Img();
@@ -120,351 +123,429 @@ public class ResourceRoad {
 		setSanho();
 
 		setAdeventureRockImg();
-		setAdventureMomGaryupImg(); 
-		setAdventureLightImg(); 
-		getAdventureLightImg(); 
-		setWhiteTextboxImg(); 
+		setAdventureMomGaryupImg();
+		setAdventureLightImg();
+		getAdventureLightImg();
+		setWhiteTextboxImg();
 		setAdventureDeepBlueImg();
-		
+
 		setShopBgImg();
 		setShopBtnImg();
-		
+
 		setBlackBgImg();
 
 		setEnterShopBtnImg();
 		setMenuBgImg();
 
+		setLoginBgImg(); // 로그인 & 회원가입 배경화면
+
+		setFont();
+
 		this.resRoad = this;
 	}
 
-	public static ResourceRoad getInstance() {return resRoad;}
+	public static ResourceRoad getInstance() {
+		return resRoad;
+	}
 
-
-	public void setMainBgImg()
-	{
-		File path = new File(commonPath+"mainBG.png");
+	/* 폰트 */
+	public void setFont() {
+		File path = new File(commonPath + "Binggrae.ttf");
 		try {
-			mainBgImg  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
+			font = Font.createFont(Font.TRUETYPE_FONT, path);
+			sizedFont24f = font.deriveFont(24f);
+			sizedFont21f = font.deriveFont(21f);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getMainBgImg() {return this.mainBgImg;}
 
-
-	public void setLobbyBgImg()
-	{
-		File path = new File(commonPath+"lobbyBG.png");
-		try {
-			lobbyBgImg  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Font getFontSize21() {
+		return this.sizedFont21f;
 	}
-	public Image getLobbyBgImg() {return this.lobbyBgImg;}
-
-	public void setBlueBtnImg()
-	{
-		File path = new File(commonPath+"blueBtn.png");
-		try {
-			blueBtnImg  = ImageIO.read(path).getScaledInstance(420, 100, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getBlueBtnImg() {return this.blueBtnImg;}
-
-
-//	public void setBluePresImg()
-//	{
-//		File path = new File(commonPath+"blueBtnPress.png");
-//		try {
-//			blueBtnPresImg  = ImageIO.read(path).getScaledInstance(99, 80, Image.SCALE_SMOOTH);
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//	}
-//	public Image getBluePresImg() {return this.blueBtnPresImg;}
-
-	public void setAdventureBgImg()
-	{
-		File path = new File(commonPath+"adventureBg.png");
-		try {
-			adventureBgImg  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getAdventureBgImg() {return this.adventureBgImg;}
-
-	public void setPopupBgImg()
-	{
-		File path = new File(commonPath+"popupBg.png");
-		try {
-			popupBgImg  = ImageIO.read(path).getScaledInstance(420, 500, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getPopupBgImg() {return this.popupBgImg;}
-
-	public void setGcgLv1_Img()
-	{
-		File path = new File(commonPath+"gbcLv1.png");
-		try {
-			gbgLv1_Img  = ImageIO.read(path).getScaledInstance(110, 111, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getGcgLv1_Img() {return this.gbgLv1_Img;}
-
-	public void setGcgLv2_Img()
-	{
-		File path = new File(commonPath+"gbcLv2.png");
-		try {
-			gbgLv2_Img  = ImageIO.read(path).getScaledInstance(156, 143, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getGcgLv2_Img() {return this.gbgLv2_Img;}
-
-	public void setGcgLv3_Img()
-	{
-		File path = new File(commonPath+"gbcLv3.png");
-		try {
-			gbgLv3_Img  = ImageIO.read(path).getScaledInstance(220, 236, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	public Image getGcgLv3_Img() {return this.gbgLv3_Img;}
 	
-	public void setGcgLv4_Img()
-	{
-		File path = new File(commonPath+"gbcLv4.png");
+	public Font getFontSize24() {
+		return this.sizedFont24f;
+	}
+	
+	public void setMainBgImg() {
+		File path = new File(commonPath + "mainBG.png");
 		try {
-			gbgLv4_Img  = ImageIO.read(path).getScaledInstance(286, 296, Image.SCALE_SMOOTH);
+			mainBgImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getGcgLv4_Img() {return this.gbgLv4_Img;}
+
+	public Image getMainBgImg() {
+		return this.mainBgImg;
+	}
+
+	public void setLobbyBgImg() {
+		File path = new File(commonPath + "lobbyBG.png");
+		try {
+			lobbyBgImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getLobbyBgImg() {
+		return this.lobbyBgImg;
+	}
+
+	public void setBlueBtnImg() {
+		File path = new File(commonPath + "blueBtn.png");
+		try {
+			blueBtnImg = ImageIO.read(path).getScaledInstance(420, 100, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getBlueBtnImg() {
+		return this.blueBtnImg;
+	}
+
+	// public void setBluePresImg()
+	// {
+	// File path = new File(commonPath+"blueBtnPress.png");
+	// try {
+	// blueBtnPresImg = ImageIO.read(path).getScaledInstance(99, 80,
+	// Image.SCALE_SMOOTH);
+	// } catch (IOException e) {
+	// e.printStackTrace();
+	// }
+	// }
+	// public Image getBluePresImg() {return this.blueBtnPresImg;}
+
+	public void setAdventureBgImg() {
+		File path = new File(commonPath + "adventureBg.png");
+		try {
+			adventureBgImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getAdventureBgImg() {
+		return this.adventureBgImg;
+	}
+
+	public void setPopupBgImg() {
+		File path = new File(commonPath + "popupBg.png");
+		try {
+			popupBgImg = ImageIO.read(path).getScaledInstance(420, 500, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getPopupBgImg() {
+		return this.popupBgImg;
+	}
+
+	public void setGcgLv1_Img() {
+		File path = new File(commonPath + "gbcLv1.png");
+		try {
+			gbgLv1_Img = ImageIO.read(path).getScaledInstance(110, 111, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getGcgLv1_Img() {
+		return this.gbgLv1_Img;
+	}
+
+	public void setGcgLv2_Img() {
+		File path = new File(commonPath + "gbcLv2.png");
+		try {
+			gbgLv2_Img = ImageIO.read(path).getScaledInstance(156, 143, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getGcgLv2_Img() {
+		return this.gbgLv2_Img;
+	}
+
+	public void setGcgLv3_Img() {
+		File path = new File(commonPath + "gbcLv3.png");
+		try {
+			gbgLv3_Img = ImageIO.read(path).getScaledInstance(220, 236, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getGcgLv3_Img() {
+		return this.gbgLv3_Img;
+	}
+
+	public void setGcgLv4_Img() {
+		File path = new File(commonPath + "gbcLv4.png");
+		try {
+			gbgLv4_Img = ImageIO.read(path).getScaledInstance(286, 296, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getGcgLv4_Img() {
+		return this.gbgLv4_Img;
+	}
 
 	public void setEventImg01() {
-		File path = new File(commonPath+"adventureType_0.png");
+		File path = new File(commonPath + "adventureType_0.png");
 		try {
-			eventImg01  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+			eventImg01 = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Image getEventImg01() { return eventImg01; }
+	public Image getEventImg01() {
+		return eventImg01;
+	}
 
-	public void setRedBtn()
-	{
-		File path = new File(commonPath+"BtnRed.png");
+	public void setRedBtn() {
+		File path = new File(commonPath + "BtnRed.png");
 		try {
-			redBtn  = ImageIO.read(path).getScaledInstance(110, 50, Image.SCALE_SMOOTH);
+			redBtn = ImageIO.read(path).getScaledInstance(110, 50, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getRedBtn() { return redBtn; }
 
-	public void setAdventrueStart()
-	{
-		File path = new File(commonPath+"BgWindow01.png");
+	public Image getRedBtn() {
+		return redBtn;
+	}
+
+	public void setAdventrueStart() {
+		File path = new File(commonPath + "BgWindow01.png");
 		try {
-			adventrueStartImg  = ImageIO.read(path).getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+			adventrueStartImg = ImageIO.read(path).getScaledInstance(300, 300, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getAdventrueStart() {return this.adventrueStartImg;}
 
-	public void setPowerUpBgImg()
-	{
-		File path = new File(commonPath+"BGOption.png");
+	public Image getAdventrueStart() {
+		return this.adventrueStartImg;
+	}
+
+	public void setPowerUpBgImg() {
+		File path = new File(commonPath + "BGOption.png");
 		try {
-			powerUpBgImg  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+			powerUpBgImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getPowerUpBgImg() {return this.powerUpBgImg;}
+
+	public Image getPowerUpBgImg() {
+		return this.powerUpBgImg;
+	}
 
 	public void setPowerUpNewAdImg()
 
 	{
-		File path = new File(commonPath+"NewAdventure.png");
+		File path = new File(commonPath + "NewAdventure.png");
 		try {
-			powerUpNewAdImg  = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
+			powerUpNewAdImg = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getPowerUpNewAdImg() {return this.powerUpNewAdImg;}
 
-	public void setPowerUpNewFeedImg()
-	{
-		File path = new File(commonPath+"NewFeed.png");
-		try {
-			powerUpNewFeedImg  = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public Image getPowerUpNewAdImg() {
+		return this.powerUpNewAdImg;
 	}
-	public Image getPowerUpNewFeedImg() {return this.powerUpNewFeedImg;}
 
-	public void setPowerUpFeeCountImg()
-	{
-		File path = new File(commonPath+"FeedCount.png");
+	public void setPowerUpNewFeedImg() {
+		File path = new File(commonPath + "NewFeed.png");
 		try {
-			powerUpFeeCountImg  = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
+			powerUpNewFeedImg = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getPowerUpFeeCountImg() {return this.powerUpFeeCountImg;}
 
-	public void setXIconImg()
-	{
-		File path = new File(commonPath+"xIcon.png");
+	public Image getPowerUpNewFeedImg() {
+		return this.powerUpNewFeedImg;
+	}
+
+	public void setPowerUpFeeCountImg() {
+		File path = new File(commonPath + "FeedCount.png");
 		try {
-			xIconImg  = ImageIO.read(path).getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+			powerUpFeeCountImg = ImageIO.read(path).getScaledInstance(400, 110, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getXIconImg() {return this.xIconImg;}
+
+	public Image getPowerUpFeeCountImg() {
+		return this.powerUpFeeCountImg;
+	}
+
+	public void setXIconImg() {
+		File path = new File(commonPath + "xIcon.png");
+		try {
+			xIconImg = ImageIO.read(path).getScaledInstance(20, 20, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getXIconImg() {
+		return this.xIconImg;
+	}
 
 	// LobbyView의 상단 뷰
-	public void setNorthLobbyImg()
-	{
-		File path = new File(commonPath+"northViewPanel.png");
+	public void setNorthLobbyImg() {
+		File path = new File(commonPath + "northViewPanel.png");
 		try {
 			northLobbyImg = ImageIO.read(path).getScaledInstance(450, 65, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getNorthLobbyImg() {return this.northLobbyImg;}
+
+	public Image getNorthLobbyImg() {
+		return this.northLobbyImg;
+	}
 
 	// 먹이 먹기 전
-	public void setFeedImg()
-	{
-		File path = new File(commonPath+"feed.png");
+	public void setFeedImg() {
+		File path = new File(commonPath + "feed.png");
 		try {
-			feedImg  = ImageIO.read(path).getScaledInstance(30, 30, Image.SCALE_SMOOTH);
+			feedImg = ImageIO.read(path).getScaledInstance(30, 30, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getFeedImg() {return this.feedImg;}
 
+	public Image getFeedImg() {
+		return this.feedImg;
+	}
 
-
-
-	public Image getAfterImg() {return this.feedImg;}
+	public Image getAfterImg() {
+		return this.feedImg;
+	}
 
 	// 모험 버튼
-	public void setAdventureBtnImg()
-	{
-		File path = new File(commonPath+"adventureBtn.png");
+	public void setAdventureBtnImg() {
+		File path = new File(commonPath + "adventureBtn.png");
 		try {
-			adventureBtnImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			adventureBtnImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getAdventureBtnImg() {return this.adventureBtnImg;}
+
+	public Image getAdventureBtnImg() {
+		return this.adventureBtnImg;
+	}
 
 	// 파워업 버튼
-	public void setPowerUpBtnImg()
-	{
-		File path = new File(commonPath+"powerUpBtn.png");
+	public void setPowerUpBtnImg() {
+		File path = new File(commonPath + "powerUpBtn.png");
 		try {
-			powerUpBtnImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			powerUpBtnImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getPowerUpBtnImg() {return this.powerUpBtnImg;}
+
+	public Image getPowerUpBtnImg() {
+		return this.powerUpBtnImg;
+	}
 
 	// 랭킹 버튼
-	public void setRankingBtnImg()
-	{
-		File path = new File(commonPath+"rankingBtn.png");
+	public void setRankingBtnImg() {
+		File path = new File(commonPath + "rankingBtn.png");
 		try {
-			rankingBtnImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			rankingBtnImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getRankingBtnImg() {return this.rankingBtnImg;}
+
+	public Image getRankingBtnImg() {
+		return this.rankingBtnImg;
+	}
 
 	// 메뉴 버튼
-	public void setMenuBtnImg()
-	{
-		File path = new File(commonPath+"menuBtn.png");
+	public void setMenuBtnImg() {
+		File path = new File(commonPath + "menuBtn.png");
 		try {
-			menuBtnImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			menuBtnImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getMenuBtnImg() {return this.menuBtnImg;}
+
+	public Image getMenuBtnImg() {
+		return this.menuBtnImg;
+	}
 
 	// 모험 버튼 누른 상태
-	public void setAdventureBtnPresImg()
-	{
-		File path = new File(commonPath+"adventureBtnPres.png");
+	public void setAdventureBtnPresImg() {
+		File path = new File(commonPath + "adventureBtnPres.png");
 		try {
-			adventureBtnPresImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			adventureBtnPresImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getAdventureBtnPresImg() {return this.adventureBtnPresImg;}
+
+	public Image getAdventureBtnPresImg() {
+		return this.adventureBtnPresImg;
+	}
 
 	// 파워업 버튼 누른 상태
-	public void setPowerUpBtnPresImg()
-	{
-		File path = new File(commonPath+"powerUpBtnPres.png");
+	public void setPowerUpBtnPresImg() {
+		File path = new File(commonPath + "powerUpBtnPres.png");
 		try {
-			powerUpBtnPresImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			powerUpBtnPresImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getPowerUpBtnPresImg() {return this.powerUpBtnPresImg;}
+
+	public Image getPowerUpBtnPresImg() {
+		return this.powerUpBtnPresImg;
+	}
 
 	// 랭킹 버튼 누른 상태
-	public void setRankingBtnPresImg()
-	{
-		File path = new File(commonPath+"rankingBtnPres.png");
+	public void setRankingBtnPresImg() {
+		File path = new File(commonPath + "rankingBtnPres.png");
 		try {
-			rankingBtnPresImg  = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
+			rankingBtnPresImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getRankingBtnPresImg() {return this.rankingBtnPresImg;}
+
+	public Image getRankingBtnPresImg() {
+		return this.rankingBtnPresImg;
+	}
 
 	// 메뉴 버튼 누른 상태
-	public void setMenuBtnPresImg()
-	{
-		File path = new File(commonPath+"menuBtnPres.png");
+	public void setMenuBtnPresImg() {
+		File path = new File(commonPath + "menuBtnPres.png");
 		try {
 			menuBtnPresImg = ImageIO.read(path).getScaledInstance(99, 100, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getMenuBtnPresImg() {return this.menuBtnPresImg;}
+
+	public Image getMenuBtnPresImg() {
+		return this.menuBtnPresImg;
+	}
 
 	public void setOzinger() {
 		File path = new File(commonPath + "Ozinger.png");
@@ -623,68 +704,83 @@ public class ResourceRoad {
 	}
 
 	private void setAdeventureRockImg() {
-		File path = new File(commonPath+"adventureRock.png");
+		File path = new File(commonPath + "adventureRock.png");
 		try {
-			adventureRockImg  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}	
-	public Image getAdventureRockImg() {return this.adventureRockImg;}
-
-	private void setAdventureMomGaryupImg() {
-		File path = new File(commonPath+"adventureMomGaryup.png");
-		try {
-			adventureMomGaryupImg  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}	
-	public Image getAdventureMomGaryupImg() {return this.adventureMomGaryupImg;}
-
-	private void setAdventureLightImg() {
-		File path = new File(commonPath+"adventureLight.png");
-		try {
-			adventureLightImg  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}	
-	public Image getAdventureLightImg() {return this.adventureLightImg;}
-
-	private void setAdventureDeepBlueImg() {
-		File path = new File(commonPath+"adventureDeepBlue.png");
-		try {
-			adventureDeepBlueImg  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}	
-	public Image getAdventureDeepBlueImg() {return this.adventureDeepBlueImg;}
-
-
-	private void setWhiteTextboxImg() {
-		File path = new File(commonPath+"whiteTextbox.png");
-		try {
-			whiteTextboxImg  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}	
-
-	public Image getWhiteTextboxImg() {return this.whiteTextboxImg;}
-	
-	private void setMenuBgImg()
-	{
-		File path = new File(commonPath+"MenuBar.png");
-		try {
-			menuBar  = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+			adventureRockImg = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	public Image getMenuBgImg() {return this.menuBar;}
-	
+
+	public Image getAdventureRockImg() {
+		return this.adventureRockImg;
+	}
+
+	private void setAdventureMomGaryupImg() {
+		File path = new File(commonPath + "adventureMomGaryup.png");
+		try {
+			adventureMomGaryupImg = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getAdventureMomGaryupImg() {
+		return this.adventureMomGaryupImg;
+	}
+
+	private void setAdventureLightImg() {
+		File path = new File(commonPath + "adventureLight.png");
+		try {
+			adventureLightImg = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getAdventureLightImg() {
+		return this.adventureLightImg;
+	}
+
+	private void setAdventureDeepBlueImg() {
+		File path = new File(commonPath + "adventureDeepBlue.png");
+		try {
+			adventureDeepBlueImg = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getAdventureDeepBlueImg() {
+		return this.adventureDeepBlueImg;
+	}
+
+	private void setWhiteTextboxImg() {
+		File path = new File(commonPath + "whiteTextbox.png");
+		try {
+			whiteTextboxImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getWhiteTextboxImg() {
+		return this.whiteTextboxImg;
+	}
+
+	private void setMenuBgImg() {
+		File path = new File(commonPath + "MenuBar.png");
+		try {
+			menuBar = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getMenuBgImg() {
+		return this.menuBar;
+	}
+
 	public void setShopBtnImg() {
 		File path = new File(commonPath + "shopBtn.png");
 		try {
@@ -736,39 +832,56 @@ public class ResourceRoad {
 	public Image getEnterShopBtnImg() {
 		return this.enterShopImg;
 	}
-	
+
 	public void setEventImg02() {
-		File path = new File(commonPath+"adventureType_2.png");
+		File path = new File(commonPath + "adventureType_2.png");
 		try {
-			eventImg02  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+			eventImg02 = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Image getEventImg02() { return eventImg02; }
-	
-	
+	public Image getEventImg02() {
+		return eventImg02;
+	}
+
 	public void setEventImg03() {
-		File path = new File(commonPath+"adventureType_3.png");
+		File path = new File(commonPath + "adventureType_3.png");
 		try {
-			eventImg03  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+			eventImg03 = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Image getEventImg03() { return eventImg03; }
-	
-	
+	public Image getEventImg03() {
+		return eventImg03;
+	}
+
 	public void setEventImg04() {
-		File path = new File(commonPath+"adventureType_4.png");
+		File path = new File(commonPath + "adventureType_4.png");
 		try {
-			eventImg04  = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
+			eventImg04 = ImageIO.read(path).getScaledInstance(400, 250, Image.SCALE_SMOOTH);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public Image getEventImg04() { return eventImg04; }
+	public Image getEventImg04() {
+		return eventImg04;
+	}
+
+	private void setLoginBgImg() {
+		File path = new File(commonPath + "loginBG.png");
+		try {
+			loginBgImg = ImageIO.read(path).getScaledInstance(450, 800, Image.SCALE_SMOOTH);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public Image getLoginBgImg() {
+		return this.loginBgImg;
+	}
 }

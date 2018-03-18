@@ -2,27 +2,21 @@ package kh.gbc.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Insets;
-import java.awt.MouseInfo;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.SwingConstants;
 
 import kh.gbc.controller.FeedController;
 import kh.gbc.controller.GBCController;
 import kh.gbc.controller.LobbyController;
 import kh.gbc.controller.RankingController;
 import kh.gbc.controller.ShopController;
-import kh.gbc.controller.UtilClass;
-import kh.gbc.model.feed.Feed;
-import kh.gbc.model.player.DataGroup;
 import kh.gbc.model.vo.ResourceRoad;
 import kh.gbc.model.vo.ViewModel;
-import kh.gbc.model.vo.ui.UIBtnClass;
 
 public class LobbyView{
 	private LobbyController lobbyCtl;
@@ -67,7 +61,7 @@ public class LobbyView{
 	public void loadLobbyView()
 	{
 		enterShopBtn = new JButton(new ImageIcon(resRoad.getEnterShopBtnImg()));
-		enterShopBtn.setBounds(8, 53, 110, 80);
+		enterShopBtn.setBounds(10, 75, 103, 30);
 		enterShopBtn = vm.fitImageBtn(enterShopBtn);
 		enterShopBtn.addActionListener(e -> {
 			shopCtl.startShop();
@@ -142,37 +136,37 @@ public class LobbyView{
 	    reLifeCountLabel = new JLabel("n");
 	    reLifeCountLabel.setBounds(20, 25,100,50);
 	    reLifeCountLabel.setForeground(Color.white);
-	    reLifeCountLabel.setFont(new Font("Serif",Font.BOLD, 20));
+	    reLifeCountLabel.setFont(resRoad.getFontSize21());
 	    reLifeCountLabel.setVerticalAlignment(SwingConstants.TOP);
 	    
 	    reLifeLabel = new JLabel("대째");
 	    reLifeLabel.setBounds(40,25,100,50);
 	    reLifeLabel.setForeground(Color.white);
-	    reLifeLabel.setFont(new Font("Serif",Font.BOLD, 20));
+	    reLifeLabel.setFont(resRoad.getFontSize21());
 	    reLifeLabel.setVerticalAlignment(SwingConstants.TOP);
 	    
 	    rankingLabel = new JLabel("랭킹: ");
 	    rankingLabel.setBounds(130,25,100,50);
 	    rankingLabel.setForeground(Color.white);
-	    rankingLabel.setFont(new Font("Serif",Font.BOLD, 20));
+	    rankingLabel.setFont(resRoad.getFontSize21());
 	    rankingLabel.setVerticalAlignment(SwingConstants.TOP);
 	    
 	    rankingTitle = new JLabel("랭킹명(?)");
 	    rankingTitle.setBounds(180,25,100,50);
 	    rankingTitle.setForeground(Color.white);
-	    rankingTitle.setFont(new Font("Serif",Font.BOLD, 20));
+	    rankingTitle.setFont(resRoad.getFontSize21());
 	    rankingTitle.setVerticalAlignment(SwingConstants.TOP);
 	    
 	    weightLabel = new JLabel("체중: ");
 	    weightLabel.setBounds(300,25,100,50);
 	    weightLabel.setForeground(Color.white);
-	    weightLabel.setFont(new Font("Serif",Font.BOLD, 20));
+	    weightLabel.setFont(resRoad.getFontSize21());
 	    weightLabel.setVerticalAlignment(SwingConstants.TOP);
 	    
 	    weightValueLabel = new JLabel("체중값");
 	    weightValueLabel.setBounds(350,25,100,50);
 	    weightValueLabel.setForeground(Color.white);
-	    weightValueLabel.setFont(new Font("Serif",Font.BOLD, 20));
+	    weightValueLabel.setFont(resRoad.getFontSize21());
 	    weightValueLabel.setVerticalAlignment(SwingConstants.TOP);
 
 	    //프로세스바
