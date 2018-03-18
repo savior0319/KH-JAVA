@@ -1,4 +1,4 @@
-package me.member;
+package me.member.singInUp;
 
 import java.io.Serializable;
 

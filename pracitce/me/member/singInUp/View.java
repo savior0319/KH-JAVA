@@ -1,4 +1,4 @@
-package me.member;
+package me.member.singInUp;
 
 import java.awt.BorderLayout;
 import java.awt.Container;

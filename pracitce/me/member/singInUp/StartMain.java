@@ -1,4 +1,4 @@
-package me.member;
+package me.member.singInUp;
 
 public class StartMain {
 
