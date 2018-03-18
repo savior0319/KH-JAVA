@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Ctrl {
 
 	private HashMap<String, Model> hMap = new HashMap<String, Model>();
-	private String PATH = System.getProperty("user.home") + "/desktop/memberlist.txt";
+	private final String PATH = System.getProperty("user.home") + "/desktop/memberlist.txt";
 
 	public Ctrl() {
 		load();
@@ -29,8 +29,8 @@ public class Ctrl {
 	}
 
 	public void load() {
-		File f = new File(PATH);
-		if (f.exists()) {
+		File fileChk = new File(PATH);
+		if (fileChk.exists()) {
 			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH))) {
 				hMap = (HashMap<String, Model>) ois.readObject();
 				ois.close();
