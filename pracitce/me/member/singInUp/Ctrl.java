@@ -22,7 +22,6 @@ public class Ctrl {
 		try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(PATH))) {
 			hMap.put(id, md);
 			oos.writeObject(hMap);
-			oos.close();
 		} catch (Exception e) {
 			System.out.print(e.getMessage());
 		}
@@ -33,7 +32,6 @@ public class Ctrl {
 		if (fileChk.exists()) {
 			try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(PATH))) {
 				hMap = (HashMap<String, Model>) ois.readObject();
-				ois.close();
 			} catch (Exception e) {
 				System.out.print(e.getMessage());
 			}
